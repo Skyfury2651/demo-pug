@@ -99,10 +99,32 @@ link(rel='stylesheet', type='text/css', href='../style.css')
       .cell.col6 #{staticFields.blocks['sixth-block'].col6}
       .cell.col7 #{staticFields.blocks['sixth-block'].col7}
       .cell.col8 #{staticFields.blocks['sixth-block'].col8}
+    - var n = 0;
     .body
-      .cell.col1
-      .cell.col2
-      .cell.col3
-      .cell.col4
-      .cell.col5
-      .cell.col6
+      while n < 5
+        .row
+          .cell.col1 
+              if data.blocks.sixth[n]
+                span #{data.blocks.sixth[n].col1}
+          .cell.col2
+              if data.blocks.sixth[n]
+                span #{data.blocks.sixth[n].col2}
+          .cell.col3
+              if data.blocks.sixth[n]
+                span #{data.blocks.sixth[n].col3}
+          .cell.col4
+              if data.blocks.sixth[n]
+                span #{data.blocks.sixth[n].col4}
+          .cell.col5
+              if data.blocks.sixth[n]
+                span #{data.blocks.sixth[n].col5}
+          .cell.col6
+              if data.blocks.sixth[n]
+                span #{data.blocks.sixth[n].col6}
+          .cell.col7
+              if data.blocks.sixth[n]
+                span #{data.blocks.sixth[n].col7}
+          .cell.col8
+              if data.blocks.sixth[n]
+                span #{data.blocks.sixth[n].col8}
+        - n = n + 1

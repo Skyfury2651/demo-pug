@@ -1,6 +1,10 @@
+html {
+  font-size: 1.5vw;
+}
+
 body {
   background: white;
-  padding: 60px;
+  padding: 3.75rem;
   font-family: Helvetica;
 }
 
@@ -10,14 +14,14 @@ body {
 }
 
 .title {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1;
   text-align: center;
 }
 .title .sub {
   font-weight: 500;
-  margin-left: 16px;
+  margin-left: 1rem;
 }
 
 .general-info {
@@ -28,29 +32,29 @@ body {
   place-self: end;
 }
 .general-info .first-block .col1, .general-info .first-block .col2 {
-  width: 80px;
+  width: 5rem;
   text-align: center;
 }
 
 .second-block {
-  margin-top: 5px;
+  margin-top: 0.313rem;
 }
 .second-block .cell {
   text-align: center;
 }
 .second-block .col1 {
-  width: 35px;
+  width: 2.188rem;
 }
 .second-block .col2, .second-block .col3, .second-block .col4, .second-block .col5, .second-block .col6 {
   display: flex;
   align-items: center;
-  width: 91px;
+  width: 5.688rem;
   justify-content: center;
 }
 
 .double-block {
   display: flex;
-  margin-top: 5px;
+  margin-top: 0.313rem;
   justify-content: space-between;
 }
 .double-block .body {
@@ -62,40 +66,51 @@ body {
   flex-direction: row;
 }
 .double-block .col1 {
-  width: 32px;
+  width: 2rem;
   text-align: center;
 }
 .double-block .col2 {
-  width: 180px;
+  width: 11.25rem;
 }
 .double-block .col3 {
-  width: 90px;
+  width: 5.625rem;
   text-align: center;
 }
 
 .fifth-block.table {
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 .fifth-block.table .col1 {
   padding-left: 0.75rem !important;
   padding-right: 0.75rem !important;
-  min-height: 300px;
+  min-height: 18.75rem;
   writing-mode: vertical-rl;
 }
 .fifth-block.table .col2 {
-  padding-top: 5px;
-  width: 365px;
+  padding-top: 0.313rem;
+  width: 28.2rem;
   text-align: left;
 }
 .fifth-block.table .col3 {
-  padding-top: 5px;
-  width: 365px;
+  padding-top: 0.313rem;
+  width: 28.2rem;
   text-align: left;
 }
 
 .sixth-block {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 0.313rem;
+  margin-bottom: 0.313rem;
+}
+.sixth-block .body {
+  flex-direction: column;
+}
+.sixth-block .body .row {
+  display: flex;
+  flex-direction: row;
+}
+.sixth-block .cell {
+  width: 5.215rem;
+  min-height: 1.375rem;
 }
 
 .table .header {
