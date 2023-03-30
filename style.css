@@ -65,15 +65,18 @@ body {
   display: flex;
   flex-direction: row;
 }
+.double-block .cell {
+  min-height: 1.3rem;
+}
 .double-block .col1 {
   width: 2rem;
   text-align: center;
 }
 .double-block .col2 {
-  width: 11.25rem;
+  width: 15.25rem;
 }
 .double-block .col3 {
-  width: 5.625rem;
+  width: 6.625rem;
   text-align: center;
 }
 
@@ -101,6 +104,10 @@ body {
   margin-top: 0.313rem;
   margin-bottom: 0.313rem;
 }
+.sixth-block .title {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .sixth-block .body {
   flex-direction: column;
 }
@@ -109,8 +116,10 @@ body {
   flex-direction: row;
 }
 .sixth-block .cell {
-  width: 5.215rem;
+  width: 6.215rem;
   min-height: 1.375rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
 }
 
 .table .header {
@@ -121,8 +130,8 @@ body {
   border-top: 1px solid;
   border-bottom: 1px solid;
   border-left: 1px solid;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .table .header .cell:last-child {
   border-right: 1px solid;
@@ -133,8 +142,8 @@ body {
 .table .body .cell {
   border-bottom: 1px solid;
   border-left: 1px solid;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .table .body .cell:last-child {
   border-right: 1px solid;

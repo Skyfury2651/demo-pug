@@ -60,11 +60,17 @@ link(rel='stylesheet', type='text/css', href='../style.css')
     - var n = 0;
     .body
       while n < 30 
-        - n = n+1
-        .row
-          .cell.col1 #{n}
-          .cell.col2 2
-          .cell.col3 3
+        if data.blocks.third[n]
+          .row
+            .cell.col1 #{n + 1}
+            span.cell.col2= data.blocks.third[n].col2
+            span.cell.col3= data.blocks.third[n].col3
+        else 
+          .row
+            .cell.col1
+            .cell.col2
+            .cell.col3
+        - n = n + 1
 
   .fourth-block.table
     .header
@@ -75,11 +81,17 @@ link(rel='stylesheet', type='text/css', href='../style.css')
     - var n = 0;
     .body
       while n < 30 
-        - n = n+1
-        .row
-          .cell.col1 #{n}
-          .cell.col2 2
-          .cell.col3 3
+        if data.blocks.fourth[n]
+          .row
+            .cell.col1 #{n + 1}
+            span.cell.col2= data.blocks.fourth[n].col2
+            span.cell.col3= data.blocks.fourth[n].col3
+        else 
+          .row
+            .cell.col1
+            .cell.col2
+            .cell.col3
+        - n = n + 1
 
 .fifth-block.table
   .header
@@ -103,28 +115,30 @@ link(rel='stylesheet', type='text/css', href='../style.css')
     .body
       while n < 5
         .row
-          .cell.col1 
-              if data.blocks.sixth[n]
+          if data.blocks.sixth[n]
+            .cell.col1 
                 span #{data.blocks.sixth[n].col1}
-          .cell.col2
-              if data.blocks.sixth[n]
+            .cell.col2
                 span #{data.blocks.sixth[n].col2}
-          .cell.col3
-              if data.blocks.sixth[n]
+            .cell.col3
                 span #{data.blocks.sixth[n].col3}
-          .cell.col4
-              if data.blocks.sixth[n]
+            .cell.col4
                 span #{data.blocks.sixth[n].col4}
-          .cell.col5
-              if data.blocks.sixth[n]
+            .cell.col5
                 span #{data.blocks.sixth[n].col5}
-          .cell.col6
-              if data.blocks.sixth[n]
+            .cell.col6
                 span #{data.blocks.sixth[n].col6}
-          .cell.col7
-              if data.blocks.sixth[n]
+            .cell.col7
                 span #{data.blocks.sixth[n].col7}
-          .cell.col8
-              if data.blocks.sixth[n]
-                span #{data.blocks.sixth[n].col8}
+            .cell.col8
+              span #{data.blocks.sixth[n].col8}
+          else     
+            .cell.col1 
+            .cell.col2
+            .cell.col3
+            .cell.col4
+            .cell.col5
+            .cell.col6
+            .cell.col7
+            .cell.col8
         - n = n + 1

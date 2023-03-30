@@ -70,17 +70,21 @@ body {
             flex-direction: row;
         }
     }
+
+    .cell {
+        min-height: 1.3rem;
+    }
     .col1 {
         width: 2rem;
         text-align: center;
     }
 
     .col2 {
-        width: 11.25rem;
+        width: 15.25rem;
     }
 
     .col3 {
-        width: 5.625rem;
+        width: 6.625rem;
         text-align: center;
     }
 }
@@ -108,6 +112,11 @@ body {
 .sixth-block  {
     margin-top: 0.313rem;
     margin-bottom: 0.313rem;
+    .title {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
     .body {
         flex-direction: column;
         .row {
@@ -116,8 +125,10 @@ body {
         }
     }
     .cell {
-        width: 5.215rem;
+        width: 6.215rem;
         min-height: 1.375rem;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
     }
 }
 
@@ -129,8 +140,8 @@ body {
             border-top: 1px solid;
             border-bottom: 1px solid;
             border-left: 1px solid;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
         }
         .cell:last-child {
             border-right: 1px solid;
@@ -141,8 +152,8 @@ body {
         .cell {
             border-bottom: 1px solid;
             border-left: 1px solid;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
         }
         .cell:last-child {
             border-right: 1px solid;
