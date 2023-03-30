@@ -1,0 +1,108 @@
+// Use !{var} to use unescaped conent
+include variables.pug
+
+link(rel='stylesheet', type='text/css', href='../style.css')
+
+.paginate
+  .page #{data.pagination.dummyPage}
+
+.title
+  span #{staticFields.title}
+  span.sub #{staticFields.subTitle}
+
+.general-info
+  .date #{data.date}
+  .first-block.table
+    .header 
+      .cell.col1
+        span #{staticFields.blocks.first.col1}
+      .cell.col2
+        span #{staticFields.blocks.first.col2}
+    .body
+      .cell.col1
+        span #{data.blocks.first.col1}
+      .cell.col2
+        span #{data.blocks.first.col2}
+
+.second-block.table
+  .header
+    .cell.col1
+    .cell.col2
+      span #{staticFields.blocks.second.col2}
+    .cell.col3
+      span #{staticFields.blocks.second.col3}
+    .cell.col4
+      span #{staticFields.blocks.second.col4}
+    .cell.col5
+      span #{staticFields.blocks.second.col5}
+    .cell.col6
+      span #{staticFields.blocks.second.col6}
+  .body
+    .cell.col1 
+      div #{staticFields.blocks.second.col1}
+    .cell.col2
+      div 42
+    .cell.col3 
+      div 11
+    .cell.col4
+      div 31
+    .cell.col5
+      div 7
+    .cell.col6
+      div 35
+
+.double-block
+  .third-block.table
+    .header
+      .cell.col1 #{staticFields.blocks['double-block'].col1}
+      .cell.col2 #{staticFields.blocks['double-block'].col2}
+      .cell.col3 #{staticFields.blocks['double-block'].col3}
+    - var n = 0;
+    .body
+      while n < 30 
+        - n = n+1
+        .row
+          .cell.col1 #{n}
+          .cell.col2 2
+          .cell.col3 3
+
+  .fourth-block.table
+    .header
+      .cell.col1 #{staticFields.blocks['double-block'].col1}
+      .cell.col2 #{staticFields.blocks['double-block'].col2}
+      .cell.col3 #{staticFields.blocks['double-block'].col3}
+    
+    - var n = 0;
+    .body
+      while n < 30 
+        - n = n+1
+        .row
+          .cell.col1 #{n}
+          .cell.col2 2
+          .cell.col3 3
+
+.fifth-block.table
+  .header
+    .cell.col1 #{staticFields.blocks['fifth-block'].col1}
+    .cell.col2 !{data.blocks.fifth.col2}
+    .cell.col3 !{data.blocks.fifth.col3}
+
+.sixth-block
+  .title 出 勤 者
+  .table 
+    .header
+      .cell.col1 #{staticFields.blocks['sixth-block'].col1}
+      .cell.col2 #{staticFields.blocks['sixth-block'].col2}
+      .cell.col3 #{staticFields.blocks['sixth-block'].col3}
+      .cell.col4 #{staticFields.blocks['sixth-block'].col4}
+      .cell.col5 #{staticFields.blocks['sixth-block'].col5}
+      .cell.col6 #{staticFields.blocks['sixth-block'].col6}
+      .cell.col7 #{staticFields.blocks['sixth-block'].col7}
+      .cell.col8 #{staticFields.blocks['sixth-block'].col8}
+    .body
+      .cell.col1
+      .cell.col2
+      .cell.col3
+      .cell.col4
+      .cell.col5
+      .cell.col6

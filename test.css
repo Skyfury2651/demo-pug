@@ -1,0 +1,214 @@
+body {
+    background: white;
+    padding: 60px;
+    font-family: Helvetica;
+  }
+  
+  p {
+    font-size: 12px;
+    line-height: 1;
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+  .title .sub {
+    margin-left: 16px;
+  }
+  
+  .first-block {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4px;
+    width: 100%;
+    min-width: 100%;
+    justify-content: space-between;
+  }
+  
+  .sub-title {
+    font-size: 12px;
+    flex-grow: 1;
+    padding-left: 20px;
+  }
+  
+  .date-time {
+    text-align: right;
+    margin-top: -24px;
+  }
+  
+  .contact-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+  }
+  .contact-table .headers {
+    display: flex;
+    flex-direction: row;
+  }
+  .contact-table .content {
+    display: flex;
+    flex-direction: row;
+  }
+  .contact-table .phone {
+    width: 140px;
+    padding: 4px 6px;
+  }
+  .contact-table .name {
+    width: 240px;
+    padding: 4px 6px;
+  }
+  
+  .data-table {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+  }
+  .data-table .headers {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 10px;
+  }
+  .data-table .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 10px;
+  }
+  .data-table .col-1 {
+    flex-basis: 140px;
+    flex-direction: column;
+    text-align: left;
+  }
+  .data-table .col-2 {
+    flex-basis: 140px;
+    flex-direction: column;
+  }
+  .data-table .col-3 {
+    flex-basis: 60px;
+  }
+  .data-table .col-4 {
+    flex-basis: 100px;
+  }
+  .data-table .col-5 {
+    flex-basis: 100px;
+  }
+  .data-table .col-6 {
+    flex-basis: 100px;
+  }
+  .data-table .col-7 {
+    flex-basis: 100px;
+  }
+  .data-table .col-8 {
+    flex-grow: 1;
+  }
+  .data-table .cell {
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .data-table .cell-group {
+    padding: 0;
+  }
+  .data-table .cell-small {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .data-table .second {
+    border-top: 1px solid black;
+  }
+  
+  .sum-table {
+    position: fixed;
+    margin-top: 20px;
+    left: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+  }
+  .sum-table .headers {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    height: 20px;
+    font-size: 12px;
+  }
+  .sum-table .headers .col-1 {
+    width: 170px;
+  }
+  .sum-table .headers .col-2 {
+    width: 110px;
+  }
+  .sum-table .headers .col-3 {
+    width: 130px;
+  }
+  .sum-table .headers .col-4 {
+    width: 130px;
+  }
+  .sum-table .content {
+    display: flex;
+    flex-direction: row;
+  }
+  .sum-table .content .col-1 {
+    width: 70px;
+    text-align: center;
+  }
+  .sum-table .content .col-2 {
+    width: 100px;
+    text-align: left;
+  }
+  .sum-table .content .col-3,
+  .sum-table .content .col-4,
+  .sum-table .content .col-5 {
+    text-align: right;
+  }
+  .sum-table .content .col-3 {
+    width: 110px;
+  }
+  .sum-table .content .col-4 {
+    width: 130px;
+  }
+  .sum-table .content .col-5 {
+    width: 130px;
+  }
+  
+  .cell {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 0 6px;
+  }
+  
+  .cell-value {
+    text-align: right;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  
+  div {
+    box-sizing: border-box;
+  }
+  
+  /*# sourceMappingURL=style.css.map */
+  

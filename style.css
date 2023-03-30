@@ -1,0 +1,128 @@
+body {
+  background: white;
+  padding: 60px;
+  font-family: Helvetica;
+}
+
+.paginate {
+  display: flex;
+  place-content: end;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+.title .sub {
+  font-weight: 500;
+  margin-left: 16px;
+}
+
+.general-info {
+  display: flex;
+  justify-content: space-between;
+}
+.general-info .date {
+  place-self: end;
+}
+.general-info .first-block .col1, .general-info .first-block .col2 {
+  width: 80px;
+  text-align: center;
+}
+
+.second-block {
+  margin-top: 5px;
+}
+.second-block .cell {
+  text-align: center;
+}
+.second-block .col1 {
+  width: 35px;
+}
+.second-block .col2, .second-block .col3, .second-block .col4, .second-block .col5, .second-block .col6 {
+  display: flex;
+  align-items: center;
+  width: 91px;
+  justify-content: center;
+}
+
+.double-block {
+  display: flex;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+.double-block .body {
+  display: flex;
+  flex-direction: column;
+}
+.double-block .body .row {
+  display: flex;
+  flex-direction: row;
+}
+.double-block .col1 {
+  width: 32px;
+  text-align: center;
+}
+.double-block .col2 {
+  width: 180px;
+}
+.double-block .col3 {
+  width: 90px;
+  text-align: center;
+}
+
+.fifth-block.table {
+  margin-top: 20px;
+}
+.fifth-block.table .col1 {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  min-height: 300px;
+  writing-mode: vertical-rl;
+}
+.fifth-block.table .col2 {
+  padding-top: 5px;
+  width: 365px;
+  text-align: left;
+}
+.fifth-block.table .col3 {
+  padding-top: 5px;
+  width: 365px;
+  text-align: left;
+}
+
+.sixth-block {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.table .header {
+  display: flex;
+  text-align: center;
+}
+.table .header .cell {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.table .header .cell:last-child {
+  border-right: 1px solid;
+}
+.table .body {
+  display: flex;
+}
+.table .body .cell {
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.table .body .cell:last-child {
+  border-right: 1px solid;
+}
+
+/*# sourceMappingURL=style.css.map */

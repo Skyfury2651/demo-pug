@@ -1,0 +1,137 @@
+
+body {
+    background: white;
+    padding: 60px;
+    font-family: Helvetica;
+}
+
+.paginate {
+    display: flex;
+    place-content: end;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+
+    .sub {
+        font-weight: 500;
+        margin-left: 16px;
+    }
+}
+
+.general-info {
+    display: flex;
+    justify-content: space-between;
+    .date {
+        place-self: end;
+    }
+
+    .first-block {
+        .col1 ,.col2 {
+            width: 80px;
+            text-align: center;
+        }
+    }
+}
+.second-block {
+    margin-top: 5px;
+    .cell {
+        text-align: center;
+    }
+
+    .col1 {
+        width: 35px;
+    }
+    .col2, .col3, .col4, .col5, .col6 {
+        display: flex;
+        align-items: center;
+        width: 91px;
+        justify-content: center;
+    }
+}
+
+.double-block {
+    display : flex;
+    margin-top: 5px;
+    justify-content: space-between;
+
+    .body {
+        display: flex;
+        flex-direction: column;
+
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    .col1 {
+        width: 32px;
+        text-align: center;
+    }
+
+    .col2 {
+        width: 180px;
+    }
+
+    .col3 {
+        width: 90px;
+        text-align: center;
+    }
+}
+
+.fifth-block.table {
+    margin-top: 20px;
+    .col1 {
+        padding-left: 0.75rem!important;
+        padding-right: 0.75rem!important;
+        min-height: 300px;
+        writing-mode: vertical-rl;
+    }
+    .col2 {
+        padding-top: 5px;
+        width: 365px;
+        text-align: left;
+    }
+    .col3 {
+        padding-top: 5px;
+        width: 365px;
+        text-align: left;
+    }
+}
+
+.sixth-block  {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.table {
+    .header {
+        display: flex;
+        text-align: center;
+        .cell {
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            border-left: 1px solid;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .cell:last-child {
+            border-right: 1px solid;
+        }
+    }
+    .body {
+        display: flex;
+        .cell {
+            border-bottom: 1px solid;
+            border-left: 1px solid;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .cell:last-child {
+            border-right: 1px solid;
+        }
+    }
+}
