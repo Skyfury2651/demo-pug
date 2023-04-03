@@ -1,6 +1,7 @@
 html {
   font-size: 12px;
   width: 1375px;
+  margin: auto;
 }
 
 body {
@@ -166,16 +167,19 @@ body {
   grid-template-rows: 40% 60%;
 }
 .second-block .third-row .block.third .cell {
-  line-height: 2rem;
+  line-height: 1.5rem;
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   display: grid;
   padding: 0.5rem;
   align-content: center;
 }
+.second-block .third-row .block.third .cell .business-category {
+  justify-content: space-around;
+}
 .second-block .third-row .block.third .cell .business-category span.branch {
   width: 1.6rem;
-  padding: 0 0.3rem;
+  padding: 3px;
 }
 .second-block .third-row .block.third .cell .business-category span.target {
   height: 1rem;
@@ -223,7 +227,6 @@ body {
   align-self: center;
   text-align: center;
   padding: 0.5rem;
-  width: 9.6rem;
 }
 
 .fourth-block {

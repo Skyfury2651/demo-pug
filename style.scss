@@ -1,6 +1,7 @@
 html {
 	font-size:12px;
     width: 1375px;
+    margin: auto;
 }
 
 body {
@@ -188,18 +189,19 @@ body {
                 grid-template-columns: 32% 68%;
                 grid-template-rows: 40% 60%;
                 .cell {
-                    line-height: 2rem;
+                    line-height: 1.5rem;
                     border-bottom: 1px solid black;
                     border-right: 1px solid black;
                     display: grid;
                     padding: 0.5rem;
                     align-content: center;
                     .business-category {
+                        justify-content: space-around;
                         span {
                             // margin-left: 0.1rem;
                             &.branch {
                                 width: 1.6rem;
-                                padding:0 0.3rem; 
+                                padding:3px; 
                             }
                             &.target {
                                 height: 1rem;
@@ -257,7 +259,6 @@ body {
                     align-self: center;
                     text-align: center;
                     padding: 0.5rem;
-                    width:9.6rem;
                 }
             }
         }

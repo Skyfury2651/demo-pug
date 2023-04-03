@@ -21,7 +21,7 @@ link(rel='stylesheet', type='text/css', href='../style.css')
           each character in data.second.first
             div.serial-number #{character}
       .single-block-cell
-        .header(style="width:25%") #{staticFields.second.second}
+        .header(style="width:27.7%") #{staticFields.second.second}
         .body.content-center
           div  #{data.second.second}
       .single-block-cell
@@ -38,8 +38,8 @@ link(rel='stylesheet', type='text/css', href='../style.css')
         .body.flex.insurence
           each character, index in data.second.fifth
             div.serial-number(class=index === 0 ? "unset" : "") #{character} 
-      .single-block-cell(style="45.5%")
-        .header.text-center.items-center !{staticFields.second.sixth}
+      .single-block-cell
+        .header.text-center.items-center(style="width:41%") !{staticFields.second.sixth}
         .body.content
           div.split-row
             div.padding-content #{data.second.sixth.up}
@@ -54,7 +54,7 @@ link(rel='stylesheet', type='text/css', href='../style.css')
           div #{data.second.eighth}
     .row.third-row
       .block.first.flex(style="width:16.2%")
-        .header.border-right.flex.text-center.items-center(style="width:39%")
+        .header.border-right.flex.text-center.items-center(style="width:39%;place-content: center")
           div #{staticFields.third.first.birdthDay}
         .body.border-right(style="width:52%")
           div.era
@@ -69,7 +69,7 @@ link(rel='stylesheet', type='text/css', href='../style.css')
         .body.flex.text-center.items-center.border-right(style="width:63%")
           div(class=data.third.second.gender == staticFields.third.second.male ? "selected" : "") #{staticFields.third.second.male} 
           div(class=data.third.second.gender == staticFields.third.second.female ? "selected" : "") #{staticFields.third.second.female}
-      .block.third.grid
+      .block.third.grid(style="width:24.9%")
         div.cell #{staticFields.third.third.first.header}
         div.cell.unset-border-right(style="place-content: unset;padding: 0 0 0 0.25rem;")
           div.flex.items-center.business-category
@@ -85,25 +85,24 @@ link(rel='stylesheet', type='text/css', href='../style.css')
           div.flex.items-center.business-category(style="padding-left: 0.25rem")
             span #{staticFields.third.third.target}
             span.branch(class=data.third.third.second.branch === staticFields.third.third.firstBranch ? "selected" : "") #{staticFields.third.third.firstBranch}
-            span.branch(class=data.third.third.second.branch === staticFields.third.third.firstBranch ? "selected" : "") #{staticFields.third.third.secondBranch}
+            span.branch(class=data.third.third.second.branch === staticFields.third.third.secondBranch ? "selected" : "") #{staticFields.third.third.secondBranch}
             - var n = 0
             while n < staticFields.third.third.limitTarget
               span.target(style=n == 0 ? 'margin-left: 0.25rem' : '', class=data.third.third.second.target == (n + 1) ? 'selected' : '' ) #{n + 1}
               - n = n + 1
           div.flex.items-center.border-top
-      .block.fourth.border-left.flex
+      .block.fourth.border-left.flex(style="width:20%")
         .header.border-right !{staticFields.third.fourth}
         .body #{data.third.fourth}
-      .block.fifth.border-left.flex
+      .block.fifth.border-left.flex(style="width:20%")
         .header.border-right !{staticFields.third.fifth}
         .body 
           each date in data.third.fifth
             div=date
-      .block.sixth.border-left.flex
+      .block.sixth.border-left.flex(style="width:10%")
         .header.border-right !{staticFields.third.sixth}
-        .body 
-          each date in data.third.sixth
-            div=date
+        .body(style="width:35%") #{data.third.sixth}
+            
 
 .fourth-block
   .row.header
