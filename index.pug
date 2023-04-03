@@ -14,13 +14,14 @@ link(rel='stylesheet', type='text/css', href='../style.css')
 
 .row.second-block
     .row 
-      .single-block-cell.justify-between
+      .single-block-cell
         .header #{staticFields.second.first}
-        .body.flex
+        .body.flex.insurence
+          div(style="width:41.5%") &nbsp;
           each character in data.second.first
             div.serial-number #{character}
       .single-block-cell
-        .header #{staticFields.second.second}
+        .header(style="width:25%") #{staticFields.second.second}
         .body.content-center
           div  #{data.second.second}
       .single-block-cell
@@ -32,12 +33,12 @@ link(rel='stylesheet', type='text/css', href='../style.css')
         .body.content-center
           div #{data.second.fourth}
     .row 
-      .single-block-cell.justify-between
+      .single-block-cell
         .header !{staticFields.second.fifth}
-        .body.flex
+        .body.flex.insurence
           each character, index in data.second.fifth
             div.serial-number(class=index === 0 ? "unset" : "") #{character} 
-      .single-block-cell
+      .single-block-cell(style="45.5%")
         .header.text-center.items-center !{staticFields.second.sixth}
         .body.content
           div.split-row
@@ -52,20 +53,20 @@ link(rel='stylesheet', type='text/css', href='../style.css')
         .body.content-center
           div #{data.second.eighth}
     .row.third-row
-      .block.first.flex
-        .header.border-right.flex.text-center.items-center
+      .block.first.flex(style="width:16.2%")
+        .header.border-right.flex.text-center.items-center(style="width:39%")
           div #{staticFields.third.first.birdthDay}
-        .body.border-right
+        .body.border-right(style="width:52%")
           div.era
             span(class=data.third.first.selectedEra == staticFields.third.first.firstEra ? "selected" : ""  ) #{staticFields.third.first.firstEra}
             span(class=data.third.first.selectedEra == staticFields.third.first.secondEra ? "selected" : ""  ) #{staticFields.third.first.secondEra}
             span(class=data.third.first.selectedEra == staticFields.third.first.thirdEra ? "selected" : ""  ) #{staticFields.third.first.thirdEra}
             span(class=data.third.first.selectedEra == staticFields.third.first.fourthEra ? "selected" : ""  ) #{staticFields.third.first.fourthEra}
           div.date #{data.third.first.date}
-      .block.second.flex
-        .header.border-right.flex.text-center.items-center
+      .block.second.flex(style="width:8.85%")
+        .header.border-right.flex.text-center.items-center(style="width:25%")
           div #{staticFields.third.second.gender}
-        .body.flex.text-center.items-center.border-right
+        .body.flex.text-center.items-center.border-right(style="width:63%")
           div(class=data.third.second.gender == staticFields.third.second.male ? "selected" : "") #{staticFields.third.second.male} 
           div(class=data.third.second.gender == staticFields.third.second.female ? "selected" : "") #{staticFields.third.second.female}
       .block.third.grid
@@ -79,7 +80,6 @@ link(rel='stylesheet', type='text/css', href='../style.css')
             while n < staticFields.third.third.limitTarget
               span.target(style=n == 0 ? 'margin-left: 0.25rem' : '', class=data.third.third.first.target == (n + 1) ? 'selected' : '' ) #{n + 1}
               - n = n + 1
-
         div.cell.unset-border-bottom !{staticFields.third.third.second.header}
         div.cell.unset-border-bottom.unset-border-right.flex(style="place-content: unset;padding: 0; grid-template-rows: 50% 50%;")
           div.flex.items-center.business-category(style="padding-left: 0.25rem")

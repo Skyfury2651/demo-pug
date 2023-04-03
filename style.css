@@ -1,11 +1,13 @@
 html {
-  font-size: 0.9vw;
+  font-size: 12px;
+  width: 1375px;
 }
 
 body {
   background: white;
-  padding: 3.75rem;
+  padding: 1%;
   font-family: Helvetica;
+  margin: 0;
 }
 
 .row {
@@ -13,6 +15,7 @@ body {
 }
 
 .first-block {
+  width: 100%;
   align-items: center;
 }
 .first-block div {
@@ -39,16 +42,16 @@ body {
   margin: unset;
 }
 .first-block .text3 {
-  margin-left: 7rem;
+  margin-left: 5%;
 }
 .first-block .text4 {
-  margin-left: 7rem;
+  margin-left: 5%;
 }
 .first-block .text5 {
   border: 1px solid;
-  margin-left: 27.6rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  margin-left: 35%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .first-block .text6 {
   border: 1px solid;
@@ -63,25 +66,25 @@ body {
   flex-wrap: wrap;
 }
 .second-block .row {
+  width: 100%;
   border: 1px solid;
 }
 .second-block .row:not(:first-child) {
   border-top: unset;
 }
 .second-block .single-block-cell {
-  width: 25.37rem;
+  width: 25%;
   display: flex;
 }
 .second-block .single-block-cell:not(:last-child) {
   border-right: 1px solid;
 }
 .second-block .single-block-cell .header {
-  width: 6rem;
+  width: 35.5%;
   display: flex;
   align-items: center;
   border-right: 1px solid;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 1% 2%;
 }
 .second-block .single-block-cell .body.content {
   display: contents;
@@ -96,10 +99,15 @@ body {
 .second-block .single-block-cell .body .split-row div {
   display: block;
 }
+.second-block .single-block-cell .body.insurence {
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+}
 .second-block .single-block-cell .body .serial-number {
-  padding-left: 0.45rem;
-  padding-right: 0.5rem;
   border-left: 1px solid;
+  width: 10%;
+  justify-content: center;
 }
 .second-block .single-block-cell .body .serial-number.unset {
   border-left: unset;
@@ -138,7 +146,7 @@ body {
   padding: 0.5rem;
 }
 .second-block .third-row .block.second .body {
-  width: 4.3rem;
+  width: 8.8%;
   place-content: center;
 }
 .second-block .third-row .block.second .body div {
