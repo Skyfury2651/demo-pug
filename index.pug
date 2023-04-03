@@ -3,142 +3,158 @@ include variables.pug
 
 link(rel='stylesheet', type='text/css', href='../style.css')
 
-.paginate
-  .page #{data.pagination.dummyPage}
+.row.first-block
+  .switch.row
+    .text.text1(class=data.first.switch === "left" ? "selected" : "") #{staticFields.first.left}
+    .text.text2(class=data.first.switch === "right" ? "selected" : "") #{staticFields.first.right}
+  div.text3=data.first.date
+  div.text4=staticFields.first.title
+  .text5 #{staticFields.first.from}→#{data.first.to}
+  .text6 #{staticFields.first.text6}  #{data.first.text6}
 
-.title
-  span #{staticFields.title}
-  span.sub #{staticFields.subTitle}
+.row.second-block
+    .row 
+      .single-block-cell.justify-between
+        .header #{staticFields.second.first}
+        .body.flex
+          each character in data.second.first
+            div.serial-number #{character}
+      .single-block-cell
+        .header #{staticFields.second.second}
+        .body.content-center
+          div  #{data.second.second}
+      .single-block-cell
+        .header !{staticFields.second.third}
+        .body.content-center
+          div #{data.second.third}
+      .single-block-cell
+        .header !{staticFields.second.fourth}
+        .body.content-center
+          div #{data.second.fourth}
+    .row 
+      .single-block-cell.justify-between
+        .header !{staticFields.second.fifth}
+        .body.flex
+          each character, index in data.second.fifth
+            div.serial-number(class=index === 0 ? "unset" : "") #{character} 
+      .single-block-cell
+        .header.text-center.items-center !{staticFields.second.sixth}
+        .body.content
+          div.split-row
+            div.padding-content #{data.second.sixth.up}
+            div.padding-content.border-top #{data.second.sixth.down}
+      .single-block-cell
+        .header #{staticFields.second.seventh}
+        .body.content-center
+          div #{data.second.seventh}
+      .single-block-cell
+        .header.text-center.items-center.justify-center !{staticFields.second.eighth}
+        .body.content-center
+          div #{data.second.eighth}
+    .row.third-row
+      .block.first.flex
+        .header.border-right.flex.text-center.items-center
+          div #{staticFields.third.first.birdthDay}
+        .body.border-right
+          div.era
+            span(class=data.third.first.selectedEra == staticFields.third.first.firstEra ? "selected" : ""  ) #{staticFields.third.first.firstEra}
+            span(class=data.third.first.selectedEra == staticFields.third.first.secondEra ? "selected" : ""  ) #{staticFields.third.first.secondEra}
+            span(class=data.third.first.selectedEra == staticFields.third.first.thirdEra ? "selected" : ""  ) #{staticFields.third.first.thirdEra}
+            span(class=data.third.first.selectedEra == staticFields.third.first.fourthEra ? "selected" : ""  ) #{staticFields.third.first.fourthEra}
+          div.date #{data.third.first.date}
+      .block.second.flex
+        .header.border-right.flex.text-center.items-center
+          div #{staticFields.third.second.gender}
+        .body.flex.text-center.items-center.border-right
+          div(class=data.third.second.gender == staticFields.third.second.male ? "selected" : "") #{staticFields.third.second.male} 
+          div(class=data.third.second.gender == staticFields.third.second.female ? "selected" : "") #{staticFields.third.second.female}
+      .block.third.grid
+        div.cell #{staticFields.third.third.first.header}
+        div.cell.unset-border-right(style="place-content: unset;padding: 0 0 0 0.25rem;")
+          div.flex.items-center.business-category
+            div #{staticFields.third.third.target}
+            span.branch(class=data.third.third.first.branch === staticFields.third.third.firstBranch ? "selected" : "") #{staticFields.third.third.firstBranch}
+            span.branch(class=data.third.third.first.branch === staticFields.third.third.secondBranch ? "selected" : "") #{staticFields.third.third.secondBranch}
+            - var n = 0
+            while n < staticFields.third.third.limitTarget
+              span.target(style=n == 0 ? 'margin-left: 0.25rem' : '', class=data.third.third.first.target == (n + 1) ? 'selected' : '' ) #{n + 1}
+              - n = n + 1
 
-.general-info
-  .date #{data.date}
-  .first-block.table
-    .header 
-      .cell.col1
-        span #{staticFields.blocks.first.col1}
-      .cell.col2
-        span #{staticFields.blocks.first.col2}
-    .body
-      .cell.col1
-        span #{data.blocks.first.col1}
-      .cell.col2
-        span #{data.blocks.first.col2}
+        div.cell.unset-border-bottom !{staticFields.third.third.second.header}
+        div.cell.unset-border-bottom.unset-border-right.flex(style="place-content: unset;padding: 0; grid-template-rows: 50% 50%;")
+          div.flex.items-center.business-category(style="padding-left: 0.25rem")
+            span #{staticFields.third.third.target}
+            span.branch(class=data.third.third.second.branch === staticFields.third.third.firstBranch ? "selected" : "") #{staticFields.third.third.firstBranch}
+            span.branch(class=data.third.third.second.branch === staticFields.third.third.firstBranch ? "selected" : "") #{staticFields.third.third.secondBranch}
+            - var n = 0
+            while n < staticFields.third.third.limitTarget
+              span.target(style=n == 0 ? 'margin-left: 0.25rem' : '', class=data.third.third.second.target == (n + 1) ? 'selected' : '' ) #{n + 1}
+              - n = n + 1
+          div.flex.items-center.border-top
+      .block.fourth.border-left.flex
+        .header.border-right !{staticFields.third.fourth}
+        .body #{data.third.fourth}
+      .block.fifth.border-left.flex
+        .header.border-right !{staticFields.third.fifth}
+        .body 
+          each date in data.third.fifth
+            div=date
+      .block.sixth.border-left.flex
+        .header.border-right !{staticFields.third.sixth}
+        .body 
+          each date in data.third.sixth
+            div=date
 
-.second-block.table
-  .header
-    .cell.col1
-    .cell.col2
-      span #{staticFields.blocks.second.col2}
-    .cell.col3
-      span #{staticFields.blocks.second.col3}
-    .cell.col4
-      span #{staticFields.blocks.second.col4}
-    .cell.col5
-      span #{staticFields.blocks.second.col5}
-    .cell.col6
-      span #{staticFields.blocks.second.col6}
-  .body
-    .cell.col1 
-      div #{staticFields.blocks.second.col1}
-    .cell.col2
-      div 42
-    .cell.col3 
-      div 11
-    .cell.col4
-      div 31
-    .cell.col5
-      div 7
-    .cell.col6
-      div 35
-
-.double-block
-  .third-block.table
-    .header
-      .cell.col1 #{staticFields.blocks['double-block'].col1}
-      .cell.col2 #{staticFields.blocks['double-block'].col2}
-      .cell.col3 #{staticFields.blocks['double-block'].col3}
-    - var n = 0;
-    .body
-      while n < 30 
-        if data.blocks.third[n]
-          .row
-            .cell.col1 #{n + 1}
-            span.cell.col2= data.blocks.third[n].col2
-            span.cell.col3= data.blocks.third[n].col3
-        else 
-          .row
-            .cell.col1
-            .cell.col2
-            .cell.col3
-        - n = n + 1
-
-  .fourth-block.table
-    .header
-      .cell.col1 #{staticFields.blocks['double-block'].col1}
-      .cell.col2 #{staticFields.blocks['double-block'].col2}
-      .cell.col3 #{staticFields.blocks['double-block'].col3}
-    
-    - var n = 0;
-    .body
-      while n < 30 
-        if data.blocks.fourth[n]
-          .row
-            .cell.col1 #{n + 1}
-            span.cell.col2= data.blocks.fourth[n].col2
-            span.cell.col3= data.blocks.fourth[n].col3
-        else 
-          .row
-            .cell.col1
-            .cell.col2
-            .cell.col3
-        - n = n + 1
-
-.fifth-block.table
-  .header
-    .cell.col1 #{staticFields.blocks['fifth-block'].col1}
-    .cell.col2 !{data.blocks.fifth.col2}
-    .cell.col3 !{data.blocks.fifth.col3}
-
-.sixth-block
-  .title 出 勤 者
-  .table 
-    .header
-      .cell.col1 #{staticFields.blocks['sixth-block'].col1}
-      .cell.col2 #{staticFields.blocks['sixth-block'].col2}
-      .cell.col3 #{staticFields.blocks['sixth-block'].col3}
-      .cell.col4 #{staticFields.blocks['sixth-block'].col4}
-      .cell.col5 #{staticFields.blocks['sixth-block'].col5}
-      .cell.col6 #{staticFields.blocks['sixth-block'].col6}
-      .cell.col7 #{staticFields.blocks['sixth-block'].col7}
-      .cell.col8 #{staticFields.blocks['sixth-block'].col8}
-    - var n = 0;
-    .body
-      while n < 5
-        .row
-          if data.blocks.sixth[n]
-            .cell.col1 
-                span #{data.blocks.sixth[n].col1}
-            .cell.col2
-                span #{data.blocks.sixth[n].col2}
-            .cell.col3
-                span #{data.blocks.sixth[n].col3}
-            .cell.col4
-                span #{data.blocks.sixth[n].col4}
-            .cell.col5
-                span #{data.blocks.sixth[n].col5}
-            .cell.col6
-                span #{data.blocks.sixth[n].col6}
-            .cell.col7
-                span #{data.blocks.sixth[n].col7}
-            .cell.col8
-              span #{data.blocks.sixth[n].col8}
-          else     
-            .cell.col1 
-            .cell.col2
-            .cell.col3
-            .cell.col4
-            .cell.col5
-            .cell.col6
-            .cell.col7
-            .cell.col8
-        - n = n + 1
+.fourth-block
+  .row.header
+    div.cell.col1 #{staticFields.fourth.col1}
+    div.cell.col2 #{staticFields.fourth.col2}
+    div.cell.col3.text-center !{staticFields.fourth.col3}
+    div.cell.col4 
+      table(style="border-collapse: collapse;flex-grow: 1;text-align: center;height: 100%")
+        tbody
+          tr
+            td.type &nbsp;
+            td(colspan="32")
+          tr
+            td.type #{staticFields.fourth.col4.date}
+            - var n = 0
+            while n < 31
+              td.content !{n < data.fourth.maxDate ? n + 1 : '&nbsp;'}
+              -n= n + 1
+            td.total(rowspan="2") !{staticFields.fourth.col4.summary}
+          tr
+            td.type #{staticFields.fourth.col4.day}
+            - var n = 0
+            while n < 31
+              td.content !{ n < data.fourth.maxDate ? staticFields.fourth.col4.dayOfWeek[(n + data.fourth.startDayIndex) % 7] : ' '}
+              -n= n + 1
+  each rowData in data.fourth.data
+    .row
+      div.cell.col1 #{rowData.col1}
+      div.cell.col2 #{rowData.col2}
+      div.cell.col3 #{rowData.col3}
+      div.cell.col4 
+        table(style="border-collapse: collapse;flex-grow: 1;text-align: center")
+          tbody
+            tr
+              td.type #{staticFields.fourth.col4.schedule}
+              - var n = 0
+              while n < 31
+                td.content !{n < data.fourth.maxDate ? ( rowData.col4[n] ? rowData.col4[n].schedule : '&nbsp;') : '&nbsp;'}
+                -n= n + 1
+              td.total.content !{rowData.col4.summary ? rowData.col4.summary.schedule : '&nbsp;'}
+            tr
+              td.type #{staticFields.fourth.col4.achievement}
+              - var n = 0
+              while n < 31
+                td.content !{n < data.fourth.maxDate ? ( rowData.col4[n] ? rowData.col4[n].achivement : '&nbsp;') : '&nbsp;'}
+                -n= n + 1 
+              td.total.content !{rowData.col4.summary ? rowData.col4.summary.achivement : '&nbsp;'}
+.block-final.row.justify-between.items-center
+  div #{staticFields.final.note}
+  div.row
+    div.block #{staticFields.final.fixedNote}
+    div.block #{data.final.fixed}#{staticFields.final,unit}
+    div.block #{staticFields.final.limitNote}
+    div.block #{data.final.limit}#{staticFields.final.unit}
