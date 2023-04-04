@@ -4,10 +4,15 @@ html {
     margin: auto;
 }
 
+@font-face {
+    font-family: MS Pゴシック;
+    src: url('MS PGothic.ttf');
+}
+
 body {
     background: white;
     padding: 1%;
-    font-family: Helvetica;
+    font-family: MS Pゴシック;
     margin: 0;
 }
 
