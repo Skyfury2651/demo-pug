@@ -1,24 +1,16 @@
 html {
-    // font-size:1vw;
-    // line-height: 1.5rem;
-    // width: 1375px;
+    width: 980px;
     margin: auto;
 }
 
 body {
-    // background: rgb(145, 145, 145);
     padding: 5%;
-    font-family: MS Pゴシック;
+    font-family: ＭＳ Ｐゴシック;
     margin: 0;
 }
 
 .container {
     background-color: white;
-}
-
-@font-face {
-    font-family: MS Pゴシック;
-    src: url('MS PGothic.ttf');
 }
 
 .first-row {
