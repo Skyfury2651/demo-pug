@@ -1,159 +1,184 @@
 // Use !{var} to use unescaped conent
 include variables.pug
-
-link(rel='stylesheet', type='text/css', href='../style.css')
-
-.row.first-block
-  .switch.row
-    .text.text1(class=data.first.switch === "left" ? "selected" : "") #{staticFields.first.left}
-    .text.text2(class=data.first.switch === "right" ? "selected" : "") #{staticFields.first.right}
-  div.text3=data.first.date
-  div.text4=staticFields.first.title
-  .text5 #{staticFields.first.from}→#{data.first.to}
-  .text6 #{staticFields.first.text6}  #{data.first.text6}
-
-.row.second-block
-    .row 
-      .single-block-cell
-        .header #{staticFields.second.first}
-        .body.flex.insurence
-          div(style="width:41.5%") &nbsp;
-          each character in data.second.first
-            div.serial-number #{character}
-      .single-block-cell
-        .header(style="width:27.7%") #{staticFields.second.second}
-        .body.content-center
-          div  #{data.second.second}
-      .single-block-cell
-        .header !{staticFields.second.third}
-        .body.content-center
-          div #{data.second.third}
-      .single-block-cell
-        .header !{staticFields.second.fourth}
-        .body.content-center
-          div #{data.second.fourth}
-    .row 
-      .single-block-cell
-        .header !{staticFields.second.fifth}
-        .body.flex.insurence
-          each character, index in data.second.fifth
-            div.serial-number(class=index === 0 ? "unset" : "") #{character} 
-      .single-block-cell
-        .header.text-center.items-center(style="width:41%") !{staticFields.second.sixth}
-        .body.content
-          div.split-row
-            div.padding-content #{data.second.sixth.up}
-            div.padding-content.border-top #{data.second.sixth.down}
-      .single-block-cell
-        .header #{staticFields.second.seventh}
-        .body.content-center
-          div #{data.second.seventh}
-      .single-block-cell
-        .header.text-center.items-center.justify-center !{staticFields.second.eighth}
-        .body.content-center
-          div #{data.second.eighth}
-    .row.third-row
-      .block.first.flex(style="width:16.2%")
-        .header.border-right.flex.text-center.items-center(style="width:39%;place-content: center")
-          div #{staticFields.third.first.birdthDay}
-        .body.border-right(style="width:52%")
-          div.era
-            span(class=data.third.first.selectedEra == staticFields.third.first.firstEra ? "selected" : ""  ) #{staticFields.third.first.firstEra}
-            span(class=data.third.first.selectedEra == staticFields.third.first.secondEra ? "selected" : ""  ) #{staticFields.third.first.secondEra}
-            span(class=data.third.first.selectedEra == staticFields.third.first.thirdEra ? "selected" : ""  ) #{staticFields.third.first.thirdEra}
-            span(class=data.third.first.selectedEra == staticFields.third.first.fourthEra ? "selected" : ""  ) #{staticFields.third.first.fourthEra}
-          div.date #{data.third.first.date}
-      .block.second.flex(style="width:8.85%")
-        .header.border-right.flex.text-center.items-center(style="width:25%")
-          div #{staticFields.third.second.gender}
-        .body.flex.text-center.items-center.border-right(style="width:63%")
-          div(class=data.third.second.gender == staticFields.third.second.male ? "selected" : "") #{staticFields.third.second.male} 
-          div(class=data.third.second.gender == staticFields.third.second.female ? "selected" : "") #{staticFields.third.second.female}
-      .block.third.grid(style="width:24.9%")
-        div.cell #{staticFields.third.third.first.header}
-        div.cell.unset-border-right(style="place-content: unset;padding: 0 0 0 0.25rem;")
-          div.flex.items-center.business-category
-            div #{staticFields.third.third.target}
-            span.branch(class=data.third.third.first.branch === staticFields.third.third.firstBranch ? "selected" : "") #{staticFields.third.third.firstBranch}
-            span.branch(class=data.third.third.first.branch === staticFields.third.third.secondBranch ? "selected" : "") #{staticFields.third.third.secondBranch}
-            - var n = 0
-            while n < staticFields.third.third.limitTarget
-              span.target(style=n == 0 ? 'margin-left: 0.25rem' : '', class=data.third.third.first.target == (n + 1) ? 'selected' : '' ) #{n + 1}
-              - n = n + 1
-        div.cell.unset-border-bottom !{staticFields.third.third.second.header}
-        div.cell.unset-border-bottom.unset-border-right.flex(style="place-content: unset;padding: 0; grid-template-rows: 50% 50%;")
-          div.flex.items-center.business-category(style="padding-left: 0.25rem")
-            span #{staticFields.third.third.target}
-            span.branch(class=data.third.third.second.branch === staticFields.third.third.firstBranch ? "selected" : "") #{staticFields.third.third.firstBranch}
-            span.branch(class=data.third.third.second.branch === staticFields.third.third.secondBranch ? "selected" : "") #{staticFields.third.third.secondBranch}
-            - var n = 0
-            while n < staticFields.third.third.limitTarget
-              span.target(style=n == 0 ? 'margin-left: 0.25rem' : '', class=data.third.third.second.target == (n + 1) ? 'selected' : '' ) #{n + 1}
-              - n = n + 1
-          div.flex.items-center.border-top
-      .block.fourth.border-left.flex(style="width:20%")
-        .header.border-right !{staticFields.third.fourth}
-        .body #{data.third.fourth}
-      .block.fifth.border-left.flex(style="width:20%")
-        .header.border-right !{staticFields.third.fifth}
-        .body 
-          each date in data.third.fifth
-            div=date
-      .block.sixth.border-left.flex(style="width:10%")
-        .header.border-right !{staticFields.third.sixth}
-        .body(style="width:35%") #{data.third.sixth}
+link(rel='stylesheet' type='text/css' href='../style.css')
+.container 
+  .row.first-row 
+    .title 様式第一 (附則第二条関係)
+  .row.second-row
+    .first-block
+      span.single-char 令和
+      each character in '04年12'
+        span.single-char=character
+      span.single-char 月分
+    .second-block
+      span 介護給付費請求書
+  .row.third-row
+    .left-side
+      div 保 険 者
+      div (別 記)殿
+      div 下記のとおり請求します。
+    .center 
+      span 令和05年02月17日
+    .right-side 
+      .row
+        div.header 事業所番号
+        div.body.row 
+          each numb in '0190200001'
+            div.split-char #{numb}
+      .row
+        div.header 請求事業所
+        div.body
+          .row.full-width 
+            div.sub-header.padding-content 名称
+            div.sub-body.padding-content きたえるーむ(デモ)
+          .row.full-width.position
+            div.sub-header 所在地
+            div.sub-body 
+              .row
+                each numb in '〒999-9999'
+                  div.split-text #{numb}
+              div.border-top.text-area 札幌市
+          .row.full-width
+            div.sub-header.padding-content 連絡先 
+            div.sub-body.padding-content 011-999-9999
+  .fourth-row
+    .title 保険請求
+    .table
+      .row.full-width.head
+        .col1.header 区分
+        .col2.header
+          div.border-bottom.full-width.title.text-center サービス費用
+          div.row
+            div.cell 件数
+            div.cell 単位数<br>・点数
+            div.cell 費用<br>合計
+            div.cell 保険<br>請求額
+            div.cell 公費<br>請求額
+            div.cell 利用者<br>負担
+        .col3.header
+          div.border-bottom.full-width.title.text-center 特定入所者介護サービス費等
+          div.row
+            div.cell 件数
+            div.cell 費用<br>合計
+            div.cell 利用者<br>負担
+            div.cell 公費<br>請求額
+            div.cell 保険<br>請求額
+      .row.full-width.body
+        .col1 居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等
+        .col2 
+          div.row
+            div.cell 1
+            div.cell 476
+            div.cell 5,188
+            div.cell 4,669
+            div.cell 0
+            div.cell 519
+        .col3
+          div.row
+            div.cell
+            div.cell
+            div.cell
+            div.cell
+            div.cell
+      .row.full-width.body
+        .col1 居宅介護支援・<br> 地域密着型サービス等 
+        .col2 
+          div.row
+            div.cell
+            div.cell
+            div.cell
+            div.cell
+            div.cell.dashed
+            div.cell.dashed
+        .col3
+          div.row
+            div.cell.dashed
+            div.cell.dashed
+            div.cell.dashed
+            div.cell.dashed
+            div.cell.dashed
+      .row.full-width.body
+        .col1.text-center 合計
+        .col2 
+          div.row
+            div.cell 1
+            div.cell 476
+            div.cell 5,188
             
-
-.fourth-block
-  .row.header
-    div.cell.col1 #{staticFields.fourth.col1}
-    div.cell.col2 #{staticFields.fourth.col2}
-    div.cell.col3.text-center !{staticFields.fourth.col3}
-    div.cell.col4 
-      table(style="border-collapse: collapse;flex-grow: 1;text-align: center;height: 100%")
-        tbody
-          tr
-            td.type &nbsp;
-            td(colspan="32")
-          tr
-            td.type #{staticFields.fourth.col4.date}
-            - var n = 0
-            while n < 31
-              td.content !{n < data.fourth.maxDate ? n + 1 : '&nbsp;'}
-              -n= n + 1
-            td.total(rowspan="2") !{staticFields.fourth.col4.summary}
-          tr
-            td.type #{staticFields.fourth.col4.day}
-            - var n = 0
-            while n < 31
-              td.content !{ n < data.fourth.maxDate ? staticFields.fourth.col4.dayOfWeek[(n + data.fourth.startDayIndex) % 7] : ' '}
-              -n= n + 1
-  each rowData in data.fourth.data
-    .row
-      div.cell.col1 #{rowData.col1}
-      div.cell.col2 #{rowData.col2}
-      div.cell.col3 #{rowData.col3}
-      div.cell.col4 
-        table(style="border-collapse: collapse;flex-grow: 1;text-align: center")
-          tbody
-            tr
-              td.type #{staticFields.fourth.col4.schedule}
-              - var n = 0
-              while n < 31
-                td.content !{n < data.fourth.maxDate ? ( rowData.col4[n] ? rowData.col4[n].schedule : '&nbsp;') : '&nbsp;'}
-                -n= n + 1
-              td.total.content !{rowData.col4.summary ? rowData.col4.summary.schedule : '&nbsp;'}
-            tr
-              td.type #{staticFields.fourth.col4.achievement}
-              - var n = 0
-              while n < 31
-                td.content !{n < data.fourth.maxDate ? ( rowData.col4[n] ? rowData.col4[n].achivement : '&nbsp;') : '&nbsp;'}
-                -n= n + 1 
-              td.total.content !{rowData.col4.summary ? rowData.col4.summary.achivement : '&nbsp;'}
-.block-final.row.justify-between.items-center
-  div #{staticFields.final.note}
-  div.row
-    div.block #{staticFields.final.fixedNote}
-    div.block #{data.final.fixed}#{staticFields.final,unit}
-    div.block #{staticFields.final.limitNote}
-    div.block #{data.final.limit}#{staticFields.final.unit}
+            div.cell 4,669
+            div.cell 0
+            div.cell 519
+        .col3
+          div.row
+            div.cell
+            div.cell
+            div.cell
+            div.cell
+            div.cell
+  .fifth-row
+    .title
+    .table
+      .row.full-width.head
+        .col1.header 区分
+        .col2.header
+          div.border-bottom.full-width.title.text-center サービス費用
+          div.row
+            div.cell 件数
+            div.cell 単位数<br>・点数
+            div.cell 費用<br>合計
+            div.cell 公費<br>請求額
+        .col3.header
+          div.border-bottom.full-width.title.text-center 特定入所者介護サービス費等
+          div.row
+            div.cell 件数
+            div.cell 費用<br>合計
+            div.cell 公費<br>請求額
+      .row.full-width.body
+        .col1.row.no-padding
+          .row  
+             div.number.border-right 12
+             div.subject
+              div.name.row
+                div.title 生保 <br> 居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等
+                div.content
+                div.content
+                div.content
+                div.content
+                div.content
+                div.content
+                div.content
+              div.name.row
+                div.title 生保 <br> 居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等
+                div.content
+                div.content
+                div.content
+                div.content
+                div.content.dashed
+                div.content.dashed
+                div.content.dashed
+        .col1.row.no-padding
+          .row  
+            div.number.border-right 10
+            div.subject
+              div.name.row
+                div.title 感染症 37条の2
+                div.content
+                div.content
+                div.content
+                div.content
+                div.content.dashed
+                div.content.dashed
+                div.content.dashed
+      .row.full-width.footer
+        .col1.text-center 合計
+        .col2
+          div.row
+            div.content 件数
+            div.content 単位数<br>・点数
+            div.content 費用<br>合計
+            div.content 公費<br>請求額
+        .col3
+          div.row
+            div.content.dashed
+            div.content.dashed
+            div.content.dashed  
