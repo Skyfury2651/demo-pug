@@ -46,7 +46,6 @@ body {
 
 .third-row {
     width: 100%;
-    padding-bottom: 2%;
     justify-content: flex-end;
     .left-side {
         margin-left: 1%;
@@ -79,7 +78,7 @@ body {
         border-top: 1px solid;
 
         .padding-content {
-            padding: 5% 1%;
+            padding: 2% 1%;
         }
 
         .header {
@@ -116,7 +115,7 @@ body {
                 }
                 .sub-body {
                     .text-area {
-                        height: 80px;
+                        height: 50px;
                         display: flex;
                         padding-left: 1%;
                         align-items: center;
@@ -245,7 +244,7 @@ body {
 }
 
 .fifth-row {
-    margin-top: 5%;
+    margin-top: 1%;
     
     .title {
         margin-bottom: 1%;
