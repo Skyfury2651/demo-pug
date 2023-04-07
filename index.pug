@@ -4,71 +4,71 @@ link(rel='stylesheet' type='text/css' href='../style.css')
 
 .container 
   .header
-    div 〒 004-0841
-    div.title 北海道札幌市清田区清田1条1丁目1-36田中ビル
-    div.description デイサービスきたえるーむ札幌清田
-    div.description 株式会社ヤマチコーポレーション
+    div #{data.header.code}
+    div.title #{data.header.title}
+    div.description  #{data.header.description}
+    div.description  #{data.header.subdescription}
 
   .body
     .line-break
-    .title 介護給付費等支払決定額通知書
+    .title #{staticFields.body.title}
 
     div.row.information-block
-      div.description 令和 02年 05月審査分として下記金額を支払決定し右記銀行に送金しますので通知致します。
+      div.description #{data.body.description}
       .information 
         div.row
-          .label.unset-border-right 事業所番号
-          .value 0170512248
+          .label.unset-border-right #{staticFields.body.information.first}
+          .value  #{data.body.information.first}
         div.row
-          .label.unset-border-right 金額
-          .value 2,795,905
+          .label.unset-border-right #{staticFields.body.information.second}
+          .value #{data.body.information.second}
 
-        div 北海道銀行
+        div #{data.body.information.name}
         .line-break
-        div 鳥居前支店
+        div #{data.body.information.branchName}
         .line-break
-        div.date 令和 02年 06月 29日
-        div.name 北海道国民健康保険団体連合会
+        div.date #{data.body.information.date}
+        div.name #{data.body.information.companyDescription}
 
   .detail
-    div.title 振込金額内訳
+    div.title #{staticFields.detail.title}
     
     .row 
-      div 介護給付費支払額
-      div 802,814
+      div #{staticFields.detail.row1}
+      div #{data.detail.row1}
     .line-break
     
     .row 
-      div 主治医意見書作成料
-      div 0
+      div #{staticFields.detail.row2}
+      div #{data.detail.row2}
     .line-break
     
     .row 
-      div 消費税
-      div 0
+      div #{staticFields.detail.row3}
+      div #{data.detail.row3}
     .line-break
     
     .row 
-      div 認定調査費委託料
-      div 0
+      div #{staticFields.detail.row4}
+      div #{data.detail.row4}
     .line-break
     
     .row 
-      div 消費税
-      div 0
+      div #{staticFields.detail.row5}
+      div #{data.detail.row5}
     .line-break
     
     .row 
-      div 介護予防・日常生活支援総合事業費支払額
-      div 1,993,091
+      div #{staticFields.detail.row6}
+      div #{data.detail.row6}
     .line-break
     
     .row 
-      div 電子証明書発行手数料(消費税を含む)
-      div 0
+      div #{staticFields.detail.row7}
+      div #{data.detail.row7}
     .line-break
     
     .row 
-      div 介護給付費等合計
-      div 2,795,905
+      div #{staticFields.detail.row8}
+      div #{data.detail.row8}
     .line-break
