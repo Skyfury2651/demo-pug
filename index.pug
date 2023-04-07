@@ -1,119 +1,126 @@
 // Use !{var} to use unescaped conent
 include variables.pug
 link(rel='stylesheet' type='text/css' href='../style.css')
+
 .container 
-  .row.first-row 
-    .title #{staticFields.first.title}
-  .row.second-row
-    .first-block
-      span.single-char #{data.second.year}
-      each character in data.second.date
-        span.single-char=character
-      span.single-char #{staticFields.second.month}
-    .second-block
-      span #{data.second.title}
-  .row.third-row
-    .left-side
-      div #{staticFields.third.first}
-      div #{staticFields.third.second}
-      div #{staticFields.third.third}
-    .center 
-      span #{date}
-    .right-side 
-      .row
-        div.header #{staticFields.third.right.first}
-        div.body.row 
-          each numb in data.third.first
-            div.split-char #{numb}
-      .row
-        div.header  #{staticFields.third.right.second.title}
-        div.body
-          .row.full-width 
-            div.sub-header.padding-content #{staticFields.third.right.second.first}
-            div.sub-body.padding-content #{data.third.second.first}
-          .row.full-width.position
-            div.sub-header #{staticFields.third.right.second.second}
-            div.sub-body 
-              .row
-                each numb in data.third.second.second.first
-                  div.split-text #{numb}
-              div.border-top.text-area #{data.third.second.second.second}
-          .row.full-width
-            div.sub-header.padding-content #{staticFields.third.right.second.third} 
-            div.sub-body.padding-content #{data.third.second.third}
-  .fourth-row
-    .title #{staticFields.fourth.title}
-    .table
-      .row.full-width.head
-        .col1.header #{staticFields.fourth.first}
-        .col2.header
-          div.border-bottom.full-width.title.text-center #{staticFields.fourth.secondTitle}
-          div.row
-            each title in staticFields.fourth.second
-              div.cell !{title}
-        .col3.header
-          div.border-bottom.full-width.title.text-center #{staticFields.fourth.thirdTitle}
-          div.row
-             each title in staticFields.fourth.third
-              div.cell !{title}
-      each rowFourth, index in data.fourth 
-        .row.full-width.body
-          .col1(class = index+1 == data.fourth.length  ? 'text-center' : '') !{rowFourth.title}
-          .col2 
+  .first-row 
+    .row.justify-between
+      div 国保連合会 → サービス事業所等
+      .title 介護保険審査増減単位数通知書
+      .date 平成 30年 09月 04日
+    .first-section 
+      .left-block
+        .row
+          .office-number 事業所番号
+          .office-name 事業所名
+        .row
+          .office-number 0170512248
+          .office-name デイサービスきたえるーむ札幌清田
+      div 令和 02年 05月審査分
+      .right-block
+        div 1 頁
+        div 北海道国民健康保険団体連合会
+        div 道国保連介護給付費審査委員会  
+  .second-row
+    .row
+      .primary
+        .table
+          .header
+            .row.full-width
+              div.col.col1 保険者番号
+              div.col.col2 被保険者番号<br>被保険者氏名 
+              div.col.col3 サービス<br>提供年月
+              div.col.col4 サービス<br>種類コード
+              div.col.col5 サービス<br>項目コード
+              div.col.col6 増減単位数
+              div.col.col7 事由
+              div.col.col8 内容
+          .body.full-width
+              - var n = 0
+              while n < 8
+                - var item = data.body[n]
+                if item != undefined
+                  div.row.full-width.data-row
+                    .row.full-width
+                      div.col.col1 #{item.col1}
+                      div.col.col2
+                        div #{item.col2 ?  item.col2.up:''}
+                        div #{item.col2 ? item.col2.down : ''}
+                      div.col.col3 #{item.col3}
+                      div.col.col4 #{item.col4}
+                      div.col.col5 #{item.col5}
+                      div.col.col6 #{item.col6}
+                      div.col.col7 #{item.col7}
+                      div.col.col8 
+                        div #{item.col8 ? item.col8.up : ''}
+                        div #{item.col8 ? item.col8.down : ''}
+                else 
+                  div.row.full-width.data-row
+                    .row.full-width
+                      div.col.col1 
+                      div.col.col2
+                        div  
+                        div  
+                      div.col.col3 
+                      div.col.col4  
+                      div.col.col5  
+                      div.col.col6  
+                      div.col.col7  
+                      div.col.col8 
+                        div 
+                        div  
+                - n++
+              
+      .contact-info 
+        div.header.col 連絡事項
+        div
+
+  .third-row 
+    .title ○事由記号の内容
+
+
+    //- .table 
+      //- div.content
+      //-   div.item1 s1
+      //-   div.item2 s2
+      //-   div.item3 s3
+      //-   div.item1 s1
+      //-   div.item2 s2
+      //-   div.item3 s3
+    .row
+      div.table
+        .header 
+            div.title.row
+              div 上限審査分
+              div 出来高分
             div.row
-              div.cell(class=rowFourth.col1 == undefined  ? "dashed" : "") #{rowFourth.col1}
-              div.cell(class=rowFourth.col2 == undefined  ? "dashed" : "") #{rowFourth.col2}
-              div.cell(class=rowFourth.col3 == undefined  ? "dashed" : "") #{rowFourth.col3}
-              div.cell(class=rowFourth.col4 == undefined  ? "dashed" : "") #{rowFourth.col4}
-              div.cell(class=rowFourth.col5 == undefined  ? "dashed" : "") #{rowFourth.col5}
-              div.cell(class=rowFourth.col6 == undefined  ? "dashed" : "") #{rowFourth.col6}
-          .col3
-            div.row
-              div.cell(class=rowFourth.col7 == undefined  ? "dashed" : "") #{rowFourth.col7}
-              div.cell(class=rowFourth.col8 == undefined  ? "dashed" : "") #{rowFourth.col8}
-              div.cell(class=rowFourth.col9 == undefined  ? "dashed" : "") #{rowFourth.col9}
-              div.cell(class=rowFourth.col10 == undefined  ? "dashed" : "") #{rowFourth.col10}
-              div.cell(class=rowFourth.col11 == undefined  ? "dashed" : "") #{rowFourth.col11}
-  .fifth-row
-    .title #{staticFields.fifth.title}
-    .table
-      .row.full-width.head
-        .col1.header #{staticFields.fifth.first}
-        .col2.header
-          div.border-bottom.full-width.title.text-center #{staticFields.fifth.secondTitle}
-          div.row
-            each title in staticFields.fifth.second
-              div.cell !{title}
-        .col3.header
-          div.border-bottom.full-width.title.text-center #{staticFields.fifth.thirdTitle}
-          div.row
-           each title in staticFields.fifth.third
-              div.cell !{title}
-      .row.full-width.body
-        each dataBody in data.fifth
-          .col1.row.no-padding
-            div.number.border-right #{dataBody.code}
-            div.subject
-              each subject in dataBody.data
-                div.name.row
-                  div.title !{subject.title}
-                  div.content(class=subject.col1 == undefined  ? "dashed" : "") #{subject.col1}
-                  div.content(class=subject.col2 == undefined  ? "dashed" : "") #{subject.col2}
-                  div.content(class=subject.col3 == undefined  ? "dashed" : "") #{subject.col3}
-                  div.content(class=subject.col4 == undefined  ? "dashed" : "") #{subject.col4}
-                  div.content(class=subject.col5 == undefined  ? "dashed" : "") #{subject.col5}
-                  div.content(class=subject.col6 == undefined  ? "dashed" : "") #{subject.col6}
-                  div.content(class=subject.col7 == undefined  ? "dashed" : "") #{subject.col7}
-      .row.full-width.footer
-        .col1.text-center #{staticFields.fifth.footer}
-        .col2
-          div.row
-            div.content(class=data.footer.col1 == undefined ? 'dashed' : '' ) #{data.footer.col1}
-            div.content(class=data.footer.col2 == undefined ? 'dashed' : '' ) #{data.footer.col2}
-            div.content(class=data.footer.col3 == undefined ? 'dashed' : '' ) #{data.footer.col3}
-            div.content(class=data.footer.col4 == undefined ? 'dashed' : '' ) #{data.footer.col4}
-        .col3
-          div.row
-            div.content(class=data.footer.col5 == undefined ? 'dashed' : '' ) #{data.footer.col5}
-            div.content(class=data.footer.col6 == undefined ? 'dashed' : '' ) #{data.footer.col6}
-            div.content(class=data.footer.col7 == undefined ? 'dashed' : '' ) #{data.footer.col7}
+              .head 記号
+              .subject 内容
+              .head 記号
+              .subject.unset-border-right 内容
+        .body
+          .content 
+            .head B
+            div.row.right.full-width
+              .subject 給付管理票の実績を超えるもの
+              div.data
+                .sub-content.row
+                  .head F
+                  .subject 重複と認められるもの
+                .sub-content.row
+                  .head G
+                  .subject 前記の外、不適当、不必要と認められるもの
+          .content
+            .head A
+            div.row.right.full-width
+              .subject 給付管理票に実績が記載されていないもの
+              div.data
+                .sub-content.row
+                  .head C
+                  .subject 担当規程に反するもの
+                .sub-content.row
+                  .head D
+                  .subject 適応と認められないもの
+                .sub-content.row
+                  .head E
+                  .subject 過剰と認められるもの

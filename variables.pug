@@ -1,316 +1,44 @@
 block vars
   -
     var staticFields = {
-      first: {
-        title: '様式第一 (附則第二条関係)'
-      },
-      second: {
-        month: '月分'
-      },
-      third: {
-        first: '保 険 者',
-        second: '(別 記)殿',
-        third: '下記のとおり請求します。',
-        right: {
-          first: '事業所番号',
-          second: {
-            title: '請求事業所',
-            first: '名称',
-            second: '所在地',
-            third: '連絡先'
-          }
-        }
-      },
-      fourth: {
-        title: '保険請求',
-        first: '区分',
-        secondTitle: 'サービス費用',
-        second: {
-          first: '件数',
-          second: '単位数<br>・点数',
-          third: '費用<br>合計',
-          fourth: '保険<br>請求額',
-          fifth: '公費<br>請求額',
-          sixth: '利用者<br>負担',
-        },
-        thirdTitle: '特定入所者介護サービス費等',
-        third: {
-          first: '件数',
-          second: '費用<br>合計',
-          third: '利用者<br>負担',
-          fourth: '公費<br>請求額',
-          fifth: '保険<br>請求額'
-        }
-      },
-      fifth: {
-        title: '公費請求',
-        first: '区分',
-        secondTitle: 'サービス費用',
-        thirdTitle: '特定入所者介護サービス費等',
-        second: {
-          first: '件数',
-          second: '単位数<br>・点数',
-          third: '費用<br>合計',
-          fourth: '公費<br>請求額',
-        },
-        third:  {
-          first: '件数',
-          second: '費用<br>合計',
-          third: '公費<br>請求額',
-        },
-        footer: '合計'
+      body : {
+
       }
     }
     
     var data = {
-      second: {
-        year: '令和',
-        date: '04年12',
-        title: '介護給付費請求書'
+     body: [
+      {
+        col1: '011106',
+        col2: {
+          up: '5501152333',
+          down: '提供年 月ド'
+        },
+        col3: 'H03.07',
+        col4: '15',
+        col5: '2241',
+        col6: '',
+        col7: '',
+        col8: {
+          up: '',
+          down: ''
+        },
       },
-      third: {
-        date: '令和05年02月17日',
-        first: '0190200001',
-        second: {
-          first: 'きたえるーむ(デモ)',
-          second: {
-            first: '〒999-9999',
-            second: '札幌市'
-          },
-          third: '011-999-9999'
-        }
-      },
-      fourth: [
-        {
-          title: '居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等',
-          col1: '1',
-          col2: '476',
-          col3: '5,188',
-          col4: '4,669',
-          col5: '0',
-          col6: '519',
-          col7: '',
-          col8: '',
-          col9: '',
-          col10: '',
-          col11: '',
+      {
+        col1: '011106',
+        col2: {
+          up: '5501152333',
+          down: '提供年 月ド'
         },
-        {
-          title: '居宅介護支援・<br> 地域密着型サービス等 ',
-          col1: '',
-          col2: '',
-          col3: '',
-          col4: '',
+        col3: 'H03.07',
+        col4: '15',
+        col5: '5052',
+        col6: '-464',
+        col7: 'B',
+        col8: {
+          up: '確定単位数( 3712)',
+          down: '請求単位数( 4176)'
         },
-        {
-          title: '合計',
-          col1: '',
-          col2: '',
-          col3: '',
-          col4: '',
-          col5: '',
-          col6: '',
-          col7: '',
-          col8: '',
-          col9: '',
-          col10: '',
-          col11: '',
-        }
-      ],
-      fifth: [
-        {
-          code: 12,
-          data: [
-            {
-              title: '生保 <br> 居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-              col5: '',
-              col6: '',
-              col7: '',
-            },
-            {
-              title: '生保 <br> 居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 10,
-          data: [
-            {
-              title: '感染症 37条の2',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 10,
-          data: [
-            {
-              title: '感染症 37条の2',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 21,
-          data: [
-            {
-              title: '障自・通院医療',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 15,
-          data: [
-            {
-              title: '障自・更生医療',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 19,
-          data: [
-            {
-              title: '原爆・一般',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 54,
-          data: [
-            {
-              title: '難病法',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 51,
-          data: [
-            {
-              title: '特定疾患等治療研究',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 81,
-          data: [
-            {
-              title: '被爆者助成',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 86,
-          data: [
-            {
-              title: '被爆体験者',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 87,
-          data: [
-            {
-              title: '有機ヒ素・緊急措置',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 88,
-          data: [
-            {
-              title: '水俣病総合対策メチル水銀',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 66,
-          data: [
-            {
-              title: '石綿・救済措置',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 58,
-          data: [
-            {
-              title: '障害者・支援措置(全額免除)',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 25,
-          data: [
-            {
-              title: '中国残留邦人等',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        }
-      ],
-      footer: {
-        col4: '',
-        col5: '',
       }
+     ]
     }
