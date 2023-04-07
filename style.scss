@@ -263,10 +263,13 @@ body {
             border-top: 1px solid;
             border-right: 1px solid;
             padding: 5px;
+            display: flex;
+            justify-content: center;
+            place-items: center;
         }
         .right {
            .subject {
-                width: 39.5%;
+                width: 39.2%;
                 border-top: 1px solid;
                 padding: 5px;
            }
@@ -284,7 +287,7 @@ body {
                         padding: 5px;
                     }
                     .head {
-                        width: 19.5%;
+                        width: 20.5%;
                         border-left: 1px solid;
                         padding: 5px;
                     }

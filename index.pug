@@ -5,36 +5,36 @@ link(rel='stylesheet' type='text/css' href='../style.css')
 .container 
   .first-row 
     .row.justify-between
-      div 国保連合会 → サービス事業所等
-      .title 介護保険審査増減単位数通知書
-      .date 平成 30年 09月 04日
+      div #{staticFields.first.convert}
+      .title #{staticFields.first.title}
+      .date #{staticFields.first.date}
     .first-section 
       .left-block
         .row
-          .office-number 事業所番号
-          .office-name 事業所名
+          .office-number  #{staticFields.first.labelOfficeNumber}
+          .office-name  #{staticFields.first.labelOfficeName}
         .row
-          .office-number 0170512248
-          .office-name デイサービスきたえるーむ札幌清田
-      div 令和 02年 05月審査分
+          .office-number #{staticFields.first.officeNumber}
+          .office-name #{staticFields.first.officeName}
+      div #{staticFields.first.importDate}
       .right-block
-        div 1 頁
-        div 北海道国民健康保険団体連合会
-        div 道国保連介護給付費審査委員会  
+        div #{staticFields.first.page}
+        div #{staticFields.first.companyName}
+        div #{staticFields.first.companyName2}  
   .second-row
     .row
       .primary
         .table
           .header
             .row.full-width
-              div.col.col1 保険者番号
-              div.col.col2 被保険者番号<br>被保険者氏名 
-              div.col.col3 サービス<br>提供年月
-              div.col.col4 サービス<br>種類コード
-              div.col.col5 サービス<br>項目コード
-              div.col.col6 増減単位数
-              div.col.col7 事由
-              div.col.col8 内容
+              div.col.col1 !{staticFields.second.col1}  
+              div.col.col2 !{staticFields.second.col2}  
+              div.col.col3 !{staticFields.second.col3}  
+              div.col.col4 !{staticFields.second.col4}  
+              div.col.col5 !{staticFields.second.col5}  
+              div.col.col6 !{staticFields.second.col6}  
+              div.col.col7 !{staticFields.second.col7}  
+              div.col.col8 !{staticFields.second.col8}  
           .body.full-width
               - var n = 0
               while n < 8
@@ -72,55 +72,31 @@ link(rel='stylesheet' type='text/css' href='../style.css')
                 - n++
               
       .contact-info 
-        div.header.col 連絡事項
+        div.header.col #{staticFields.second.infoContact}  
         div
 
   .third-row 
     .title ○事由記号の内容
-
-
-    //- .table 
-      //- div.content
-      //-   div.item1 s1
-      //-   div.item2 s2
-      //-   div.item3 s3
-      //-   div.item1 s1
-      //-   div.item2 s2
-      //-   div.item3 s3
     .row
       div.table
         .header 
             div.title.row
-              div 上限審査分
-              div 出来高分
+              div #{staticFields.third.header.col1}
+              div #{staticFields.third.header.col2}
             div.row
-              .head 記号
-              .subject 内容
-              .head 記号
-              .subject.unset-border-right 内容
+              .head #{staticFields.third.type.col1}
+              .subject #{staticFields.third.type.col2}
+              .head #{staticFields.third.type.col1}
+              .subject.unset-border-right #{staticFields.third.type.col2}
         .body
-          .content 
-            .head B
-            div.row.right.full-width
-              .subject 給付管理票の実績を超えるもの
-              div.data
-                .sub-content.row
-                  .head F
-                  .subject 重複と認められるもの
-                .sub-content.row
-                  .head G
-                  .subject 前記の外、不適当、不必要と認められるもの
-          .content
-            .head A
-            div.row.right.full-width
-              .subject 給付管理票に実績が記載されていないもの
-              div.data
-                .sub-content.row
-                  .head C
-                  .subject 担当規程に反するもの
-                .sub-content.row
-                  .head D
-                  .subject 適応と認められないもの
-                .sub-content.row
-                  .head E
-                  .subject 過剰と認められるもの
+          each data in staticFields.third.codes
+            .content
+              .head #{data.code}
+              div.row.right.full-width
+                .subject  #{data.subject}
+                div.data
+                  each susbData in data.sub
+                    .sub-content.row
+                      .head #{susbData.code}
+                      .subject #{susbData.subject}
+                
