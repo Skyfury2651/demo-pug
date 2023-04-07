@@ -3,100 +3,72 @@ include variables.pug
 link(rel='stylesheet' type='text/css' href='../style.css')
 
 .container 
-  .first-row 
-    .row.justify-between
-      div #{staticFields.first.convert}
-      .title #{staticFields.first.title}
-      .date #{staticFields.first.date}
-    .first-section 
-      .left-block
-        .row
-          .office-number  #{staticFields.first.labelOfficeNumber}
-          .office-name  #{staticFields.first.labelOfficeName}
-        .row
-          .office-number #{staticFields.first.officeNumber}
-          .office-name #{staticFields.first.officeName}
-      div #{staticFields.first.importDate}
-      .right-block
-        div #{staticFields.first.page}
-        div #{staticFields.first.companyName}
-        div #{staticFields.first.companyName2}  
-  .second-row
-    .row
-      .primary
-        .table
-          .header
-            .row.full-width
-              div.col.col1 !{staticFields.second.col1}  
-              div.col.col2 !{staticFields.second.col2}  
-              div.col.col3 !{staticFields.second.col3}  
-              div.col.col4 !{staticFields.second.col4}  
-              div.col.col5 !{staticFields.second.col5}  
-              div.col.col6 !{staticFields.second.col6}  
-              div.col.col7 !{staticFields.second.col7}  
-              div.col.col8 !{staticFields.second.col8}  
-          .body.full-width
-              - var n = 0
-              while n < 8
-                - var item = data.body[n]
-                if item != undefined
-                  div.row.full-width.data-row
-                    .row.full-width
-                      div.col.col1 #{item.col1}
-                      div.col.col2
-                        div #{item.col2 ?  item.col2.up:''}
-                        div #{item.col2 ? item.col2.down : ''}
-                      div.col.col3 #{item.col3}
-                      div.col.col4 #{item.col4}
-                      div.col.col5 #{item.col5}
-                      div.col.col6 #{item.col6}
-                      div.col.col7 #{item.col7}
-                      div.col.col8 
-                        div #{item.col8 ? item.col8.up : ''}
-                        div #{item.col8 ? item.col8.down : ''}
-                else 
-                  div.row.full-width.data-row
-                    .row.full-width
-                      div.col.col1 
-                      div.col.col2
-                        div  
-                        div  
-                      div.col.col3 
-                      div.col.col4  
-                      div.col.col5  
-                      div.col.col6  
-                      div.col.col7  
-                      div.col.col8 
-                        div 
-                        div  
-                - n++
-              
-      .contact-info 
-        div.header.col #{staticFields.second.infoContact}  
-        div
+  .header
+    div 〒 004-0841
+    div.title 北海道札幌市清田区清田1条1丁目1-36田中ビル
+    div.description デイサービスきたえるーむ札幌清田
+    div.description 株式会社ヤマチコーポレーション
 
-  .third-row 
-    .title ○事由記号の内容
-    .row
-      div.table
-        .header 
-            div.title.row
-              div #{staticFields.third.header.col1}
-              div #{staticFields.third.header.col2}
-            div.row
-              .head #{staticFields.third.type.col1}
-              .subject #{staticFields.third.type.col2}
-              .head #{staticFields.third.type.col1}
-              .subject.unset-border-right #{staticFields.third.type.col2}
-        .body
-          each data in staticFields.third.codes
-            .content
-              .head #{data.code}
-              div.row.right.full-width
-                .subject  #{data.subject}
-                div.data
-                  each susbData in data.sub
-                    .sub-content.row
-                      .head #{susbData.code}
-                      .subject #{susbData.subject}
-                
+  .body
+    .line-break
+    .title 介護給付費等支払決定額通知書
+
+    div.row.information-block
+      div.description 令和 02年 05月審査分として下記金額を支払決定し右記銀行に送金しますので通知致します。
+      .information 
+        div.row
+          .label.unset-border-right 事業所番号
+          .value 0170512248
+        div.row
+          .label.unset-border-right 金額
+          .value 2,795,905
+
+        div 北海道銀行
+        .line-break
+        div 鳥居前支店
+        .line-break
+        div.date 令和 02年 06月 29日
+        div.name 北海道国民健康保険団体連合会
+
+  .detail
+    div.title 振込金額内訳
+    
+    .row 
+      div 介護給付費支払額
+      div 802,814
+    .line-break
+    
+    .row 
+      div 主治医意見書作成料
+      div 0
+    .line-break
+    
+    .row 
+      div 消費税
+      div 0
+    .line-break
+    
+    .row 
+      div 認定調査費委託料
+      div 0
+    .line-break
+    
+    .row 
+      div 消費税
+      div 0
+    .line-break
+    
+    .row 
+      div 介護予防・日常生活支援総合事業費支払額
+      div 1,993,091
+    .line-break
+    
+    .row 
+      div 電子証明書発行手数料(消費税を含む)
+      div 0
+    .line-break
+    
+    .row 
+      div 介護給付費等合計
+      div 2,795,905
+    .line-break
