@@ -3,72 +3,69 @@ include variables.pug
 link(rel='stylesheet' type='text/css' href='../style.css')
 
 .container 
-  .header
-    div #{data.header.code}
-    div.title #{data.header.title}
-    div.description  #{data.header.description}
-    div.description  #{data.header.subdescription}
+  .first-row.row
+    .col1 
+      div 事業所(保険者)番号
+      div 事業所(保険者)名
+      div 0170512248
+      div デイサービスきたえるーむ札幌清田
+    .col2 
+      .title 介護給付費過誤決定通知書平成30年 10月取扱分
+      .sub-title 過誤申立については、下記のとおり決定しましたので通知します。
+    .col3 
+      .date 平成 30年 11月 02日
+      div 1 頁
+      div 北海道国民健康保険団体連合会
+  
+  .second-row 
+    .table.full-width
+      .header.row
+        .col.col1 保険者(事業所)番号 保険者(事業所)名
+        .col.col2 被保険者番号<br>被保険者氏名
+        .col.col3 サービス<br>提供年月
+        .col.col4 サービス<br>種類名
+        .col.col5 過誤申立事由
+        .col.col6 単位数<br>(特定入所者介護費等)
+        .col.col7 保険者負担額<br>(公費負担額)
+        .col.col8 備考
 
-  .body
-    .line-break
-    .title #{staticFields.body.title}
+      .body.row
+        .col.col1 
+          div 011106
+          div 札幌市清田区
+        .col.col2 
+          div 5501322480
+          div サトウサトウ
+        .col.col3 H30.07
+        .col.col4 通所介護
+        .col.col5 訪問通所明細 請求誤り
+        .col.col6 -3,386
+        .col.col7 -30,900
+        .col.col8 
 
-    div.row.information-block
-      div.description #{data.body.description}
-      .information 
-        div.row
-          .label.unset-border-right #{staticFields.body.information.first}
-          .value  #{data.body.information.first}
-        div.row
-          .label.unset-border-right #{staticFields.body.information.second}
-          .value #{data.body.information.second}
-
-        div #{data.body.information.name}
-        .line-break
-        div #{data.body.information.branchName}
-        .line-break
-        div.date #{data.body.information.date}
-        div.name #{data.body.information.companyDescription}
-
-  .detail
-    div.title #{staticFields.detail.title}
-    
-    .row 
-      div #{staticFields.detail.row1}
-      div #{data.detail.row1}
-    .line-break
-    
-    .row 
-      div #{staticFields.detail.row2}
-      div #{data.detail.row2}
-    .line-break
-    
-    .row 
-      div #{staticFields.detail.row3}
-      div #{data.detail.row3}
-    .line-break
-    
-    .row 
-      div #{staticFields.detail.row4}
-      div #{data.detail.row4}
-    .line-break
-    
-    .row 
-      div #{staticFields.detail.row5}
-      div #{data.detail.row5}
-    .line-break
-    
-    .row 
-      div #{staticFields.detail.row6}
-      div #{data.detail.row6}
-    .line-break
-    
-    .row 
-      div #{staticFields.detail.row7}
-      div #{data.detail.row7}
-    .line-break
-    
-    .row 
-      div #{staticFields.detail.row8}
-      div #{data.detail.row8}
-    .line-break
+  .third-row.row
+    .table
+      .header.row
+        .col.col1
+        .col.col2 件数
+        .col.col3 単位数※1 (費用額)
+        .col.col4 保険者負担額
+      .body.row
+        .col.col1
+          div.main 札幌市清田区
+          div.split
+            div 介護給付費
+            div 特定入所者介護費等
+        .col.col2
+          div.split
+            div -1
+            div 
+        .col.col3
+          div.split
+            div -3,386
+            div 
+        .col.col4
+          div.split
+            div -30,900
+            div 
+    .description ※1 特定入所者介護サービス費等の場合は金額が印字される
