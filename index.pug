@@ -11,7 +11,7 @@ link(rel='stylesheet' type='text/css' href='../style.css')
       div #{data.officeName}
     .col2 
       .title #{data.title}
-      .sub-title 過誤申立については、下記のとおり決定しましたので通知します。
+      .sub-title #{data.subtitle}
     .col3 
       .date #{data.date}
       div #{data.page}
@@ -20,52 +20,77 @@ link(rel='stylesheet' type='text/css' href='../style.css')
   .second-row 
     .table.full-width
       .header.row
-        .col.col1 #{staticFields.insurerNumber} #{staticFields.insurerName}
-        .col.col2 !{staticFields.insuerer}
-        .col.col3 !{staticFields.serviceProvision}
-        .col.col4 !{staticFields.serviceType}
-        .col.col5 #{staticFields.malpracticeClaim}
-        .col.col6 !{staticFields.numberUnit}
-        .col.col7 !{staticFields.insuererBurden}
-        .col.col8 #{staticFields.remark}
-
-      .body.row
-        .col.col1 
-          div #{data.col1.up}
-          div #{data.col1.down}
+        .col.col1.row
+          div #{staticFields.second.col1.first}
+          div #{staticFields.second.col1.second}
         .col.col2 
-          div #{data.col2.up}
-          div #{data.col2.down}
-        .col.col3 #{data.col3}
-        .col.col4 #{data.col4}
-        .col.col5 #{data.col5}
-        .col.col6 #{data.col6}
-        .col.col7 #{data.col7}
-        .col.col8 #{data.col8}
+          div.subject #{staticFields.second.col2.first}
+          div.row 
+            div.number #{staticFields.second.col2.second.unit}
+            div  #{staticFields.second.col2.second.field}
+        .col.col3 
+          div.subject #{staticFields.second.col3.first}
+          div.row 
+            div.number #{staticFields.second.col3.second.unit}
+            div  #{staticFields.second.col3.second.field}
+        .col.col4 
+          div.subject #{staticFields.second.col4.first}
+          div.row 
+            div.number #{staticFields.second.col4.second.unit}
+            div  #{staticFields.second.col4.second.field}
+        .col.col5 
+          div.subject #{staticFields.second.col5.first}
+          div.row 
+            div.number #{staticFields.second.col5.second.unit}
+            div  #{staticFields.second.col5.second.field}
+        .col.col6 
+          div.subject #{staticFields.second.col6.first}
+          div.row 
+            div.number #{staticFields.second.col6.second.unit}
+            div  #{staticFields.second.col6.second.field}
+        .col.col7 
+          div #{staticFields.second.col7}
 
-  .third-row.row
-    .table
-      .header.row
-        .col.col1
-        .col.col2 #{staticFields.number}
-        .col.col3 #{staticFields.numberCredit}
-        .col.col4 #{staticFields.burden}
-      .body.row
-        .col.col1
-          div.main #{staticFields.main}
-          div.split
-            div #{staticFields.benefit}
-            div #{staticFields.expense}
-        .col.col2
-          div.split
-            div #{data.expense.col2}
-            div #{data.benefit.col2}
-        .col.col3
-          div.split
-            div #{data.expense.col3}
-            div #{data.benefit.col3}
-        .col.col4
-          div.split
-            div #{data.expense.col4}
-            div #{data.benefit.col4}
-    .description #{staticFields.description}
+      .body
+        .row
+          .col.col1(class= data.second.col1 == undefined ?  'dashed' : '')
+            div #{data.second.col1 ? data.second.col1.first : ''}
+            div #{data.second.col1 ? data.second.col1.second : ''}
+          .col.col2(class= data.second.col2 == undefined ?  'dashed' : '')
+            div #{data.second.col2 ? data.second.col2.first : ''}
+            div #{data.second.col2 ? data.second.col2.second : ''}
+          .col.col3(class= data.second.col3 == undefined ?  'dashed' : '')
+            div #{data.second.col3 ? data.second.col3.first : ''}
+            div #{data.second.col3 ? data.second.col3.second : ''}
+          .col.col4(class= data.second.col4 == undefined ?  'dashed' : '')
+            div #{data.second.col4 ? data.second.col4.first : ''}
+            div #{data.second.col4 ? data.second.col4.second : ''}
+          .col.col5(class= data.second.col5 == undefined ?  'dashed' : '')
+            div #{data.second.col5 ? data.second.col5.first : ''}
+            div #{data.second.col5 ? data.second.col5.second : ''}
+          .col.col6(class= data.second.col6 == undefined ?  'dashed' : '')
+            div #{data.second.col6 ? data.second.col6.first : ''}
+            div #{data.second.col6 ? data.second.col6.second : ''}
+          .col.col7(class= data.second.col7 == undefined ?  'dashed' : '')
+        .row
+          .col.col1.flex.justify-center.items-center #{staticFields.summary}
+          .col.col2 
+            div #{data.summary.col2.first}
+            div #{data.summary.col2.second}
+          .col.col3
+            div #{data.summary.col3.first}
+            div #{data.summary.col3.second}
+          .col.col4
+            div #{data.summary.col4.first}
+            div #{data.summary.col4.second}
+          .col.col5 
+            div #{data.summary.col5.first}
+            div #{data.summary.col5.second}
+          .col.col6
+            div #{data.summary.col6.first}
+            div #{data.summary.col6.second}
+          .col.col7 #{data.summary.col7}
+
+  .third-row 
+    div #{staticFields.firstNote}
+    div #{staticFields.secondNote}
