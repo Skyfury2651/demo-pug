@@ -120,7 +120,7 @@ link(rel='stylesheet' type='text/css' href='../style.css')
                 if n < data.startIndex || n > data.totalDay + data.startIndex - 1
                   div.calendar-cell &nbsp;
                 else 
-                  div.calendar-cell(class = false ? 'circle' : '') #{n - data.startIndex + 1}
+                  div.calendar-cell(class = data.calendar.selectedDate.includes(n - data.startIndex + 1) ? 'circle' : '') #{n - data.startIndex + 1}
                 - n = n + 1
           div.mt-1 #{staticFields.calendar.note}
 
@@ -246,7 +246,7 @@ link(rel='stylesheet' type='text/css' href='../style.css')
                 if n < data.startIndex || n > data.totalDay + data.startIndex - 1
                   div.calendar-cell &nbsp;
                 else 
-                  div.calendar-cell(class = false ? 'circle' : '') #{n - data.startIndex + 1}
+                  div.calendar-cell(class = data.calendar.selectedDate.includes(n - data.startIndex + 1) ? 'circle' : '') #{n - data.startIndex + 1}
                 - n = n + 1
           div.mt-1 #{staticFields.calendar.note}
 
