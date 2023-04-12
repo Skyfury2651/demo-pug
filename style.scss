@@ -1,13 +1,15 @@
 html {
     margin: auto;
-    font-size: 22px;
-    // width: 1070px;
+    font-size: 12px;
 }
 
 body {
     padding: 5%;
     font-family: ＭＳ Ｐゴシック;
     background: white;
+}
+.page-2 {
+    padding-top: 5%;
 }
 
 .header {
@@ -91,7 +93,7 @@ body {
                     border-width: 1px 0 0 1px;
                     border-style: solid;
                     padding: 5px;
-                    min-height: 22px;
+                    min-height: 16px;
                     &:last-child {
                         border-right: 1px solid;
                     }
@@ -146,7 +148,7 @@ body {
                 
                 .value {
                     font-weight: bold;
-                    font-size: 30px;
+                    font-size: 20px;
                     margin-top: 1rem;
                 }
             }
@@ -188,7 +190,7 @@ body {
                 .col {
                     border-width: 1px 0 0 1px;
                     border-style: solid;
-                    min-height: 22px;
+                    min-height: 16px;
                     padding: 5px;
                     &:last-child {
                         border-right: 1px solid;
@@ -211,7 +213,7 @@ body {
                 .col {
                     border-width: 0 0 1px 1px;
                     border-style: solid;
-                    min-height: 22px;
+                    min-height: 16px;
                     &:last-child {
                         border-right: 1px solid;
                     }
@@ -230,7 +232,7 @@ body {
         }
         .calendar {
             margin: 5px 0 5px 5px;
-            font-size: 18px;
+            font-size: 12px;
             .cell {
                 margin-top: 5px ;
                 border: 1px solid;
@@ -238,7 +240,7 @@ body {
                 text-align: center;
                 .label {
                     padding: 5px;
-                    font-size: 18px;
+                    font-size: 12px;
                     border-bottom: 1px solid;
                 }
                 .body {
