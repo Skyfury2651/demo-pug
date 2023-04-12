@@ -1,47 +1,105 @@
 block vars
   -
     var staticFields = {
-      officeNumber: '事業所(保険者)番号',
-      officeName: '事業所(保険者)名',
-      subtitle: '過誤申立については、下記のとおり決定しましたので通知します。',
-      col1: '証記載保険者番号<br>保険者名',
-      col2: '被保険者番号<br>被保険者氏名',
-      col3: 'サービス<br>提供年月',
-      col4: 'サービス<br>種類名',
-      col5: '過誤申立事由',
-      col6: '単位数<br>(特定入所者介護費等)',
-      col7: '保険者負担額<br>(公費負担額)',
-      col8: '備考',
-      col311: '合計',
-      col312: '総合事業費',
-      col32: '合計',
-      col33: '総合事業費',
-      col34: '保険者負担額',
+      firstTitle: '利用料請求書',
+      secondTitle: '利用料請求書(控え)',
+      firstNote: '平素は格別のご高配を賜り、厚く御礼申し上げます。',
+      dayUnit: '日',
+      aggrePeriod: '集計期間',
+      accountTable: {
+        col1: '利用者氏名',
+        col2: '発行日',
+        col3: '居宅介護支援事業所'
+      },
+      firstTable: {
+          startFrom : '01日~',
+          col1: '項目名',
+          col2: '控除',
+          col3: '単価',
+          col4: '数量',
+          col5: '金額',
+          summary: '項目名',
+          billingAmount: '請求金額',
+          deductiableAmount: '医療費控除対象額',
+      },
+      secondTable: {
+        title: '■介護サービス内容',
+        col1: '介護サービス費内訳',
+        col2: '単位数',
+        col3: '回数',
+        col4: '合計単位数',
+        total: '合計'
+      },
+      calendar: {
+        title: '請求期間内のご利用日',
+        monthUnit: '月',
+        dayInWeeks: ['月','火', '水', '木', '金' , '土', '日'],
+        note: '○入所期間中、利用日'
+      },
+      final: {
+        firstNote: '口座振替の方:3月20日にご指定の口座から引き落としさせて頂きます前営業日までにご入金をお願い致します。',
+        secondNote: '※医療費控除対象額は、医療系サービス(訪問看護・訪問リハビリ・居宅療養管理指導・通所リハビリ・短期入所療養介護)を当事業所と併用された場合に有効です。'
+      }
     }
     
     var data = {
-      title : '介護予防・日常生活支援総合事業費過誤決定通知書 令和 02年 03月取扱分' ,
-      subtitle : '令和 02年 06月審査分',
-      date: '平成 30年 11月 02日',
-      page: '1 頁',
-      companyName : '北海道国民健康保険団体連合会',
-      officeNumber: '0170512248',
-      officeName: 'デイサービスきたえるーむ札幌清田',
-      col1: {
-        up: '011106',
-        down: '札幌市清田区',
+      postalCode: '〒004-0834',
+      address: '北海道札幌市清田区真栄4条1丁目20-7',
+      name: '三浦 真様方',
+      fullname: '三浦 信子 様',
+      
+      accountTable: {
+        col1: '三浦 信子 様',
+        col2: '令和5年3月13日',
+        col3: '清田区第2地域包括支援センター',
       },
-      col2: {
-        up: '5501322480',
-        down: 'サトウ サトウ'
+      firstTable: {
+        date: '平成29年9月分',
+        data: [
+          {
+            col1: '利用者負担額',
+            col2: '',
+            col3: '1,517',
+            col4: '1',
+            col5: '1,517',
+          }
+        ],
+        billingAmount: '¥1,517',
+        deductiableAmount: '¥1,517',
+        total: '1,517'
       },
-      col3: 'H30.07',
-      col4: 'サービス<br>種類名',
-      col5: '訪問通所明細 請求誤り',
-      col6: '-3,386',
-      col7: '-30,900',
-      col8: '',
-      col32: '-1',
-      col33: '-3,007',
-      col34: '-27,441'
+      secondTable: {
+        total: '1496',
+        data: [
+          {
+            col1: '予防通所介護1',
+            col2: '1647',
+            col3: '1',
+            col4: '1647',
+          },
+          {
+            col1: '予防通所介護同一建物減算1',
+            col2: '-376',
+            col3: '1',
+            col4: '-376',
+          },
+          {
+            col1: '予防通所介護運動器機能向上加算',
+            col2: '225',
+            col3: '1',
+            col4: '225',
+          },
+        ]
+      },
+      calendar: {
+        month: '9'
+      },
+
+      companyName: '株式会社ヤマチコーポレーション',
+      companyAddress: 'きたえるーむ札幌清田',
+      companyPostalCode: '〒004-0841',
+      comapnyDetailAddress: '札幌市清田区清田1条1丁目1-36',
+      companyContact: 'TEL:011-398-7691',
+      totalDay: 31,
+      startIndex: 4,
     }

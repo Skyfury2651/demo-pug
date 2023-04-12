@@ -2,59 +2,254 @@
 include variables.pug
 link(rel='stylesheet' type='text/css' href='../style.css')
 
-.container
-
+.container.page-1
   .header   
     .title.row  
-      h1 #{data.title}
-  .first-row.row
-    .col1 
-      div #{staticFields.officeNumber}
-      div #{staticFields.officeName}
-      div #{data.officeNumber}
-      div #{data.officeName}
-    .subtitle #{staticFields.subtitle}
-    .col3 
-      .date #{data.date}
-      div #{data.page}
-      div #{data.companyName}
-  
-  .second-row 
-    .table.full-width
-      .header.row
-        .col.col1 !{staticFields.col1}
-        .col.col2 !{staticFields.col2}
-        .col.col3 !{staticFields.col3}
-        .col.col4 !{staticFields.col4}
-        .col.col5 !{staticFields.col5}
-        .col.col6 !{staticFields.col6}
-        .col.col7 !{staticFields.col7}
-        .col.col8 !{staticFields.col8}
-      .body.row
-        .col.col1 
-          div #{data.col1.up}
-          div #{data.col1.down}
-        .col.col2 
-          div #{data.col2.up}
-          div #{data.col2.down}
-        .col.col3 #{data.col3}
-        .col.col4 #{data.col4}
-        .col.col5 #{data.col5}
-        .col.col6 #{data.col6}
-        .col.col7 #{data.col7}
-        .col.col8 #{data.col8}
-  
-  .third-row.row
-    .table
-      .header.row
-        .col.col1
-        .col.col2 #{staticFields.col32} 
-        .col.col3 #{staticFields.col33} 
-        .col.col4 #{staticFields.col34} 
-      .body.row
-        .col.col1
-          div.main #{staticFields.col311} 
-          div.split #{staticFields.col312} 
-        .col.col2 #{data.col32}
-        .col.col3 #{data.col33}
-        .col.col4 #{data.col34}
+      h1 #{staticFields.firstTitle}
+    .information 
+      .col.col1.block
+        div #{data.postalCode}
+        div #{data.address}
+        div #{data.name}
+        div.mt-1 #{data.fullname}
+      div.block
+        div #{data.companyName}
+        div.ml-1 #{data.companyAddress}
+        div.mt-1 #{data.companyPostalCode}
+        div #{data.comapnyDetailAddress}
+        div.mt-1 #{data.comapnyContact}
+  .body.mt-1
+    .first-block 
+      .title #{staticFields.firstNote}
+      .account-table.mt-1
+        .head
+          .col.col1 #{staticFields.accountTable.col1}
+          .col.col2 #{staticFields.accountTable.col2}
+          .col.col3 #{staticFields.accountTable.col3}
+        .body 
+          .col.col1 #{data.accountTable.col1}
+          .col.col2 #{data.accountTable.col2}
+          .col.col3 #{data.accountTable.col3}
+      .w-full.row
+        .w-75
+          .first-table
+            .header
+              div  
+                span #{data.firstTable.date} 
+                span #{staticFields.aggrePeriod} 
+                span #{staticFields.firstTable.startFrom}#{data.totalDay}#{staticFields.dayUnit}
+            .body
+                .head.row
+                  div.col.col1 #{staticFields.firstTable.col1}
+                  div.col.col2 #{staticFields.firstTable.col2}
+                  div.col.col3 #{staticFields.firstTable.col3}
+                  div.col.col4 #{staticFields.firstTable.col4}
+                  div.col.col5 #{staticFields.firstTable.col5}
+                .content
+                  - var n = 0;
+                  while n < 7 
+                    - var row = data.firstTable.data[n]
+                    if row == undefined 
+                      .row
+                        div.col.col1
+                        div.col.col2 
+                        div.col.col3
+                        div.col.col4 
+                        div.col.col5 
+                    else 
+                      .row
+                        div.col.col1 #{row.col1}
+                        div.col.col2 #{row.col2}
+                        div.col.col3 #{row.col3}
+                        div.col.col4 #{row.col4}
+                        div.col.col5 #{row.col5}
+                    - n = n + 1
+            .footer
+              div.row
+                div.col.col1 #{staticFields.firstTable.summary}
+                div.col.col5 #{data.firstTable.total}
+        .w-25.price-tag
+          div.cell.m-auto
+            .label #{staticFields.firstTable.billingAmount}
+            .value #{data.firstTable.billingAmount}
+          div.cell.m-auto
+            .label #{staticFields.firstTable.deductiableAmount}
+            .value #{data.firstTable.deductiableAmount}
+
+    .second-block 
+      .title #{staticFields.secondTable.title}
+      .w-full.row
+        .w-75
+          .first-table
+            .body
+                .head.row
+                  div.col.col1 #{staticFields.secondTable.col1}
+                  div.col.col2 #{staticFields.secondTable.col2}
+                  div.col.col3 #{staticFields.secondTable.col3}
+                  div.col.col4 #{staticFields.secondTable.col4}
+                .content
+                  - var n = 0;
+                  while n < 14 
+                    - var row = data.secondTable.data[n]
+                    if row == undefined 
+                      .row
+                        div.col.col1
+                        div.col.col2 
+                        div.col.col3
+                        div.col.col4 
+                    else 
+                      .row
+                        div.col.col1 #{row.col1}
+                        div.col.col2 #{row.col2}
+                        div.col.col3 #{row.col3}
+                        div.col.col4 #{row.col4}
+                    - n = n + 1
+            .footer
+              div.row
+                div.col.col1 #{staticFields.secondTable.total}
+                div.col.col5 #{data.secondTable.total}
+        .w-25.calendar
+          div.cell.m-auto
+            .label #{staticFields.calendar.title}
+            .month #{data.calendar.month}#{staticFields.calendar.monthUnit}
+            .body.row
+              each day in staticFields.calendar.dayInWeeks
+                div.calendar-cell #{day}
+              -var n = 0
+              while n < 42
+                if n < data.startIndex || n > data.totalDay + data.startIndex - 1
+                  div.calendar-cell &nbsp;
+                else 
+                  div.calendar-cell(class = false ? 'circle' : '') #{n - data.startIndex + 1}
+                - n = n + 1
+          div.mt-1 #{staticFields.calendar.note}
+
+    .third-block.mt-1
+      .w-75 #{staticFields.final.firstNote}
+    .final-block.mt-3 #{staticFields.final.secondNote}
+
+.container.page-2
+  .header   
+    .title.row  
+      h1 #{staticFields.secondTitle}
+    .information 
+      .col.col1.block
+        div #{data.postalCode}
+        div #{data.address}
+        div #{data.name}
+        div.mt-1 #{data.fullname}
+      div.block
+        div #{data.companyName}
+        div.ml-1 #{data.companyAddress}
+        div.mt-1 #{data.companyPostalCode}
+        div #{data.comapnyDetailAddress}
+        div.mt-1 #{data.comapnyContact}
+  .body.mt-1
+    .first-block 
+      .title #{staticFields.firstNote}
+      .account-table.mt-1
+        .head
+          .col.col1 #{staticFields.accountTable.col1}
+          .col.col2 #{staticFields.accountTable.col2}
+          .col.col3 #{staticFields.accountTable.col3}
+        .body 
+          .col.col1 #{data.accountTable.col1}
+          .col.col2 #{data.accountTable.col2}
+          .col.col3 #{data.accountTable.col3}
+      .w-full.row
+        .w-75
+          .first-table
+            .header
+              div  
+                span #{data.firstTable.date} 
+                span #{staticFields.aggrePeriod} 
+                span #{staticFields.firstTable.startFrom}#{data.totalDay}#{staticFields.dayUnit}
+            .body
+                .head.row
+                  div.col.col1 #{staticFields.firstTable.col1}
+                  div.col.col2 #{staticFields.firstTable.col2}
+                  div.col.col3 #{staticFields.firstTable.col3}
+                  div.col.col4 #{staticFields.firstTable.col4}
+                  div.col.col5 #{staticFields.firstTable.col5}
+                .content
+                  - var n = 0;
+                  while n < 7 
+                    - var row = data.firstTable.data[n]
+                    if row == undefined 
+                      .row
+                        div.col.col1
+                        div.col.col2 
+                        div.col.col3
+                        div.col.col4 
+                        div.col.col5 
+                    else 
+                      .row
+                        div.col.col1 #{row.col1}
+                        div.col.col2 #{row.col2}
+                        div.col.col3 #{row.col3}
+                        div.col.col4 #{row.col4}
+                        div.col.col5 #{row.col5}
+                    - n = n + 1
+            .footer
+              div.row
+                div.col.col1 #{staticFields.firstTable.summary}
+                div.col.col5 #{data.firstTable.total}
+        .w-25.price-tag
+          div.cell.m-auto
+            .label #{staticFields.firstTable.billingAmount}
+            .value #{data.firstTable.billingAmount}
+          div.cell.m-auto
+            .label #{staticFields.firstTable.deductiableAmount}
+            .value #{data.firstTable.deductiableAmount}
+
+    .second-block 
+      .title #{staticFields.secondTable.title}
+      .w-full.row
+        .w-75
+          .first-table
+            .body
+                .head.row
+                  div.col.col1 #{staticFields.secondTable.col1}
+                  div.col.col2 #{staticFields.secondTable.col2}
+                  div.col.col3 #{staticFields.secondTable.col3}
+                  div.col.col4 #{staticFields.secondTable.col4}
+                .content
+                  - var n = 0;
+                  while n < 14 
+                    - var row = data.secondTable.data[n]
+                    if row == undefined 
+                      .row
+                        div.col.col1
+                        div.col.col2 
+                        div.col.col3
+                        div.col.col4 
+                    else 
+                      .row
+                        div.col.col1 #{row.col1}
+                        div.col.col2 #{row.col2}
+                        div.col.col3 #{row.col3}
+                        div.col.col4 #{row.col4}
+                    - n = n + 1
+            .footer
+              div.row
+                div.col.col1 #{staticFields.secondTable.total}
+                div.col.col5 #{data.secondTable.total}
+        .w-25.calendar
+          div.cell.m-auto
+            .label #{staticFields.calendar.title}
+            .month #{data.calendar.month}#{staticFields.calendar.monthUnit}
+            .body.row
+              each day in staticFields.calendar.dayInWeeks
+                div.calendar-cell #{day}
+              -var n = 0
+              while n < 42
+                if n < data.startIndex || n > data.totalDay + data.startIndex - 1
+                  div.calendar-cell &nbsp;
+                else 
+                  div.calendar-cell(class = false ? 'circle' : '') #{n - data.startIndex + 1}
+                - n = n + 1
+          div.mt-1 #{staticFields.calendar.note}
+
+    .third-block.mt-1
+      .w-75 #{staticFields.final.firstNote}
+    .final-block.mt-3 #{staticFields.final.secondNote}
