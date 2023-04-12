@@ -271,6 +271,18 @@ body {
         }
     }
 }
+.third-block {
+    .w-75 {
+        padding: 0 25px 0 10px;
+    }
+    .w-25 {
+        padding: 5px;
+        min-height: 90px;
+        border: 1px solid;
+        text-align: center;
+    }
+}
+
 .row {
     display: flex;
 }

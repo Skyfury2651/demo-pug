@@ -124,9 +124,12 @@ link(rel='stylesheet' type='text/css' href='../style.css')
                 - n = n + 1
           div.mt-1 #{staticFields.calendar.note}
 
-    .third-block.mt-1
-      .w-75 #{staticFields.final.firstNote}
-    .final-block.mt-3 #{staticFields.final.secondNote}
+    .third-block.mt-1.row
+      .w-75 
+        div #{staticFields.final.firstNote}
+        div #{staticFields.final.secondNote}
+      .w-25 
+        div #{staticFields.final.sign}
 
 .container.page-2
   .header   
@@ -250,6 +253,9 @@ link(rel='stylesheet' type='text/css' href='../style.css')
                 - n = n + 1
           div.mt-1 #{staticFields.calendar.note}
 
-    .third-block.mt-1
-      .w-75 #{staticFields.final.firstNote}
-    .final-block.mt-3 #{staticFields.final.secondNote}
+    .third-block.mt-1.row
+      .w-75 
+        div #{staticFields.final.firstNote}
+        div #{staticFields.final.secondNote}
+      .w-25 
+        div #{staticFields.final.sign}
