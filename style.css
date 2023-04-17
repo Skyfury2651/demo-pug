@@ -108,18 +108,66 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.sixth-block .body {
-  flex-direction: column;
+.sixth-block .table {
+  border-top: 1px solid;
+  border-left: 1px solid;
 }
-.sixth-block .body .row {
+.sixth-block .table .item {
+  padding: 0 0.2rem;
+}
+.sixth-block .table .head {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  grid-auto-flow: column;
+}
+.sixth-block .table .head .row {
   display: flex;
   flex-direction: row;
 }
+.sixth-block .table .head .block {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.sixth-block .table .head .block .item {
+  border-width: 0px 1px 1px 0px;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sixth-block .table .head .block .item:nth-child(n) {
+  border-left: unset;
+}
+.sixth-block .table .body {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  grid-auto-flow: column;
+}
+.sixth-block .table .body .row {
+  display: flex;
+  flex-direction: row;
+}
+.sixth-block .table .body .block {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.sixth-block .table .body .block .item {
+  border-width: 0px 1px 1px 0px;
+  border-style: solid;
+}
+.sixth-block .table .body .block .item:nth-child(n) {
+  border-left: unset;
+}
 .sixth-block .cell {
-  width: 6.215rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
   min-height: 1.375rem;
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .table .header {

@@ -102,43 +102,28 @@ link(rel='stylesheet', type='text/css', href='../style.css')
 .sixth-block
   .title 出 勤 者
   .table 
-    .header
-      .cell.col1 #{staticFields.blocks['sixth-block'].col1}
-      .cell.col2 #{staticFields.blocks['sixth-block'].col2}
-      .cell.col3 #{staticFields.blocks['sixth-block'].col3}
-      .cell.col4 #{staticFields.blocks['sixth-block'].col4}
-      .cell.col5 #{staticFields.blocks['sixth-block'].col5}
-      .cell.col6 #{staticFields.blocks['sixth-block'].col6}
-      .cell.col7 #{staticFields.blocks['sixth-block'].col7}
-      .cell.col8 #{staticFields.blocks['sixth-block'].col8}
-    - var n = 0;
-    .body
-      while n < 5
-        .row
-          if data.blocks.sixth[n]
-            .cell.col1 
-                span #{data.blocks.sixth[n].col1}
-            .cell.col2
-                span #{data.blocks.sixth[n].col2}
-            .cell.col3
-                span #{data.blocks.sixth[n].col3}
-            .cell.col4
-                span #{data.blocks.sixth[n].col4}
-            .cell.col5
-                span #{data.blocks.sixth[n].col5}
-            .cell.col6
-                span #{data.blocks.sixth[n].col6}
-            .cell.col7
-                span #{data.blocks.sixth[n].col7}
-            .cell.col8
-              span #{data.blocks.sixth[n].col8}
-          else     
-            .cell.col1 
-            .cell.col2
-            .cell.col3
-            .cell.col4
-            .cell.col5
-            .cell.col6
-            .cell.col7
-            .cell.col8
-        - n = n + 1
+      .head
+        .row.block
+          .item #{staticFields.blocks['sixth-block'].col1}
+          .item #{staticFields.blocks['sixth-block'].col2}
+        .row.block
+          .item #{staticFields.blocks['sixth-block'].col1}
+          .item #{staticFields.blocks['sixth-block'].col2}
+        .row.block
+          .item #{staticFields.blocks['sixth-block'].col1}
+          .item #{staticFields.blocks['sixth-block'].col2}
+        .row.block
+          .item #{staticFields.blocks['sixth-block'].col1}
+          .item #{staticFields.blocks['sixth-block'].col2}
+      .body
+        - var j = 0;
+        while j < 20
+          if data.blocks.sixth[j]
+            .row.block(class= j < 5 ? "border-left" : "")
+              .item #{data.blocks.sixth[j].col1} 
+              .item #{data.blocks.sixth[j].col2}
+          else 
+            .row.block(class= j < 5 ? "border-left" : "")
+              .item 
+              .item
+          - j = j + 1;
