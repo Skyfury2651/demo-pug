@@ -1,119 +1,583 @@
 // Use !{var} to use unescaped conent
 include variables.pug
 link(rel='stylesheet' type='text/css' href='../style.css')
-.container 
-  .row.first-row 
-    .title #{staticFields.first.title}
-  .row.second-row
-    .first-block
-      span.single-char #{data.second.year}
-      each character in data.second.date
-        span.single-char=character
-      span.single-char #{staticFields.second.month}
-    .second-block
-      span #{data.second.title}
-  .row.third-row
-    .left-side
-      div #{staticFields.third.first}
-      div #{staticFields.third.second}
-      div #{staticFields.third.third}
-    .center 
-      span #{date}
-    .right-side 
-      .row
-        div.header #{staticFields.third.right.first}
-        div.body.row 
-          each numb in data.third.first
-            div.split-char #{numb}
-      .row
-        div.header  #{staticFields.third.right.second.title}
-        div.body
-          .row.full-width 
-            div.sub-header.padding-content #{staticFields.third.right.second.first}
-            div.sub-body.padding-content #{data.third.second.first}
-          .row.full-width.position
-            div.sub-header #{staticFields.third.right.second.second}
-            div.sub-body 
-              .row
-                each numb in data.third.second.second.first
-                  div.split-text #{numb}
-              div.border-top.text-area #{data.third.second.second.second}
-          .row.full-width
-            div.sub-header.padding-content #{staticFields.third.right.second.third} 
-            div.sub-body.padding-content #{data.third.second.third}
-  .fourth-row
-    .title #{staticFields.fourth.title}
-    .table
-      .row.full-width.head
-        .col1.header #{staticFields.fourth.first}
-        .col2.header
-          div.border-bottom.full-width.title.text-center #{staticFields.fourth.secondTitle}
-          div.row
-            each title in staticFields.fourth.second
-              div.cell !{title}
-        .col3.header
-          div.border-bottom.full-width.title.text-center #{staticFields.fourth.thirdTitle}
-          div.row
-             each title in staticFields.fourth.third
-              div.cell !{title}
-      each rowFourth, index in data.fourth 
-        .row.full-width.body
-          .col1(class = index+1 == data.fourth.length  ? 'text-center' : '') !{rowFourth.title}
-          .col2 
-            div.row
-              div.cell(class=rowFourth.col1 == undefined  ? "dashed" : "") #{rowFourth.col1}
-              div.cell(class=rowFourth.col2 == undefined  ? "dashed" : "") #{rowFourth.col2}
-              div.cell(class=rowFourth.col3 == undefined  ? "dashed" : "") #{rowFourth.col3}
-              div.cell(class=rowFourth.col4 == undefined  ? "dashed" : "") #{rowFourth.col4}
-              div.cell(class=rowFourth.col5 == undefined  ? "dashed" : "") #{rowFourth.col5}
-              div.cell(class=rowFourth.col6 == undefined  ? "dashed" : "") #{rowFourth.col6}
-          .col3
-            div.row
-              div.cell(class=rowFourth.col7 == undefined  ? "dashed" : "") #{rowFourth.col7}
-              div.cell(class=rowFourth.col8 == undefined  ? "dashed" : "") #{rowFourth.col8}
-              div.cell(class=rowFourth.col9 == undefined  ? "dashed" : "") #{rowFourth.col9}
-              div.cell(class=rowFourth.col10 == undefined  ? "dashed" : "") #{rowFourth.col10}
-              div.cell(class=rowFourth.col11 == undefined  ? "dashed" : "") #{rowFourth.col11}
-  .fifth-row
-    .title.margin-bottom #{staticFields.fifth.title}
-    .table
-      .row.full-width.head
-        .col1.header #{staticFields.fifth.first}
-        .col2.header
-          div.border-bottom.full-width.title.text-center #{staticFields.fifth.secondTitle}
-          div.row
-            each title in staticFields.fifth.second
-              div.cell !{title}
-        .col3.header
-          div.border-bottom.full-width.title.text-center #{staticFields.fifth.thirdTitle}
-          div.row
-           each title in staticFields.fifth.third
-              div.cell !{title}
-      .row.full-width.body
-        each dataBody in data.fifth
-          .col1.row.no-padding
-            div.number.border-right #{dataBody.code}
-            div.subject
-              each subject in dataBody.data
-                div.name.row
-                  div.title !{subject.title}
-                  div.content(class=subject.col1 == undefined  ? "dashed" : "") #{subject.col1}
-                  div.content(class=subject.col2 == undefined  ? "dashed" : "") #{subject.col2} 12312
-                  div.content(class=subject.col3 == undefined  ? "dashed" : "") #{subject.col3}
-                  div.content(class=subject.col4 == undefined  ? "dashed" : "") #{subject.col4}
-                  div.content(class=subject.col5 == undefined  ? "dashed" : "") #{subject.col5}
-                  div.content(class=subject.col6 == undefined  ? "dashed" : "") #{subject.col6}
-                  div.content(class=subject.col7 == undefined  ? "dashed" : "") #{subject.col7}
-      .row.full-width.footer
-        .col1.text-center #{staticFields.fifth.footer}
-        .col2
-          div.row
-            div.content(class=data.footer.col1 == undefined ? 'dashed' : '' ) #{data.footer.col1}
-            div.content(class=data.footer.col2 == undefined ? 'dashed' : '' ) #{data.footer.col2}
-            div.content(class=data.footer.col3 == undefined ? 'dashed' : '' ) #{data.footer.col3}
-            div.content(class=data.footer.col4 == undefined ? 'dashed' : '' ) #{data.footer.col4}123
-        .col3
-          div.row
-            div.content(class=data.footer.col5 == undefined ? 'dashed' : '' ) #{data.footer.col5}
-            div.content(class=data.footer.col6 == undefined ? 'dashed' : '' ) #{data.footer.col6}
-            div.content(class=data.footer.col7 == undefined ? 'dashed' : '' ) #{data.footer.col7}
+
+.template-description
+  .template-number #{staticFields.templateNo}
+  span #{staticFields.subDescription}
+
+.page-title
+  span() #{staticFields.title}
+
+.page-sub-title #{staticFields.subTitle_01} <br> #{staticFields.subTitle_02} <br> #{staticFields.subTitle_03}
+
+div(style="display: flex; justify-content: space-between")
+  .public-expense
+    .public-expense-number
+      .title #{staticFields.publicExpense.expenseNoTitle}
+      .content
+        -var i = 0
+        while i < 8
+          .cell #{data.KohiFutanshaBango[i]}
+          - i++
+    .public-beneficiary-number
+      .title #{staticFields.publicExpense.beneficiaryNoTitle}
+      .content
+        -var i = 0
+        while i < 7
+          .cell #{data.KohiJyuKyuShaBango[i]}
+          - i++
+  .insurer-number
+    .date
+      .title #{data.TeikyoYymmKanjiDate.slice(0, 2)}
+      -var i = 2
+      while i < 7
+        .cell #{data.TeikyoYymmKanjiDate[i]}
+        - i++ 
+      .time #{staticFields.insurerNumber.time}
+    .number
+      .title #{staticFields.insurerNumber.numberTitle}
+      -var i = 0
+      while i < 6
+        .cell #{data.HokenshaBango[i]}
+        - i++ 
+
+div(style="display: flex; justify-content: space-between")
+  .insured-customer
+    .title #{staticFields.insuredCustomer.title}
+    .col-1
+      .insurance-number-title #{staticFields.insuredCustomer.insuranceNumberTitle}
+      .name-kana-title #{staticFields.insuredCustomer.nameKanaTitle}
+      .name-kanji-title #{staticFields.insuredCustomer.nameKanjiTitle}
+      .birthday-title #{staticFields.insuredCustomer.birthdayTitle}
+      .care-level-title #{staticFields.insuredCustomer.careLevelTitle}
+      .expired-date-title #{staticFields.insuredCustomer.expiredDateTitle}
+    .col-2 
+      .insurance-number 
+        - var i = 0
+        while i < 10
+          .cell #{data.HiHokenshaBango[i]}
+          - i++
+      .name-kana #{data.SeiMeiKana}
+      .name-kanji #{data.SeiMeiKanji}
+      .birdthday
+        .sub-col-1
+          .gengou-year
+            span(class=data.BirthYmdKanjiDate.slice(0 ,2) ==  '明治'  ? 'circle' : '') #{staticFields.insuredCustomer.meiJiYear}
+            span(class=data.BirthYmdKanjiDate.slice(0 ,2) ==  '大正'  ? 'circle' : '') #{staticFields.insuredCustomer.taiShouYear}
+            span(class=data.BirthYmdKanjiDate.slice(0 ,2) ==  '昭和'  ? 'circle' : '') #{staticFields.insuredCustomer.shouWaYear}
+          .birthday-value
+            -var i = 2
+            while i < data.BirthYmdKanjiDate.length
+              .cell #{data.BirthYmdKanjiDate[i]}
+              - i++
+        .gender-title #{staticFields.insuredCustomer.gender}
+        .gender-value
+          div 
+            span(class=data.GenderKbn ==  '1'  ? 'circle' : '') 1.
+            span #{staticFields.insuredCustomer.male}
+          div  
+            span(class=data.GenderKbn ==  '2'  ? 'circle' : '') 2.
+            span #{staticFields.insuredCustomer.female}
+      .care-level
+        span #{staticFields.insuredCustomer.needCare}
+        span(class=data.YoKaigodo ==  '21'  ? 'circle' : '') 1
+        span ・
+        span(class=data.YoKaigodo ==  '22'  ? 'circle' : '') 2
+        span ・
+        span(class=data.YoKaigodo ==  '23'  ? 'circle' : '') 3
+        span ・
+        span(class=data.YoKaigodo ==  '24'  ? 'circle' : '') 4
+        span ・
+        span(class=data.YoKaigodo ==  '25'  ? 'circle' : '') 5
+      .expired-date 
+        .row-1
+          .gengou-year #{data.YokaigoNinteiStartKanjiDate.slice(0, 2)}
+          - var i = 2
+          while i < data.YokaigoNinteiStartKanjiDate.length
+            .cell #{data.YokaigoNinteiStartKanjiDate[i]}
+            - i++
+          .cell #{staticFields.insuredCustomer.from}
+        .row-2
+          .gengou-year #{data.YokaigoNinteiEndKanjiDate.slice(0, 2)}
+           - var i = 2
+          while i < data.YokaigoNinteiEndKanjiDate.length
+            .cell #{data.YokaigoNinteiEndKanjiDate[i]}
+            - i++
+          .cell #{staticFields.insuredCustomer.to}
+
+  .billing-company 
+    .title #{staticFields.billingCompany.title}
+    .col-1
+      .office-number-title #{staticFields.billingCompany.officeNumberTitle}
+      .office-name-title #{staticFields.billingCompany.officeNameTitle}
+      .address #{staticFields.billingCompany.addressTitle}
+      .contact-address #{staticFields.billingCompany.contactAddressTitle}
+    .col-2 
+      .office-number 
+        - var i = 0
+        while i < 10
+          .cell #{data.JigyoshoBango[i]}
+          - i++
+      .office-name #{data.TenpoMei}
+      .address
+        .zipcode
+          .cell 〒
+          - var i = 0
+          while i < 8
+            .cell #{data.ZipCd[i]}
+            - i++
+        .address-detail #{data.Address}
+      .contact-address #{staticFields.billingCompany.phoneNumber}　　　#{data.TellNo}
+      
+.home-service-plan
+  .title !{staticFields.homeServicePlan.title}
+  .content
+    .service-type
+      span.circle #{staticFields.homeServicePlan.serviceType03}
+    .office-details
+      .office-number-title
+        span #{staticFields.homeServicePlan.office}
+        span #{staticFields.homeServicePlan.number}
+      - var i = 0
+      while i < 10
+        .office-number #{data.CareManeJigyoshoBango[i]}
+        -i++
+      .office-name-title 
+        span #{staticFields.homeServicePlan.office}
+        span #{staticFields.homeServicePlan.name}
+      .office-name #{data.CareManeJigyoshoMei}
+
+.service-cancel
+  .row-1
+    .start-end-date
+      .title #{staticFields.serviceCancel.startDate}
+      .gengou-year #{data.RiyoKaishiYmdKanjiDate.slice(0, 2)}
+      - var i = 2
+      while i < data.RiyoKaishiYmdKanjiDate.length
+        .cell #{data.RiyoKaishiYmdKanjiDate[i]}
+        - i++
+    .start-end-date(style="border-right: none;")
+      .title #{staticFields.serviceCancel.endDate}
+      .gengou-year #{data.KaiyakuYmdKanjiDate.slice(0, 2)}
+      - var i = 2
+      while i < data.KaiyakuYmdKanjiDate.length
+        .cell #{data.KaiyakuYmdKanjiDate[i]}
+        - i++
+  .row-2
+    .title #{staticFields.serviceCancel.title}
+    .content
+      span(class=data.KaiyakuRiyuKbn == '1' ? 'circle' : '') 1.
+      span.mr-4 #{staticFields.serviceCancel.reason01}
+      span(class=data.KaiyakuRiyuKbn == '3' ? 'circle' : '') 3.
+      span.mr-4 #{staticFields.serviceCancel.reason03}
+      span(class=data.KaiyakuRiyuKbn == '4' ? 'circle' : '') 4.
+      span.mr-4 #{staticFields.serviceCancel.reason04}
+      span(class=data.KaiyakuRiyuKbn == '5' ? 'circle' : '') 5.
+      span.mr-4 #{staticFields.serviceCancel.reason05}
+      span(class=data.KaiyakuRiyuKbn == '6' ? 'circle' : '') 6.
+      span.mr-4 #{staticFields.serviceCancel.reason06}
+      span(class=data.KaiyakuRiyuKbn == '7' ? 'circle' : '') 7.
+      span.mr-4 #{staticFields.serviceCancel.reason07}
+      span(class=data.KaiyakuRiyuKbn == '8' ? 'circle' : '') 8.
+      span.mr-4 #{staticFields.serviceCancel.reason08}
+      span 9.
+      span.mr-4 #{staticFields.serviceCancel.reason09}
+
+.payment-detail
+  .title #{staticFields.paymentDetail.title}
+  .content
+    .headers
+      .col-1 #{staticFields.paymentDetail.headers.col1}
+      .col-2 #{staticFields.paymentDetail.headers.col2}
+      .col-3 #{staticFields.paymentDetail.headers.col3}
+      .col-4 #{staticFields.paymentDetail.headers.col4}
+      .col-5 #{staticFields.paymentDetail.headers.col5}
+      .col-6 #{staticFields.paymentDetail.headers.col6}
+      .col-7 #{staticFields.paymentDetail.headers.col7}
+      .col-8 #{staticFields.paymentDetail.headers.col8}
+    -var i = 0
+    while i < 10
+      .one-row
+        .col-1 #{data.paymentDetails[i] ? data.paymentDetails[i].ServiceNaiyoTxt : ''}
+        .col-2
+          -var j = 0
+          while j < 6
+            .cell #{data.paymentDetails[i] && data.paymentDetails[i].MEISAI_ServiceCd ? data.paymentDetails[i].MEISAI_ServiceCd[j] : ''}
+            - j++
+        .col-3
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_HoshuTanisu ? data.paymentDetails[i].MEISAI_HoshuTanisu.toString().padStart(4, ' ') : '    '
+            .cell #{val}
+        .col-4
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_JisseiKaisu ? data.paymentDetails[i].MEISAI_JisseiKaisu.toString().padStart(2, ' ') : '  '
+            .cell #{val}
+        .col-5
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_ServiceTanisu ? data.paymentDetails[i].MEISAI_ServiceTanisu.toString().padStart(5, ' ') : '     '
+            .cell #{val}
+        .col-6
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_KohiTashoNissuKaisu ? data.paymentDetails[i].MEISAI_KohiTashoNissuKaisu.toString().padStart(2, ' ') : '  '
+            .cell #{val}
+        .col-7
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_KohiTani ? data.paymentDetails[i].MEISAI_KohiTani.toString().padStart(5, ' ') : '     '
+            .cell #{val}
+        .col-8 #{data.paymentDetails[i] && data.paymentDetails[i].KohiHoubetsuBango ? data.paymentDetails[i].KohiHoubetsuBango : ''}
+      - i++
+
+.special-address
+  .title
+    span !{staticFields.specialAddress.title}
+  .content
+    .headers
+      .col-1 #{staticFields.specialAddress.headers.col1}
+      .col-2 #{staticFields.specialAddress.headers.col2}
+      .col-3 #{staticFields.specialAddress.headers.col3}
+      .col-4 #{staticFields.specialAddress.headers.col4}
+      .col-5 #{staticFields.specialAddress.headers.col5}
+      .col-6 #{staticFields.specialAddress.headers.col6}
+      .col-7 #{staticFields.specialAddress.headers.col7}
+      .col-8 !{staticFields.specialAddress.headers.col8}
+      .col-9 #{staticFields.specialAddress.headers.col9}
+    .one-row
+      .col-1 #{data.ServiceNaiyoTxt_J1}
+      .col-2
+        each val in data.MEISAI_ServiceCd_J1 ? data.MEISAI_ServiceCd_J1.toString().padStart(6, ' ') : '      '
+          .cell #{val}
+      .col-3
+        each val in data.MEISAI_HoshuTanisu_J1 ? data.MEISAI_HoshuTanisu_J1.toString().padStart(4, ' ') : '    '
+          .cell #{val}
+      .col-4
+        each val in data.MEISAI_JisseiKaisu_J1 ? data.MEISAI_JisseiKaisu_J1.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-5
+        each val in data.MEISAI_ServiceTanisu_J1 ? data.MEISAI_ServiceTanisu_J1.toString().padStart(5, ' ') : '     '
+          .cell #{val}
+      .col-6
+        each val in data.MEISAI_KohiTashoNissuKaisu_J1 ? data.MEISAI_KohiTashoNissuKaisu_J1.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-7
+        each val in data.MEISAI_KohiTani_J1 ? data.MEISAI_KohiTani_J1.toString().padStart(2, ' ') : '  ' 
+          .cell #{val}
+      .col-8 #{data.JyushotiHokenshaBango_J1}
+      .col-9
+    .one-row
+      .col-1 #{data.ServiceNaiyoTxt_J2}
+      .col-2
+        each val in data.MEISAI_ServiceCd_J2 ? data.MEISAI_ServiceCd_J2.toString().padStart(6, ' ') : '      '
+          .cell #{val}
+      .col-3
+        each val in data.MEISAI_HoshuTanisu_J2 ? data.MEISAI_HoshuTanisu_J2.toString().padStart(4, ' ') : '    '
+          .cell #{val}
+      .col-4
+        each val in data.MEISAI_JisseiKaisu_J2 ? data.MEISAI_JisseiKaisu_J2.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-5
+        each val in data.MEISAI_ServiceTanisu_J2 ? data.MEISAI_ServiceTanisu_J2.toString().padStart(5, ' ') : '     '
+          .cell #{val}
+      .col-6
+        each val in data.MEISAI_KohiTashoNissuKaisu_J2 ? data.MEISAI_KohiTashoNissuKaisu_J2.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-7
+        each val in data.MEISAI_KohiTani_J2 ? data.MEISAI_KohiTani_J2.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-8 #{data.JyushotiHokenshaBango_J2}
+      .col-9
+    .one-row
+      .col-1 #{data.ServiceNaiyoTxt_J3}
+      .col-2
+        each val in data.MEISAI_ServiceCd_J3 ? data.MEISAI_ServiceCd_J3.toString().padStart(6, ' ') : '      '
+          .cell #{val}
+      .col-3
+        each val in data.MEISAI_HoshuTanisu_J3 ? data.MEISAI_HoshuTanisu_J3.toString().padStart(4, ' ') : '    '
+          .cell #{val}
+      .col-4
+        each val in data.MEISAI_JisseiKaisu_J3 ? data.MEISAI_JisseiKaisu_J3.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-5
+        each val in data.MEISAI_ServiceTanisu_J3 ? data.MEISAI_ServiceTanisu_J3.toString().padStart(5, ' ') : '     '
+          .cell-1 #{val}
+      .col-6
+        each val in data.MEISAI_KohiTashoNissuKaisu_J3 ? data.MEISAI_KohiTashoNissuKaisu_J3.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-7
+        each val in data.MEISAI_KohiTani_J3 ? data.MEISAI_KohiTani_J3.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-8 #{data.JyushotiHokenshaBango_J3}
+      .col-9
+
+.payment-summary
+  .title #{staticFields.paymentSummary.title}
+  .content
+    .first-four-rows
+      .left-section
+        .one-row
+          .col-1 #{staticFields.paymentSummary.headers.row1}
+          .col-2
+            .cell-1 #{data.ServiceShuruiCd_01 ? data.ServiceShuruiCd_01[0] : ''}
+            .cell-2 #{data.ServiceShuruiCd_01 ? data.ServiceShuruiCd_01[1] : ''}
+            .cell-3 #{data.SERVICE_NAME_01 ? data.SERVICE_NAME_01 : ''}
+          .col-2
+            .cell-1 #{data.ServiceShuruiCd_02 ? data.ServiceShuruiCd_02[0] : ''}
+            .cell-2 #{data.ServiceShuruiCd_02 ? data.ServiceShuruiCd_02[1] : ''}
+            .cell-3 #{data.SERVICE_NAME_02 ? data.SERVICE_NAME_02 : ''}
+          .col-2
+            .cell-1 #{data.ServiceShuruiCd_03 ? data.ServiceShuruiCd_03[0] : ''}
+            .cell-2 #{data.ServiceShuruiCd_03 ? data.ServiceShuruiCd_03[1] : ''}
+            .cell-3 #{data.SERVICE_NAME_03 ? data.SERVICE_NAME_03 : ''}
+          .col-2
+            .cell-1 #{data.ServiceShuruiCd_04 ? data.ServiceShuruiCd_04[0] : ''}
+            .cell-2 #{data.ServiceShuruiCd_04 ? data.ServiceShuruiCd_04[1] : ''}
+            .cell-3 #{data.SERVICE_NAME_04 ? data.SERVICE_NAME_04 : ''}
+        .one-row
+          .col-1 #{staticFields.paymentSummary.headers.row2}
+          .col-2
+            each val in data.JissekiNissu_01 ? JissekiNissu_01.toString().padStart(2, ' ') : '  '
+              .cell-1 #{val}
+            .cell-3 #{staticFields.paymentSummary.days}
+          .col-2
+            each val in data.JissekiNissu_02 ? JissekiNissu_02.toString().padStart(2, ' ') : '  '
+              .cell-1 #{val}
+            .cell-3 #{staticFields.paymentSummary.days}
+          .col-2
+            each val in data.JissekiNissu_03 ? JissekiNissu_03.toString().padStart(2, ' ') : '  '
+              .cell-1 #{val}
+            .cell-3 #{staticFields.paymentSummary.days}
+          .col-2
+            each val in data.JissekiNissu_04 ? JissekiNissu_04.toString().padStart(2, ' ') : '  '
+              .cell-1 #{val}
+            .cell-3 #{staticFields.paymentSummary.days}
+            
+        .one-row
+          .col-1 #{staticFields.paymentSummary.headers.row3}
+          .col-2-row-3
+            each val in data.KeikakuTaniTsukiKei1_01 ? data.KeikakuTaniTsukiKei1_01.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+          .col-2-row-3
+            each val in data.KeikakuTaniTsukiKei1_02 ? data.KeikakuTaniTsukiKei1_02.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+          .col-2-row-3
+            each val in data.KeikakuTaniTsukiKei1_03 ? data.KeikakuTaniTsukiKei1_03.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+          .col-2-row-3
+            each val in data.KeikakuTaniTsukiKei1_04 ? data.KeikakuTaniTsukiKei1_04.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .one-row
+          .col-1 #{staticFields.paymentSummary.headers.row4}
+          .col-2-row-3
+            each val in data.GendogakuTaniTsukiKei1_01 ? data.GendogakuTaniTsukiKei1_01.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+          .col-2-row-3
+            each val in data.GendogakuTaniTsukiKei1_02 ? data.GendogakuTaniTsukiKei1_02.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+          .col-2-row-3
+            each val in data.GendogakuTaniTsukiKei1_03 ? data.GendogakuTaniTsukiKei1_03.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+          .col-2-row-3
+            each val in data.GendogakuTaniTsukiKei1_04 ? data.GendogakuTaniTsukiKei1_04.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+      .right-section
+    .row-5
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row5}
+        .col-2-row-3
+          each val in data.GendogakuGaiTaniTsukiKei1_01 ? data.GendogakuGaiTaniTsukiKei1_01.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.GendogakuGaiTaniTsukiKei1_02 ? data.GendogakuGaiTaniTsukiKei1_02.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.GendogakuGaiTaniTsukiKei1_03 ? data.GendogakuGaiTaniTsukiKei1_03.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.GendogakuGaiTaniTsukiKei1_03 ? data.GendogakuGaiTaniTsukiKei1_03.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+      .right-section #{staticFields.paymentSummary.ratio}
+    .row-6
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row6}
+        .col-2-row-3
+          each val in data.HokenTaniTsukiKei1_01 ? data.HokenTaniTsukiKei1_01.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.HokenTaniTsukiKei1_02 ? data.HokenTaniTsukiKei1_02.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.HokenTaniTsukiKei1_03 ? data.HokenTaniTsukiKei1_03.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.HokenTaniTsukiKei1_04 ? data.HokenTaniTsukiKei1_04.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+      .column-division
+        .cell-1 #{staticFields.paymentSummary.insurance}
+        each val in data.HokenKyufuRate ? data.HokenKyufuRate.toString().padStart(3, ' ') : '   '
+          .cell-dotted #{val}
+    .row-7
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row7}
+        .col-2-row-3
+          each val in data.KohiTaniTsukiKei1_01 ? data.KohiTaniTsukiKei1_01.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.KohiTaniTsukiKei1_02 ? data.KohiTaniTsukiKei1_02.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.KohiTaniTsukiKei1_03 ? data.KohiTaniTsukiKei1_03.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .col-2-row-3
+          each val in data.KohiTaniTsukiKei1_04 ? data.KohiTaniTsukiKei1_04.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+      .column-division
+        .cell-1 #{staticFields.paymentSummary.expense}
+        each val in data.KohiKyufuRate_01 ? data.KohiKyufuRate_01.toString().padStart(3, ' ') : '   '
+          .cell-dotted #{val}
+    .row-8
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row8}
+        - var hokenTanisuTankaStr = data.HokenTanisuTanka_01 ? data.HokenTanisuTanka_01.toString().padStart(4, ' ') : '    '
+        .col-money-per-unit
+          .cell-dotted #{hokenTanisuTankaStr[0]}
+          .cell-with-separator #{hokenTanisuTankaStr[1]}
+            span ▲
+          .cell-dotted #{hokenTanisuTankaStr[2]}
+          .cell-dotted #{hokenTanisuTankaStr[3]}
+          .cell-money-per-unit #{staticFields.paymentSummary.yenPerUnit}
+        - var hokenTanisuTankaStr = data.HokenTanisuTanka_02 ? data.HokenTanisuTanka_02.toString().padStart(4, ' ') : '    '
+        .col-money-per-unit
+          .cell-dotted #{hokenTanisuTankaStr[0]}
+          .cell-with-separator #{hokenTanisuTankaStr[1]}
+            span ▲
+          .cell-dotted #{hokenTanisuTankaStr[2]}
+          .cell-dotted #{hokenTanisuTankaStr[3]}
+          .cell-money-per-unit #{staticFields.paymentSummary.yenPerUnit}
+        - var hokenTanisuTankaStr = data.HokenTanisuTanka_03 ? data.HokenTanisuTanka_03.toString().padStart(4, ' ') : '    '
+        .col-money-per-unit
+          .cell-dotted #{hokenTanisuTankaStr[0]}
+          .cell-with-separator #{hokenTanisuTankaStr[1]}
+            span ▲
+          .cell-dotted #{hokenTanisuTankaStr[2]}
+          .cell-dotted #{hokenTanisuTankaStr[3]}
+          .cell-money-per-unit #{staticFields.paymentSummary.yenPerUnit}
+        - var hokenTanisuTankaStr = data.HokenTanisuTanka_04 ? data.HokenTanisuTanka_04.toString().padStart(4, ' ') : '    '
+        .col-money-per-unit
+          .cell-dotted #{hokenTanisuTankaStr[0]}
+          .cell-with-separator #{hokenTanisuTankaStr[1]}
+            span ▲
+          .cell-dotted #{hokenTanisuTankaStr[2]}
+          .cell-dotted #{hokenTanisuTankaStr[3]}
+          .cell-money-per-unit #{staticFields.paymentSummary.yenPerUnit}
+      .right-section #{staticFields.paymentSummary.summary}
+    .row-9
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row9}
+        .cols
+          each val in data.HokenSeikyuGakuTsukiKei1_01 ? data.HokenSeikyuGakuTsukiKei1_01.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .cols
+          each val in data.HokenSeikyuGakuTsukiKei1_02 ? data.HokenSeikyuGakuTsukiKei1_02.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .cols
+          each val in data.HokenSeikyuGakuTsukiKei1_03 ? data.HokenSeikyuGakuTsukiKei1_03.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+        .cols
+          each val in data.HokenSeikyuGakuTsukiKei1_04 ? data.HokenSeikyuGakuTsukiKei1_04.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+      .right-section
+        .cols
+          each val in data.HokenSeikyuGakuTsukiKei1 ? data.HokenSeikyuGakuTsukiKei1.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+    .row-10
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row10}
+        .cols
+            each val in data.HokenRiyoshaFutanGakuTsukiKei1_01 ? data.HokenRiyoshaFutanGakuTsukiKei1_01.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.HokenRiyoshaFutanGakuTsukiKei1_02 ? data.HokenRiyoshaFutanGakuTsukiKei1_02.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.HokenRiyoshaFutanGakuTsukiKei1_03 ? data.HokenRiyoshaFutanGakuTsukiKei1_03.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.HokenRiyoshaFutanGakuTsukiKei1_04 ? data.HokenRiyoshaFutanGakuTsukiKei1_04.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+            
+      .right-section
+        .cols
+          each val in data.HokenRiyoshaFutanGakuTsukiKei1 ? data.HokenRiyoshaFutanGakuTsukiKei1.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+    .row-11
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row11}
+        .cols
+            each val in data.KohiSeikyugakuTsukiKei1_01 ? data.KohiSeikyugakuTsukiKei1_01.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.KohiSeikyugakuTsukiKei1_02 ? data.KohiSeikyugakuTsukiKei1_02.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.KohiSeikyugakuTsukiKei1_03 ? data.KohiSeikyugakuTsukiKei1_03.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.KohiSeikyugakuTsukiKei1_04 ? data.KohiSeikyugakuTsukiKei1_04.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+      .right-section
+        .cols
+          each val in data.KohiSeikyugakuTsukiKei1 ? data.KohiSeikyugakuTsukiKei1.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+    .row-12
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row12}
+        .cols
+            each val in data.KohiHoninFutangakuTsukiKei1_01 ? data.KohiHoninFutangakuTsukiKei1_01.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.KohiHoninFutangakuTsukiKei1_02 ? data.KohiHoninFutangakuTsukiKei1_02.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.KohiHoninFutangakuTsukiKei1_03 ? data.KohiHoninFutangakuTsukiKei1_03.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+        .cols
+            each val in data.KohiHoninFutangakuTsukiKei1_04 ? data.KohiHoninFutangakuTsukiKei1_04.toString().padStart(6, ' ') : '      '
+              .cell #{val}
+      .right-section
+        .cols
+          each val in data.KohiHoninFutangakuTsukiKei1 ? data.KohiHoninFutangakuTsukiKei1.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+
+.cost-reduction-table
+  .title #{staticFields.costReduction.title}
+  .content
+    .row-1
+      .reduction-rate-title #{staticFields.costReduction.reductionRate}
+      .reduction-rate-value 
+        .cell
+        .cell
+        .cell-with-separator
+          span ▲
+        .cell
+      .percent %
+      .header-label #{staticFields.costReduction.header1}
+      .header-label #{staticFields.costReduction.header2}
+      .header-label #{staticFields.costReduction.header3}
+      .description-title #{staticFields.costReduction.header4}
+    -var i = 0
+    while i < 3
+      .rows
+        .col-1
+        .col-2 
+        -var k = 0
+        while k < 3
+          .col-dotted
+            -var j = 0
+            while j < 6
+              .cell-dotted
+              - j++
+          - k++
+        .description  
+      - i++
+
+.pagination 
+  .total-page-value 1
+  .total-page-title 枚中
+  .current-page-value 1
+  .current-page-title 枚目
+  

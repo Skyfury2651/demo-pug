@@ -1,316 +1,159 @@
 block vars
   -
     var staticFields = {
-      first: {
-        title: '様式第一 (附則第二条関係)'
+      templateNo: '様式第二',
+      subDescription: '(附則第二条関係)',
+      title: '居宅サービス・地域密着型サービス介護給付費明細書',
+      subTitle_01: '(訪問介護・訪問入浴介護・訪問看護・訪問リハ・居宅療養管理指導・通所介護・通所リハ・福祉用具貸与・定期巡回・随時対応型訪問介護看護・',
+      subTitle_02: '夜間対応型訪問介護・地域密着型通所介護・認知症対応型通所介護・小規模多機能型居宅介護(短期利用以外)・小規模多機能型居宅介護(短期利用)・',
+      subTitle_03: '複合型サービス(看護小規模多機能型居宅介護・短期利用以外)・複合型サービス(看護小規模多機能型居宅介護・短期利用))',
+      publicExpense: {
+        expenseNoTitle: '公費負担者番号',
+        beneficiaryNoTitle: '公費受給者番号',
       },
-      second: {
-        month: '月分'
+      insurerNumber: {
+        time: '月分',
+        numberTitle: '保険者番号',
       },
-      third: {
-        first: '保 険 者',
-        second: '(別 記)殿',
-        third: '下記のとおり請求します。',
-        right: {
-          first: '事業所番号',
-          second: {
-            title: '請求事業所',
-            first: '名称',
-            second: '所在地',
-            third: '連絡先'
-          }
-        }
+      insuredCustomer: {
+        title: '被保険者',
+        insuranceNumberTitle: '被保険者番号',
+        nameKanaTitle: '(フリガナ)',
+        nameKanjiTitle: '氏名',
+        birthdayTitle: '生年月日',
+        careLevelTitle: '要介護状態区分',
+        expiredDateTitle: '認定有効期間',
+        meiJiYear: '1.明治',
+        taiShouYear: '2.大正',
+        shouWaYear: '3.昭和',
+        genderTitle: '性別',
+        male: '男',
+        female: '女',
+        needCare: '要介護',
+        from: 'から',
+        to: 'まで',
       },
-      fourth: {
-        title: '保険請求',
-        first: '区分',
-        secondTitle: 'サービス費用',
-        second: {
-          first: '件数',
-          second: '単位数<br>・点数',
-          third: '費用<br>合計',
-          fourth: '保険<br>請求額',
-          fifth: '公費<br>請求額',
-          sixth: '利用者<br>負担',
+      billingCompany: {
+        title: '請求事業者',
+        officeNumberTitle: '事業所番号',
+        officeNameTitle: '事業所名称',
+        addressTitle: '所在地',
+        contactAddressTitle: '連絡先',
+        phoneNumber: '電話番号',
+      },
+      homeServicePlan: {
+        title: '居宅<br>サービス<br>計画',
+        serviceType03: '3. 介護予防支援事業者・地域包括支援センター作成',
+        office: '事業所',
+        number: '番号',
+        name: '名称',
+      },
+      serviceCancel: {
+        title: '中止理由',
+        startDate: '開始年月日',
+        endDate: '開始年月日',
+        reason01: '非該当',
+        reason03: '医療機関入院',
+        reason04: '死亡',
+        reason05: 'その他',
+        reason06: '介護老人福祉施設入所',
+        reason07: '介護老人保健施設入所',
+        reason08: '介護療養型医療施設入院',
+        reason09: '介護医療院入所',
+      },
+      paymentDetail: {
+        title: '給付費明細欄',
+        headers: {
+          col1: 'サービス内容',
+          col2: 'サービスコード',
+          col3: '単位数',
+          col4: '回数',
+          col5: 'サービス単位数',
+          col6: '公費分回数',
+          col7: '公費対象単位数',
+          col8: '摘要',
         },
-        thirdTitle: '特定入所者介護サービス費等',
-        third: {
-          first: '件数',
-          second: '費用<br>合計',
-          third: '利用者<br>負担',
-          fourth: '公費<br>請求額',
-          fifth: '保険<br>請求額'
-        }
       },
-      fifth: {
-        title: '公費請求',
-        first: '区分',
-        secondTitle: 'サービス費用',
-        thirdTitle: '特定入所者介護サービス費等',
-        second: {
-          first: '件数',
-          second: '単位数<br>・点数',
-          third: '費用<br>合計',
-          fourth: '公費<br>請求額',
+      specialAddress: {
+        title: '給付費明細 <br>(住所地特例対象者)',
+        headers: {
+          col1: 'サービス内容',
+          col2: 'サービスコード',
+          col3: '単位数',
+          col4: '回数',
+          col5: 'サービス単位数',
+          col6: '公費分回数',
+          col7: '公費対象単位数',
+          col8: '施設所在 <br> 保険者番号',
+          col9: '摘要',
         },
-        third:  {
-          first: '件数',
-          second: '費用<br>合計',
-          third: '公費<br>請求額',
+      },
+      paymentSummary: {
+        title: '請求額集計欄',
+        headers: {
+          row1: '①サービス種類コード/②名称',
+          row2: '③サービス実日数',
+          row3: '④計画単位数',
+          row4: '⑤限度額管理対象単位数',
+          row5: '⑥限度額管理対象外単位数',
+          row6: '⑦給付単位数（④⑤のうち少ない数）＋⑥',
+          row7: '⑧公費分単位数',
+          row8: '⑨単位数単価',
+          row9: '⑩保険請求額',
+          row10: '⑪利用者負担額',
+          row11: '⑫公費請求額',
+          row12: '⑬公費分本人負担',
         },
-        footer: '合計'
+        days: '日',
+        ratio: '給付率 (/100)',
+        insurance: '保険',
+        expense: '公費',
+        yenPerUnit: '円／単位',
+        summary: '合計',
+      },
+      costReduction: {
+        title: '社会福祉法人等による軽減',
+        reductionRate: '軽減率',
+        header1: '受領すべき利用者負担の総額（円）',
+        header2: '軽減額（円）',
+        header3: '軽減後利用者負担の総額（円）',
+        header4: '備考',
+        rowHeaders: [
+          {
+            serviceNo: '11',
+            label: '訪問介護',
+          },
+          {
+            serviceNo: '15',
+            label: '通所介護',
+          },
+          {
+            serviceNo: '16',
+            label: '定期巡回・随時対応型訪問介護看護',
+            class: 'fs-8px'
+          },
+          {
+            serviceNo: '76',
+            label: '夜間対応型訪問介護',
+          },
+          {
+            serviceNo: '71',
+            label: '認知症対応型通所介護',
+          },
+          {
+            serviceNo: '72',
+            label: '小規模多機能型居宅介護',
+          },
+          {
+            serviceNo: '73',
+            label: '複合型サービス',
+          },
+          {
+            serviceNo: '77',
+            label: '訪問介護',
+          },
+        ]
       }
     }
     
-    var data = {
-      second: {
-        year: '令和',
-        date: '04年12',
-        title: '介護給付費請求書'
-      },
-      third: {
-        date: '令和05年02月17日',
-        first: '0190200001',
-        second: {
-          first: 'きたえるーむ(デモ)',
-          second: {
-            first: '〒999-9999',
-            second: '札幌市'
-          },
-          third: '011-999-9999'
-        }
-      },
-      fourth: [
-        {
-          title: '居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等',
-          col1: '1',
-          col2: '476',
-          col3: '5,188',
-          col4: '4,669',
-          col5: '0',
-          col6: '519',
-          col7: '',
-          col8: '',
-          col9: '',
-          col10: '',
-          col11: '',
-        },
-        {
-          title: '居宅介護支援・<br> 地域密着型サービス等 ',
-          col1: '',
-          col2: '',
-          col3: '',
-          col4: '',
-        },
-        {
-          title: '合計',
-          col1: '',
-          col2: '',
-          col3: '',
-          col4: '',
-          col5: '',
-          col6: '',
-          col7: '',
-          col8: '',
-          col9: '',
-          col10: '',
-          col11: '',
-        }
-      ],
-      fifth: [
-        {
-          code: 12,
-          data: [
-            {
-              title: '生保 <br> 居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-              col5: '',
-              col6: '',
-              col7: '',
-            },
-            {
-              title: '生保 <br> 居宅・施設サービス <br> 介護予防サービス <br> 地域密着型サービス等',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 10,
-          data: [
-            {
-              title: '感染症 37条の2',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 10,
-          data: [
-            {
-              title: '感染症 37条の2',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 21,
-          data: [
-            {
-              title: '障自・通院医療',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 15,
-          data: [
-            {
-              title: '障自・更生医療',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 19,
-          data: [
-            {
-              title: '原爆・一般',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 54,
-          data: [
-            {
-              title: '難病法',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 51,
-          data: [
-            {
-              title: '特定疾患等治療研究',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 81,
-          data: [
-            {
-              title: '被爆者助成',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 86,
-          data: [
-            {
-              title: '被爆体験者',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 87,
-          data: [
-            {
-              title: '有機ヒ素・緊急措置',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 88,
-          data: [
-            {
-              title: '水俣病総合対策メチル水銀',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 66,
-          data: [
-            {
-              title: '石綿・救済措置',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 58,
-          data: [
-            {
-              title: '障害者・支援措置(全額免除)',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        },
-        {
-          code: 25,
-          data: [
-            {
-              title: '中国残留邦人等',
-              col1: '',
-              col2: '',
-              col3: '',
-              col4: '',
-            }
-          ]
-        }
-      ],
-      footer: {
-        col4: '',
-        col5: '',
-      }
-    }
+    var data = {"KohiFutanshaBango":"","KohiJyuKyuShaBango":"","TeikyoYymmKanjiDate":"令和04年12月01日","HokenshaBango":"122077","HiHokenshaBango":"0013843281","SeiMeiKana":"ｶｸﾏﾙ ｱｷｵ","SeiMeiKanji":"角丸　明夫","BirthYmdKanjiDate":"昭和15年03月27日","GenderKbn":"1","YoKaigodo":"13","YokaigoNinteiStartKanjiDate":"令和04年02月01日","YokaigoNinteiEndKanjiDate":"令和05年01月31日","JigyoshoBango":"0170508303","TenpoMei":"きたえるーむ札幌美園","ZipCd":"062-0008","Address":"札幌市豊平区美園８条６丁目３－１３","TellNo":"011-598-7180","CareManeJigyoshoBango":"0100500032","CareManeJigyoshoMei":"札幌市白石区第２地域包括支援センター","RiyoKaishiYmdKanjiDate":"令和04年06月15日","KaiyakuYmdKanjiDate":"明治33年01月01日","KaiyakuRiyuKbn":"","HokenKyufuRate":"80","HokenSeikyuGakuTsukiKei1":"10772","HokenRiyoshaFutanGakuTsukiKei1":"2693.000000000000","KohiSeikyugakuTsukiKei1":"0","KohiHoninFutangakuTsukiKei1":"0","ServiceNaiyoTxt_J1":"通所型独自ｻｰﾋﾞｽ／２２回数","ServiceNaiyoTxt_J2":"通所型独自ｻｰﾋﾞｽ運動器機能向上加算","ServiceNaiyoTxt_J3":"通所型独自ｻｰﾋﾞｽ事業所評価加算","MEISAI_ServiceCd_J1":"A61223","MEISAI_ServiceCd_J2":"A65002","MEISAI_ServiceCd_J3":"A65005","MEISAI_HoshuTanisu_J1":"342","MEISAI_HoshuTanisu_J2":"225","MEISAI_HoshuTanisu_J3":"120","MEISAI_JisseiKaisu_J1":"2","MEISAI_JisseiKaisu_J2":"1","MEISAI_JisseiKaisu_J3":"1","MEISAI_ServiceTanisu_J1":"684","MEISAI_ServiceTanisu_J2":"225","MEISAI_ServiceTanisu_J3":"120","MEISAI_KohiTashoNissuKaisu_J1":"0","MEISAI_KohiTashoNissuKaisu_J2":"0","MEISAI_KohiTashoNissuKaisu_J3":"0","MEISAI_KohiTani_J1":"0","MEISAI_KohiTani_J2":"0","MEISAI_KohiTani_J3":"0","SERVICE_NAME_01":"通所型ｻｰﾋﾞｽ(独自)","paymentDetails":[{"YokaigoshaId":"00093513","SeikyuSeqNo":"0","KohiFutanshaBango":"","KohiJyuKyuShaBango":"","KOHI_ARI_FLG":"0","KohiOrder":"0","HiHokenshaBango":"0013843281","SeiMeiKana":"ｶｸﾏﾙ ｱｷｵ","SeiMeiKanji":"角丸　明夫","BirthYmd":"1940-03-27 00:00:00.000","GenderKbn":"1","TenpoId":"121","JigyoshoBango":"0170508303","TenpoMei":"きたえるーむ札幌美園","ZipCd":"062-0008","Address":"札幌市豊平区美園８条６丁目３－１３","TellNo":"011-598-7180","RiyoKaishiYmd":"2022-06-15 00:00:00.000","KaiyakuYmd":"1900-01-01 00:00:00.000","KaiyakuRiyuKbn":"","YokaigoNinteiStartYmd":"2022-02-01 00:00:00.000","YokaigoNinteiEndYmd":"2023-01-31 00:00:00.000","TeikyoYYMMDD":"2022-12-01 00:00:00.000","TeikyoYYMM":"202212","HokenshaBango":"122077","YoKaigodo":"13","JigyoTaishoshaFlg":"0","HokenKyufuRate":"80","KohiKyufuRate_01":"0","CareManeJigyoshoBango":"0100500032","CarePlanSakuseiKbn":"3","CareManeJigyoshoMei":"札幌市白石区第２地域包括支援センター","ServiceNaiyoTxt":null,"MEISAI_ServiceCd":null,"MEISAI_HoshuTanisu":null,"MEISAI_JisseiKaisu":null,"MEISAI_ServiceTanisu":null,"MEISAI_KohiTashoNissuKaisu":null,"MEISAI_KohiTani":null,"ServiceShuruiCd_01":"A6","SERVICE_NAME_01":"通所型ｻｰﾋﾞｽ(独自)","JissekiNissu_01":"2","KeikakuTaniTsukiKei1_01":"1229","GendogakuTaniTsuki1_01":"1229","GendogakuGaiTaniTsukiKei1_01":"99","HokenTaniTsukiKei1_01":"1328","HokenTanisuTanka_01":"1014.000000","HokenSeikyuGakuTsuKei1_01":"10772","HokenRiyoshaFutanGakuTsuKei1_01":"2693.000000000000","KohiTaniTsukiKei1_01":"0","KohiSeikyugakuTsukiKei1_01":"0","KohiHoninFutangakuTsukiKei1_01":"0","ServiceShuruiCd_02":null,"SERVICE_NAME_02":null,"JissekiNissu_02":null,"KeikakuTaniTsukiKei1_02":null,"GendogakuTaniTsuki1_02":null,"GendogakuGaiTaniTsukiKei1_02":null,"HokenTaniTsukiKei1_02":null,"HokenTanisuTanka_02":null,"HokenSeikyuGakuTsuKei1_02":null,"HokenRiyoshaFutanGakuTsuKei1_02":null,"KohiTaniTsukiKei1_02":null,"KohiSeikyugakuTsukiKei1_02":null,"KohiHoninFutangakuTsukiKei1_02":null,"ServiceShuruiCd_03":null,"SERVICE_NAME_03":null,"JissekiNissu_03":null,"KeikakuTaniTsukiKei1_03":null,"GendogakuTaniTsuki1_03":null,"GendogakuGaiTaniTsukiKei1_03":null,"HokenTaniTsukiKei1_03":null,"HokenTanisuTanka_03":null,"HokenSeikyuGakuTsuKei1_03":null,"HokenRiyoshaFutanGakuTsuKei1_03":null,"KohiTaniTsukiKei1_03":null,"KohiSeikyugakuTsukiKei1_03":null,"KohiHoninFutangakuTsukiKei1_03":null,"ServiceShuruiCd_04":null,"SERVICE_NAME_04":null,"JissekiNissu_04":null,"KeikakuTaniTsukiKei1_04":null,"GendogakuTaniTsuki1_04":null,"GendogakuGaiTaniTsukiKei1_04":null,"HokenTaniTsukiKei1_04":null,"HokenTanisuTanka_04":null,"HokenSeikyuGakuTsuKei1_04":null,"HokenRiyoshaFutanGakuTsuKei1_04":null,"KohiTaniTsukiKei1_04":null,"KohiSeikyugakuTsukiKei1_04":null,"KohiHoninFutangakuTsukiKei1_04":null,"HokenSeikyuGakuTsukiKei1":"10772","KohiSeikyugakuTsukiKei1":"0","KohiHoninFutangakuTsukiKei1":"0","HokenRiyoshaFutanGakuTsukiKei1":"2693.000000000000","JyushotiTokureiFlg":"1","ServiceNaiyoTxt_J1":"通所型独自ｻｰﾋﾞｽ／２２回数","MEISAI_ServiceCd_J1":"A61223","MEISAI_HoshuTanisu_J1":"342","MEISAI_JisseiKaisu_J1":"2","MEISAI_ServiceTanisu_J1":"684","MEISAI_KohiTashoNissuKaisu_J1":"0","MEISAI_KohiTani_J1":"0","JyushotiHokenshaBango_J1":"011049","ServiceNaiyoTxt_J2":"通所型独自ｻｰﾋﾞｽ運動器機能向上加算","MEISAI_ServiceCd_J2":"A65002","MEISAI_HoshuTanisu_J2":"225","MEISAI_JisseiKaisu_J2":"1","MEISAI_ServiceTanisu_J2":"225","MEISAI_KohiTashoNissuKaisu_J2":"0","MEISAI_KohiTani_J2":"0","JyushotiHokenshaBango_J2":"011049","ServiceNaiyoTxt_J3":"通所型独自ｻｰﾋﾞｽ事業所評価加算","MEISAI_ServiceCd_J3":"A65005","MEISAI_HoshuTanisu_J3":"120","MEISAI_JisseiKaisu_J3":"1","MEISAI_ServiceTanisu_J3":"120","MEISAI_KohiTashoNissuKaisu_J3":"0","MEISAI_KohiTani_J3":"0","JyushotiHokenshaBango_J3":"011049"}]}
