@@ -3,142 +3,537 @@ include variables.pug
 
 link(rel='stylesheet', type='text/css', href='../style.css')
 
-.paginate
-  .page #{data.pagination.dummyPage}
+.template-description
+  .template-number #{staticFields.templateNo}
+  span #{staticFields.subDescription}
 
-.title
-  span #{staticFields.title}
-  span.sub #{staticFields.subTitle}
+.page-title
+  span() #{staticFields.title}
 
-.general-info
-  .date #{data.date}
-  .first-block.table
-    .header 
-      .cell.col1
-        span #{staticFields.blocks.first.col1}
-      .cell.col2
-        span #{staticFields.blocks.first.col2}
-    .body
-      .cell.col1
-        span #{data.blocks.first.col1}
-      .cell.col2
-        span #{data.blocks.first.col2}
+.page-sub-title #{staticFields.subTitle}
 
-.second-block.table
-  .header
-    .cell.col1
-    .cell.col2
-      span #{staticFields.blocks.second.col2}
-    .cell.col3
-      span #{staticFields.blocks.second.col3}
-    .cell.col4
-      span #{staticFields.blocks.second.col4}
-    .cell.col5
-      span #{staticFields.blocks.second.col5}
-    .cell.col6
-      span #{staticFields.blocks.second.col6}
-  .body
-    .cell.col1 
-      div #{staticFields.blocks.second.col1}
-    .cell.col2
-      div 42
-    .cell.col3 
-      div 11
-    .cell.col4
-      div 31
-    .cell.col5
-      div 7
-    .cell.col6
-      div 35
+div(style="display: flex; justify-content: space-between")
+  .public-expense
+    .public-expense-number
+      .title #{staticFields.publicExpense.expenseNoTitle}
+      .content
+        -var i = 0
+        while i < 8
+          .cell #{data.KohiFutanshaBango[i]}
+          - i++
+    .public-beneficiary-number
+      .title #{staticFields.publicExpense.beneficiaryNoTitle}
+      .content
+        -var i = 0
+        while i < 7
+          .cell #{data.KohiJyuKyuShaBango[i]}
+          - i++
+  .insurer-number
+    .date
+      .title #{data.TeikyoYymmKanjiDate.slice(0, 2)}
+      -var i = 2
+      while i < 7
+        .cell #{data.TeikyoYymmKanjiDate[i]}
+        - i++ 
+      .time #{staticFields.insurerNumber.time}
+    .number
+      .title #{staticFields.insurerNumber.numberTitle}
+      -var i = 0
+      while i < 6
+        .cell #{data.HokenshaBango[i]}
+        - i++ 
 
-.double-block
-  .third-block.table
-    .header
-      .cell.col1 #{staticFields.blocks['double-block'].col1}
-      .cell.col2 #{staticFields.blocks['double-block'].col2}
-      .cell.col3 #{staticFields.blocks['double-block'].col3}
-    - var n = 0;
-    .body
-      while n < 30 
-        if data.blocks.third[n]
-          .row
-            .cell.col1 #{n + 1}
-            span.cell.col2= data.blocks.third[n].col2
-            span.cell.col3= data.blocks.third[n].col3
-        else 
-          .row
-            .cell.col1
-            .cell.col2
-            .cell.col3
-        - n = n + 1
+div(style="display: flex; justify-content: space-between")
+  .insured-customer
+    .title #{staticFields.insuredCustomer.title}
+    .col-1
+      .insurance-number-title #{staticFields.insuredCustomer.insuranceNumberTitle}
+      .name-kana-title #{staticFields.insuredCustomer.nameKanaTitle}
+      .name-kanji-title #{staticFields.insuredCustomer.nameKanjiTitle}
+      .birthday-title #{staticFields.insuredCustomer.birthdayTitle}
+      .care-level-title #{staticFields.insuredCustomer.careLevelTitle}
+      .expired-date-title #{staticFields.insuredCustomer.expiredDateTitle}
+    .col-2 
+      .insurance-number 
+        - var i = 0
+        while i < 10
+          .cell #{data.HiHokenshaBango[i]}
+          - i++
+      .name-kana #{data.SeiMeiKana}
+      .name-kanji #{data.SeiMeiKanji}
+      .birdthday
+        .sub-col-1
+          .gengou-year
+            span(class=data.BirthYmdKanjiDate.slice(0 ,2) ==  '明治'  ? 'circle' : '') #{staticFields.insuredCustomer.meiJiYear}
+            span(class=data.BirthYmdKanjiDate.slice(0 ,2) ==  '大正'  ? 'circle' : '') #{staticFields.insuredCustomer.taiShouYear}
+            span(class=data.BirthYmdKanjiDate.slice(0 ,2) ==  '昭和'  ? 'circle' : '') #{staticFields.insuredCustomer.shouWaYear}
+          .birthday-value
+            -var i = 2
+            while i < data.BirthYmdKanjiDate.length
+              .cell #{data.BirthYmdKanjiDate[i]}
+              - i++
+        .gender-title #{staticFields.insuredCustomer.genderTitle}
+        .gender-value
+          div 
+            span(class=data.GenderKbn ==  '1'  ? 'circle' : '') 1.
+            span #{staticFields.insuredCustomer.male}
+          div  
+            span(class=data.GenderKbn ==  '2'  ? 'circle' : '') 2.
+            span #{staticFields.insuredCustomer.female}
+      .care-level
+        span #{staticFields.insuredCustomer.needCare}
+        span(class=data.YoKaigodo ==  '21'  ? 'circle' : '') 1
+        span ・
+        span(class=data.YoKaigodo ==  '22'  ? 'circle' : '') 2
+        span ・
+        span(class=data.YoKaigodo ==  '23'  ? 'circle' : '') 3
+        span ・
+        span(class=data.YoKaigodo ==  '24'  ? 'circle' : '') 4
+        span ・
+        span(class=data.YoKaigodo ==  '25'  ? 'circle' : '') 5
+      .expired-date 
+        .row-1
+          .gengou-year #{data.YokaigoNinteiStartKanjiDate.slice(0, 2)}
+          - var i = 2
+          while i < data.YokaigoNinteiStartKanjiDate.length
+            .cell #{data.YokaigoNinteiStartKanjiDate[i]}
+            - i++
+          .cell #{staticFields.insuredCustomer.from}
+        .row-2
+          .gengou-year #{data.YokaigoNinteiEndKanjiDate.slice(0, 2)}
+           - var i = 2
+          while i < data.YokaigoNinteiEndKanjiDate.length
+            .cell #{data.YokaigoNinteiEndKanjiDate[i]}
+            - i++
+          .cell #{staticFields.insuredCustomer.to}
 
-  .fourth-block.table
-    .header
-      .cell.col1 #{staticFields.blocks['double-block'].col1}
-      .cell.col2 #{staticFields.blocks['double-block'].col2}
-      .cell.col3 #{staticFields.blocks['double-block'].col3}
-    
-    - var n = 0;
-    .body
-      while n < 30 
-        if data.blocks.fourth[n]
-          .row
-            .cell.col1 #{n + 1}
-            span.cell.col2= data.blocks.fourth[n].col2
-            span.cell.col3= data.blocks.fourth[n].col3
-        else 
-          .row
-            .cell.col1
-            .cell.col2
-            .cell.col3
-        - n = n + 1
+  .billing-company 
+    .title #{staticFields.billingCompany.title}
+    .col-1
+      .office-number-title #{staticFields.billingCompany.officeNumberTitle}
+      .office-name-title #{staticFields.billingCompany.officeNameTitle}
+      .address #{staticFields.billingCompany.addressTitle}
+      .contact-address #{staticFields.billingCompany.contactAddressTitle}
+    .col-2 
+      .office-number 
+        - var i = 0
+        while i < 10
+          .cell #{data.JigyoshoBango[i]}
+          - i++
+      .office-name #{data.TenpoMei}
+      .address
+        .zipcode
+          .cell 〒
+          - var i = 0
+          while i < 8
+            .cell #{data.ZipCd[i]}
+            - i++
+        .address-detail #{data.Address}
+      .contact-address #{staticFields.billingCompany.phoneNumber}　　　#{data.TellNo}
+      
+.home-service-plan
+  .title !{staticFields.homeServicePlan.title}
+  .content
+    .service-type
+      span.circle #{staticFields.homeServicePlan.serviceType01}
+      span #{staticFields.homeServicePlan.serviceType02}
+    .office-details
+      .office-number-title
+        span #{staticFields.homeServicePlan.office}
+        span #{staticFields.homeServicePlan.number}
+      - var i = 0
+      while i < 10
+        .office-number #{data.CareManeJigyoshoBango[i]}
+        -i++
+      .office-name-title 
+        span #{staticFields.homeServicePlan.office}
+        span #{staticFields.homeServicePlan.name}
+      .office-name #{data.CareManeJigyoshoMei}
 
-.fifth-block.table
-  .header
-    .cell.col1 #{staticFields.blocks['fifth-block'].col1}
-    .cell.col2 !{data.blocks.fifth.col2}
-    .cell.col3 !{data.blocks.fifth.col3}
+.service-cancel
+  .row-1
+    .start-end-date
+      .title #{staticFields.serviceCancel.startDate}
+      .gengou-year #{data.RiyoKaishiYmdKanjiDate.slice(0, 2)}
+      - var i = 2
+      while i < data.RiyoKaishiYmdKanjiDate.length
+        .cell #{data.RiyoKaishiYmdKanjiDate[i]}
+        - i++
+    .start-end-date(style="border-right: none;")
+      .title #{staticFields.serviceCancel.endDate}
+      .gengou-year #{data.KaiyakuYmdKanjiDate.slice(0, 2)}
+      - var i = 2
+      while i < data.KaiyakuYmdKanjiDate.length
+        .cell #{data.KaiyakuYmdKanjiDate[i]}
+        - i++
+  .row-2
+    .title #{staticFields.serviceCancel.title}
+    .content
+      span(class=data.KaiyakuRiyuKbn == '1' ? 'circle' : '') 1.
+      span.mr-4 #{staticFields.serviceCancel.reason01}
+      span(class=data.KaiyakuRiyuKbn == '3' ? 'circle' : '') 3.
+      span.mr-4 #{staticFields.serviceCancel.reason03}
+      span(class=data.KaiyakuRiyuKbn == '4' ? 'circle' : '') 4.
+      span.mr-4 #{staticFields.serviceCancel.reason04}
+      span(class=data.KaiyakuRiyuKbn == '5' ? 'circle' : '') 5.
+      span.mr-4 #{staticFields.serviceCancel.reason05}
+      span(class=data.KaiyakuRiyuKbn == '6' ? 'circle' : '') 6.
+      span.mr-4 #{staticFields.serviceCancel.reason06}
+      span(class=data.KaiyakuRiyuKbn == '7' ? 'circle' : '') 7.
+      span.mr-4 #{staticFields.serviceCancel.reason07}
+      span(class=data.KaiyakuRiyuKbn == '8' ? 'circle' : '') 8.
+      span.mr-4 #{staticFields.serviceCancel.reason08}
 
-.sixth-block
-  .title 出 勤 者
-  .table 
-    .header
-      .cell.col1 #{staticFields.blocks['sixth-block'].col1}
-      .cell.col2 #{staticFields.blocks['sixth-block'].col2}
-      .cell.col3 #{staticFields.blocks['sixth-block'].col3}
-      .cell.col4 #{staticFields.blocks['sixth-block'].col4}
-      .cell.col5 #{staticFields.blocks['sixth-block'].col5}
-      .cell.col6 #{staticFields.blocks['sixth-block'].col6}
-      .cell.col7 #{staticFields.blocks['sixth-block'].col7}
-      .cell.col8 #{staticFields.blocks['sixth-block'].col8}
-    - var n = 0;
-    .body
-      while n < 5
-        .row
-          if data.blocks.sixth[n]
-            .cell.col1 
-                span #{data.blocks.sixth[n].col1}
-            .cell.col2
-                span #{data.blocks.sixth[n].col2}
-            .cell.col3
-                span #{data.blocks.sixth[n].col3}
-            .cell.col4
-                span #{data.blocks.sixth[n].col4}
-            .cell.col5
-                span #{data.blocks.sixth[n].col5}
-            .cell.col6
-                span #{data.blocks.sixth[n].col6}
-            .cell.col7
-                span #{data.blocks.sixth[n].col7}
-            .cell.col8
-              span #{data.blocks.sixth[n].col8}
-          else     
-            .cell.col1 
-            .cell.col2
-            .cell.col3
-            .cell.col4
-            .cell.col5
-            .cell.col6
-            .cell.col7
-            .cell.col8
-        - n = n + 1
+.payment-detail
+  .title #{staticFields.paymentDetail.title}
+  .content
+    .headers
+      .col-1 #{staticFields.paymentDetail.headers.col1}
+      .col-2 #{staticFields.paymentDetail.headers.col2}
+      .col-3 #{staticFields.paymentDetail.headers.col3}
+      .col-4 #{staticFields.paymentDetail.headers.col4}
+      .col-5 #{staticFields.paymentDetail.headers.col5}
+      .col-6 #{staticFields.paymentDetail.headers.col6}
+      .col-7 #{staticFields.paymentDetail.headers.col7}
+      .col-8 #{staticFields.paymentDetail.headers.col8}
+    -var i = 0
+    while i < 10
+      .one-row
+        .col-1 #{data.paymentDetails[i] && data.paymentDetails[i].ServiceNaiyoTxt ? data.paymentDetails[i].ServiceNaiyoTxt : ''}
+        .col-2
+          -var j = 0
+          while j < 6
+            .cell #{data.paymentDetails[i] && data.paymentDetails[i].MEISAI_ServiceCd[j] ? data.paymentDetails[i].MEISAI_ServiceCd[j] : ''}
+            - j++
+        .col-3
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_HoshuTanisu ? data.paymentDetails[i].MEISAI_HoshuTanisu.toString().padStart(4, ' ') : '    '
+            .cell #{val}
+        .col-4
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_JisseiKaisu ? data.paymentDetails[i].MEISAI_JisseiKaisu.toString().padStart(2, ' ') : '  '
+            .cell #{val}
+        .col-5
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_ServiceTanisu ? data.paymentDetails[i].MEISAI_ServiceTanisu.toString().padStart(5, ' ') : '     '
+            .cell #{val}
+        .col-6
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_KohiTashoNissuKaisu ? data.paymentDetails[i].MEISAI_KohiTashoNissuKaisu.toString().padStart(2, ' ') : '  '
+            .cell #{val}
+        .col-7
+          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_KohiTani ? data.paymentDetails[i].MEISAI_KohiTani.toString().padStart(5, ' ') : '     '
+            .cell #{val}
+        .col-8 #{data.paymentDetails[i] && data.paymentDetails[i].KohiHoubetsuBango ? data.paymentDetails[i].KohiHoubetsuBango : ''}
+      - i++
+
+.special-address
+  .title
+    span !{staticFields.specialAddress.title}
+  .content
+    .headers
+      .col-1 #{staticFields.specialAddress.headers.col1}
+      .col-2 #{staticFields.specialAddress.headers.col2}
+      .col-3 #{staticFields.specialAddress.headers.col3}
+      .col-4 #{staticFields.specialAddress.headers.col4}
+      .col-5 #{staticFields.specialAddress.headers.col5}
+      .col-6 #{staticFields.specialAddress.headers.col6}
+      .col-7 #{staticFields.specialAddress.headers.col7}
+      .col-8 !{staticFields.specialAddress.headers.col8}
+    -var i = 0
+    while i < 3
+      .one-row
+        .col-1 地域通所介護12
+        .col-2
+          -var j = 0
+          while j < 6
+            .cell 1
+            - j++
+        .col-3
+          -var j = 0
+          while j < 4
+            .cell 1
+            - j++
+        .col-4
+          -var j = 0
+          while j < 2
+            .cell 1
+            - j++
+        .col-5
+          -var j = 0
+          while j < 5
+            .cell 1
+            - j++
+        .col-6
+          -var j = 0
+          while j < 2
+            .cell 1
+            - j++
+        .col-7
+          -var j = 0
+          while j < 5
+            .cell 1
+            - j++
+        .col-8 #{ data.KohiHoubetsuBango } 111
+      - i++
+
+.payment-summary
+  .title #{staticFields.paymentSummary.title}
+  .content
+    .first-four-rows
+      .left-section
+        .one-row
+          .col-1 #{staticFields.paymentSummary.headers.row1}
+          - var j = 0
+          while j < 4
+            if j == 0
+              .col-2
+                .cell-1 #{data.ServiceShuruiCd[0]}
+                .cell-2 #{data.ServiceShuruiCd[1]}
+                .cell-3 #{data.ServiceName}
+            else 
+              .col-2
+                .cell-1
+                .cell-2
+                .cell-3
+            - j++
+        .one-row
+          .col-1 #{staticFields.paymentSummary.headers.row2}
+          - var j = 0
+          while j < 4
+            if j == 0
+              .col-2
+                each val in data.JissekiNissu ? data.JissekiNissu.toString().padStart(2, ' ') : '  '
+                  .cell-1 #{val}
+                .cell-3 #{staticFields.paymentSummary.days}
+            else 
+              .col-2
+                .cell-1
+                .cell-2
+                .cell-3 #{staticFields.paymentSummary.days}
+            - j++
+        .one-row
+          .col-1 #{staticFields.paymentSummary.headers.row3}
+          -var i = 0
+           while i < 4
+            if i == 0
+              .col-2-row-3
+                each val in data.KeikakuTaniTsukiKei1 ? data.KeikakuTaniTsukiKei1.toString().padStart(6, ' ') : '      '
+                  .cell #{val}
+            else
+              .col-2-row-3
+                -var j = 0
+                while j < 6
+                  .cell
+                  - j++
+            - i++
+        .one-row
+          .col-1 #{staticFields.paymentSummary.headers.row4}
+          -var i = 0
+           while i < 4
+            if i == 0
+              .col-2-row-3
+                each val in data.GendogakuTaniTsukiKei1 ? data.GendogakuTaniTsukiKei1.toString().padStart(6, ' ') : '      '
+                  .cell #{val}
+            else
+              .col-2-row-3
+                -var j = 0
+                while j < 6
+                  .cell
+                  - j++
+            - i++
+      .right-section
+    .row-5
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row5}
+        -var i = 0
+           while i < 4
+            if i == 0
+              .col-2-row-3
+                each val in data.GendogakuGaiTaniTsukiKei1 ? data.GendogakuGaiTaniTsukiKei1.toString().padStart(6, ' ') : '      '
+                  .cell #{val}
+            else
+              .col-2-row-3
+                -var j = 0
+                while j < 6
+                  .cell
+                  - j++
+            - i++
+      .right-section #{staticFields.ratio}
+    .row-6
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row6}
+        -var i = 0
+          while i < 4
+            if i == 0
+              .col-2-row-3
+                each val in data.HokenTaniTsukiKei1 ? data.HokenTaniTsukiKei1.toString().padStart(6, ' ') : '      '
+                  .cell #{val}
+            else
+              .col-2-row-3
+                -var j = 0
+                while j < 6
+                  .cell
+                  - j++
+            - i++
+      .column-division
+        .cell-1 #{staticFields.paymentSummary.insurance}
+        each val in data.HokenKyufuRate ? data.HokenKyufuRate.toString().padStart(3, ' ') : '   '
+          .cell-dotted #{val}
+    .row-7
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row7}
+        -var i = 0
+           while i < 4
+            if i == 0
+              .col-2-row-3
+                each val in data.KohiTaniTsukiKei1 ? data.KohiTaniTsukiKei1.toString().padStart(6, ' ') : '      '
+                  .cell #{val}
+            else
+              .col-2-row-3
+                -var j = 0
+                while j < 6
+                  .cell
+                  - j++
+            - i++
+      .column-division
+        .cell-1 #{staticFields.paymentSummary.expense}
+        each val in data.KohiKyufuRate ? data.KohiKyufuRate.toString().padStart(3, ' ') : '   '
+          .cell-dotted #{val}
+    .row-8
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row8}
+        - var i = 0;
+        while i < 4
+          if i == 0
+            - var hokenTanisuTankaStr = data.HokenTanisuTanka ? data.HokenTanisuTanka.toString().padStart(4, ' ') : '    '
+            .col-money-per-unit
+              .cell-dotted #{hokenTanisuTankaStr[0]}
+              .cell-with-separator #{hokenTanisuTankaStr[1]}
+                span ▲
+              .cell-dotted #{hokenTanisuTankaStr[2]}
+              .cell-dotted #{hokenTanisuTankaStr[3]}
+              .cell-money-per-unit #{staticFields.paymentSummary.yenPerUnit}
+            - i++
+          else
+            .col-money-per-unit
+              .cell-dotted
+              .cell-with-separator
+                span ▲
+              .cell-dotted
+              .cell-dotted
+              .cell-money-per-unit #{staticFields.paymentSummary.yenPerUnit}
+            - i++
+      .right-section #{staticFields.paymentSummary.summary}
+    .row-9
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row9}
+        - var i = 0;
+        while i < 4
+          if i == 0
+            .cols
+              each val in data.HokenSeikyuGakuTsukiKei1 ? data.HokenSeikyuGakuTsukiKei1.toString().padStart(6, ' ') : '      '
+                .cell #{val}
+          else
+            .cols
+              -var j = 0;
+              while j < 6
+                .cell
+                - j++
+          - i++
+      .right-section
+        .cols
+          each val in data.HokenSeikyuGakuTsukiKei1 ? data.HokenSeikyuGakuTsukiKei1.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+    .row-10
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row10}
+        - var i = 0;
+        while i < 4
+          .cols
+            if i == 0
+              each val in data.HokenRiyoshaFutanGakuTsukiKei1 ? data.HokenRiyoshaFutanGakuTsukiKei1.toString().padStart(6, ' ') : '      '
+                .cell #{val}
+            else 
+              -var j = 0;
+              while j < 6
+                .cell
+                - j++
+          - i= i + 1
+      .right-section
+        .cols
+          each val in data.HokenRiyoshaFutanGakuTsukiKei1 ? data.HokenRiyoshaFutanGakuTsukiKei1.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+    .row-11
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row11}
+        - var i = 0;
+        while i < 4
+          .cols
+            if i == 0
+              each val in data.KohiSeikyugakuTsukiKei1 ? data.KohiSeikyugakuTsukiKei1.toString().padStart(6, ' ') : '      '
+                .cell #{val}
+            else 
+              -var j = 0;
+              while j < 6
+                .cell
+                - j++
+          - i= i + 1
+      .right-section
+        .cols
+          each val in data.KohiSeikyugakuTsukiKei1 ? data.KohiSeikyugakuTsukiKei1.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+    .row-12
+      .left-section
+        .col-1 #{staticFields.paymentSummary.headers.row12}
+        - var i = 0;
+        while i < 4
+          .cols
+            if i == 0
+              each val in data.KohiHoninFutangakuTsukiKei1 ? data.KohiHoninFutangakuTsukiKei1.toString().padStart(6, ' ') : '      '
+                .cell #{val}
+            else 
+              -var j = 0;
+              while j < 6
+                .cell
+                - j++
+          - i= i + 1
+      .right-section
+        .cols
+          each val in data.KohiHoninFutangakuTsukiKei1 ? data.KohiHoninFutangakuTsukiKei1.toString().padStart(6, ' ') : '      '
+            .cell #{val}
+
+.cost-reduction-table
+  .title #{staticFields.costReduction.title}
+  .content
+    .row-1
+      .reduction-rate-title #{staticFields.costReduction.reductionRate}
+      .reduction-rate-value 
+        .cell
+        .cell
+        .cell-with-separator
+          span ▲
+        .cell
+      .percent %
+      .header-label #{staticFields.costReduction.header1}
+      .header-label #{staticFields.costReduction.header2}
+      .header-label #{staticFields.costReduction.header3}
+      .description-title #{staticFields.costReduction.header4}
+    -var i = 0
+    while i < 7
+      .rows
+        .col-1 #{staticFields.costReduction.rowHeaders[i].serviceNo}
+        .col-2(class=staticFields.costReduction.rowHeaders[i].class ? staticFields.costReduction.rowHeaders[i].class: '') #{staticFields.costReduction.rowHeaders[i].label}
+        -var k = 0
+        while k < 3
+          .col-dotted
+            -var j = 0
+            while j < 6
+              .cell-dotted
+              - j++
+          - k++ 
+        .description  
+      - i++
+
+.pagination 
+  .total-page-value 1
+  .total-page-title 枚中
+  .current-page-value 1
+  .current-page-title 枚目
+  

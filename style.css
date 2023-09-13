@@ -1,152 +1,1453 @@
-html {
-  font-size: 1.5vw;
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 12px;
+}
+
+div {
+  box-sizing: border-box;
 }
 
 body {
+  width: 678px;
   background: white;
-  padding: 3.75rem;
-  font-family: Helvetica;
+  font-family: MS Gothic;
+  padding: 35px 55px;
 }
 
-.paginate {
+.template-description {
+  font-size: 12px;
+  padding: 10px 0px;
   display: flex;
-  place-content: end;
+  font-weight: 200;
+  margin-left: 10px;
+}
+.template-description .template-number {
+  font-weight: 900;
+  padding-right: 5px;
 }
 
-.title {
-  font-size: 1.125rem;
-  font-weight: 700;
+.public-expense {
+  width: 272px;
+  height: 46px;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+}
+.public-expense .public-expense-number,
+.public-expense .public-beneficiary-number {
+  height: 50%;
+  border: 1px solid;
+  display: flex;
+}
+.public-expense .public-expense-number {
+  width: 100%;
+}
+.public-expense .public-beneficiary-number {
+  width: 249.5px;
+}
+.public-expense .public-expense-number .title,
+.public-expense .public-beneficiary-number .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90px;
+  border-right: 1px solid;
+}
+.public-expense .public-expense-number .content,
+.public-expense .public-beneficiary-number .content {
+  display: flex;
+  flex-grow: 1;
+}
+.public-expense .public-expense-number .content .cell,
+.public-expense .public-beneficiary-number .content .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 22.5px;
+  border-right: 1px solid;
+}
+.public-expense .public-expense-number .content > *:last-child,
+.public-expense .public-beneficiary-number .content > *:last-child {
+  border-right: none;
+}
+
+.insurer-number {
+  width: 234px;
+  height: 46px;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+}
+.insurer-number .date {
+  height: 23.5;
+  border: 1px solid;
+  display: flex;
+}
+.insurer-number .date .title,
+.insurer-number .date .cell,
+.insurer-number .date .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid;
+}
+.insurer-number .date .title {
+  width: 48px;
+}
+.insurer-number .date .cell {
+  width: 26;
+}
+.insurer-number .date .time {
+  flex-grow: 1;
+  border-right: none;
+}
+.insurer-number .date > *:nth-child(2),
+.insurer-number .date > *:nth-child(5) {
+  border-right: 1px dotted !important;
+}
+.insurer-number .number {
+  margin-top: 5px;
+  height: 19;
+  display: flex;
+  border: 1px solid;
+}
+.insurer-number .number .title,
+.insurer-number .number .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.insurer-number .number .title {
+  border-right: 1px solid;
+  width: 74px;
+}
+.insurer-number .number .cell {
+  border-right: 1px dotted;
+  width: 26;
+}
+.insurer-number .number > *:last-child {
+  border-right: none;
+}
+
+.insured-customer {
+  display: flex;
+  width: 315px;
+  height: 203px;
+  border: 1px solid;
+  margin-top: 5px;
+  font-size: 10px;
+}
+.insured-customer .title {
+  width: 22px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  border-right: 1px solid;
+  font-size: 11px;
+}
+.insured-customer .col-1 {
+  width: 54px;
+  height: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid;
+}
+.insured-customer .col-1 .insurance-number-title {
+  padding: 2px;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid;
+}
+.insured-customer .col-1 .name-kana-title {
+  padding: 2px;
+  height: 15px;
+  font-size: 8px;
+}
+.insured-customer .col-1 .name-kanji-title {
+  padding: 2px;
+  height: 45px;
+  display: flex;
+  border-bottom: 1px solid;
+  align-items: center;
+}
+.insured-customer .col-1 .birthday-title {
+  padding: 2px;
+  height: 38px;
+  border-bottom: 1px solid;
+  display: flex;
+  align-items: center;
+}
+.insured-customer .col-1 .care-level-title {
+  padding: 2px;
+  height: 37px;
+  border-bottom: 1px solid;
+  display: flex;
+  align-items: center;
+}
+.insured-customer .col-1 .expired-date-title {
+  padding: 2px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+}
+.insured-customer .col-2 {
+  display: flex;
+  flex-direction: column;
+}
+.insured-customer .col-2 .insurance-number {
+  display: flex;
+  height: 30px;
+  border-bottom: 1px solid;
+}
+.insured-customer .col-2 .insurance-number .cell {
+  display: flex;
+  align-items: center;
+  width: 24px;
+  justify-content: center;
+  border-right: 1px dotted;
+}
+.insured-customer .col-2 .insurance-number > *:last-child {
+  border-right: none;
+}
+.insured-customer .col-2 .name-kana {
+  height: 15px;
+  padding: 2px 5px;
+  border-bottom: 1px solid;
+  display: flex;
+  align-items: center;
+}
+.insured-customer .col-2 .name-kanji {
+  padding: 2px;
+  height: 45px;
+  display: flex;
+  border-bottom: 1px solid;
+  align-items: center;
+}
+.insured-customer .col-2 .birdthday {
+  height: 38px;
+  border-bottom: 1px solid;
+  display: flex;
+}
+.insured-customer .col-2 .birdthday .sub-col-1 {
+  width: 132px;
+  border-right: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+.insured-customer .col-2 .birdthday .sub-col-1 .gengou-year {
+  height: 15px;
+  border-bottom: 1px solid;
+  display: flex;
+  justify-content: space-evenly;
+}
+.insured-customer .col-2 .birdthday .sub-col-1 .gengou-year .circle::after {
+  content: "";
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 50%;
+  top: 0px;
+  right: 20px;
+  bottom: 0px;
+  left: -6px;
+}
+.insured-customer .col-2 .birdthday .sub-col-1 .birthday-value {
+  display: flex;
+  height: 23px;
+}
+.insured-customer .col-2 .birdthday .sub-col-1 .birthday-value .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px dotted;
+  width: 14.6px;
+}
+.insured-customer .col-2 .birdthday .sub-col-1 .birthday-value > *:nth-child(2),
+.insured-customer .col-2 .birdthday .sub-col-1 .birthday-value > *:nth-child(3),
+.insured-customer .col-2 .birdthday .sub-col-1 .birthday-value > *:nth-child(6),
+.insured-customer .col-2 .birdthday .sub-col-1 .birthday-value > *:nth-child(7),
+.insured-customer .col-2 .birdthday .sub-col-1 .birthday-value > *:nth-child(8) {
+  border-right: 1px solid;
+}
+.insured-customer .col-2 .birdthday .sub-col-1 .birthday-value > *:last-child {
+  border-right: none;
+}
+.insured-customer .col-2 .birdthday .gender-title {
+  width: 22px;
+  border-right: 1px solid;
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.insured-customer .col-2 .birdthday .gender-value {
+  width: 86px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.insured-customer .col-2 .birdthday .gender-value .circle::after {
+  content: "";
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 50%;
+  top: -1px;
+  right: 0px;
+  bottom: -1px;
+  left: -4px;
+}
+.insured-customer .col-2 .care-level {
+  height: 36px;
+  border-bottom: 1px solid;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0px 40px;
+}
+.insured-customer .col-2 .care-level .circle::after {
+  content: "";
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 50%;
+  top: -1px;
+  right: -3px;
+  bottom: -1px;
+  left: -3px;
+}
+.insured-customer .col-2 .expired-date {
+  height: 37px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.insured-customer .col-2 .expired-date .row-1 {
+  height: 50%;
+  border-bottom: 1px solid;
+  display: flex;
+}
+.insured-customer .col-2 .expired-date .row-2 {
+  height: 50%;
+  display: flex;
+}
+.insured-customer .col-2 .expired-date .row-1 .gengou-year,
+.insured-customer .col-2 .expired-date .row-2 .gengou-year {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid;
+  width: 32.5px;
+}
+.insured-customer .col-2 .expired-date .row-1 .cell,
+.insured-customer .col-2 .expired-date .row-2 .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid;
+  width: 20px;
+}
+.insured-customer .col-2 .expired-date .row-1 > *:last-child,
+.insured-customer .col-2 .expired-date .row-2 > *:last-child {
+  border-right: none;
+  width: 27px;
+}
+
+.billing-company {
+  display: flex;
+  width: 339px;
+  height: 203px;
+  border: 1px solid;
+  margin-top: 5px;
+  font-size: 10px;
+}
+.billing-company .title {
+  width: 22px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  border-right: 1px solid;
+  font-size: 11px;
+}
+.billing-company .col-1 {
+  width: 78px;
+  height: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid;
+}
+.billing-company .col-1 .office-number-title,
+.billing-company .col-1 .office-name-title,
+.billing-company .col-1 .address {
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid;
+}
+.billing-company .col-1 .office-number-title {
+  height: 30px;
+}
+.billing-company .col-1 .office-name-title {
+  height: 38px;
+}
+.billing-company .col-1 .address {
+  height: 95px;
+}
+.billing-company .col-1 .contact-address {
+  height: 42px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+.billing-company .col-2 {
+  display: flex;
+  flex-direction: column;
+}
+.billing-company .col-2 .office-number {
+  display: flex;
+  height: 30px;
+  border-bottom: 1px solid;
+}
+.billing-company .col-2 .office-number .cell {
+  display: flex;
+  align-items: center;
+  width: 24px;
+  justify-content: center;
+  border-right: 1px dotted;
+}
+.billing-company .col-2 .office-number > *:last-child {
+  border-right: none;
+}
+.billing-company .col-2 .office-name {
+  height: 37px;
+  border-bottom: 1px solid;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+}
+.billing-company .col-2 .address {
+  height: 93px;
+  border-bottom: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+.billing-company .col-2 .address .zipcode {
+  height: 20px;
+  border-bottom: 1px solid;
+  display: flex;
+}
+.billing-company .col-2 .address .zipcode .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid black;
+  width: 12px;
+}
+.billing-company .col-2 .address .address-detail {
+  height: 73px;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+}
+.billing-company .col-2 .address .address > *:first-child {
+  width: 19px;
+}
+.billing-company .col-2 .contact-address {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+}
+
+.page-title {
+  font-size: 13px;
   line-height: 1;
   text-align: center;
 }
-.title .sub {
-  font-weight: 500;
-  margin-left: 1rem;
+
+.page-sub-title {
+  font-size: 10px;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  text-align: center;
+  letter-spacing: -0.5px;
 }
 
-.general-info {
+.home-service-plan {
   display: flex;
-  justify-content: space-between;
+  border: 1px solid;
+  height: 52px;
+  font-size: 10px;
+  margin-top: 5px;
 }
-.general-info .date {
-  place-self: end;
+.home-service-plan .title {
+  padding: 10px;
+  border-right: 1px solid;
+  width: 10%;
 }
-.general-info .first-block .col1, .general-info .first-block .col2 {
-  width: 5rem;
-  text-align: center;
+.home-service-plan .content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
-
-.second-block {
-  margin-top: 0.313rem;
-}
-.second-block .cell {
-  text-align: center;
-}
-.second-block .col1 {
-  width: 2.188rem;
-}
-.second-block .col2, .second-block .col3, .second-block .col4, .second-block .col5, .second-block .col6 {
+.home-service-plan .content .service-type {
+  height: 22px;
+  border-bottom: 1px solid;
   display: flex;
   align-items: center;
-  width: 5.688rem;
+}
+.home-service-plan .content .service-type span {
+  padding: 0 10px;
+}
+.home-service-plan .content .service-type .circle::after {
+  content: "";
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 50%;
+  top: 0px;
+  right: 135px;
+  bottom: 0px;
+  left: 7px;
+}
+.home-service-plan .content .office-details {
+  display: flex;
+  height: 30px;
+}
+.home-service-plan .content .office-details .office-number-title,
+.home-service-plan .content .office-details .office-name-title {
+  width: 61px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border-right: 1px solid;
+}
+.home-service-plan .content .office-details .office-number {
+  width: 20.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px dotted;
+}
+.home-service-plan .content .office-details .office-name {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+.home-service-plan .content .office-details > *:nth-child(3),
+.home-service-plan .content .office-details > *:nth-child(4),
+.home-service-plan .content .office-details > *:nth-child(11) {
+  border-right: 1px solid;
+}
+
+.service-cancel {
+  margin-top: 5px;
+  border: 1px solid;
+  height: 51px;
+  display: flex;
+  flex-direction: column;
+  font-size: 9px;
+}
+.service-cancel .row-1 {
+  height: 22px;
+  border-bottom: 1px solid;
+  display: flex;
+}
+.service-cancel .row-1 .start-end-date {
+  display: flex;
+  width: 50%;
+  border-right: 1px solid;
+}
+.service-cancel .row-1 .start-end-date .title,
+.service-cancel .row-1 .start-end-date .gengou-year,
+.service-cancel .row-1 .start-end-date .cell {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid;
+  text-align: center;
+  line-height: 1;
+}
+.service-cancel .row-1 .start-end-date .title {
+  width: 77px;
+}
+.service-cancel .row-1 .start-end-date .gengou-year {
+  width: 40px;
+}
+.service-cancel .row-1 .start-end-date .cell {
+  width: 30px;
+}
+.service-cancel .row-1 .start-end-date > *:last-child {
+  border-right: none;
+}
+.service-cancel .row-1 .start-end-date > :nth-child(3),
+.service-cancel .row-1 .start-end-date > :nth-child(6),
+.service-cancel .row-1 .start-end-date > :nth-child(9) {
+  border-right: 1px dotted !important;
+}
+.service-cancel .row-2 {
+  width: 100%;
+  height: 29px;
+  display: flex;
+}
+.service-cancel .row-2 .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1;
+  width: 66px !important;
+  border-right: 1px solid;
+}
+.service-cancel .row-2 .content {
+  padding-left: 7px;
+  display: block;
+}
+.service-cancel .row-2 .content .circle::after {
+  content: "";
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 50%;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: -5px;
+}
+
+.payment-detail {
+  display: flex;
+  height: 148px;
+  border: 1px solid;
+  margin-top: 7px;
+  font-size: 9px;
+}
+.payment-detail .title {
+  width: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  border-right: 1px solid;
+  font-size: 11px;
+}
+.payment-detail .content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.payment-detail .content .headers {
+  display: flex;
+  height: 18px;
+  font-size: 10px;
+  border-bottom: 1px solid;
+}
+.payment-detail .content .headers .col-1,
+.payment-detail .content .headers .col-2,
+.payment-detail .content .headers .col-3,
+.payment-detail .content .headers .col-4,
+.payment-detail .content .headers .col-5,
+.payment-detail .content .headers .col-6,
+.payment-detail .content .headers .col-7,
+.payment-detail .content .headers .col-8 {
+  border-right: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.payment-detail .content .headers .col-1 {
+  width: 131px;
+}
+.payment-detail .content .headers .col-2 {
+  width: 102px;
+}
+.payment-detail .content .headers .col-3 {
+  width: 68px;
+}
+.payment-detail .content .headers .col-4,
+.payment-detail .content .headers .col-6 {
+  width: 34px;
+  text-align: center;
+  padding: 0px 5px;
+}
+.payment-detail .content .headers .col-5,
+.payment-detail .content .headers .col-7 {
+  width: 85px;
+}
+.payment-detail .content .headers .col-6 {
+  font-size: 6px;
+  line-height: 1;
+  font-weight: 700;
+}
+.payment-detail .content .headers .col-8 {
+  display: flex;
+  flex-grow: 1;
+}
+.payment-detail .content .headers > *:last-child {
+  border-right: none;
+}
+.payment-detail .content .one-row {
+  display: flex;
+  border-bottom: 1px solid;
+  height: 13px;
+}
+.payment-detail .content .one-row .col-1 {
+  padding: 0px 5px;
+  border-right: 1px solid;
+  width: 131px;
+  font-size: 8px;
+}
+.payment-detail .content .one-row .col-2 {
+  display: flex;
+  width: 102px;
+  border-right: 1px solid;
+}
+.payment-detail .content .one-row .col-2 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.payment-detail .content .one-row .col-2 > *:nth-child(2) {
+  border-right: 1px solid;
+}
+.payment-detail .content .one-row .col-3 {
+  display: flex;
+  width: 68px;
+  border-right: 1px solid;
+}
+.payment-detail .content .one-row .col-3 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.payment-detail .content .one-row .col-4,
+.payment-detail .content .one-row .col-6 {
+  display: flex;
+  width: 34px;
+  border-right: 1px solid;
+}
+.payment-detail .content .one-row .col-4 .cell,
+.payment-detail .content .one-row .col-6 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.payment-detail .content .one-row .col-6 {
+  font-size: 9px;
+  line-height: 1;
+}
+.payment-detail .content .one-row .col-5,
+.payment-detail .content .one-row .col-7 {
+  display: flex;
+  width: 85px;
+  border-right: 1px solid;
+}
+.payment-detail .content .one-row .col-5 .cell,
+.payment-detail .content .one-row .col-7 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.payment-detail .content .one-row .col-2 > *:last-child,
+.payment-detail .content .one-row .col-3 > *:last-child,
+.payment-detail .content .one-row .col-4 > *:last-child,
+.payment-detail .content .one-row .col-5 > *:last-child,
+.payment-detail .content .one-row .col-6 > *:last-child,
+.payment-detail .content .one-row .col-7 > *:last-child {
+  border-right: none;
+}
+.payment-detail .content > *:last-child {
+  border-bottom: none;
+}
+
+.special-address {
+  display: flex;
+  height: 63px;
+  border: 1px solid;
+  margin-top: 7px;
+  font-size: 9px;
+}
+.special-address .title {
+  width: 62px;
+  height: 100%;
+  border-right: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0px 5px;
+  line-height: 1;
+}
+.special-address .content {
+  display: flex;
+  flex-grow: 100;
+  flex-direction: column;
+}
+.special-address .content .headers {
+  display: flex;
+  height: 20.5px;
+  border-bottom: 1px solid;
+}
+.special-address .content .headers .col-1,
+.special-address .content .headers .col-2,
+.special-address .content .headers .col-3,
+.special-address .content .headers .col-4,
+.special-address .content .headers .col-5,
+.special-address .content .headers .col-6,
+.special-address .content .headers .col-7,
+.special-address .content .headers .col-8,
+.special-address .content .headers .col-9 {
+  border-right: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.special-address .content .headers .col-1 {
+  width: 92px;
+}
+.special-address .content .headers .col-2 {
+  width: 102px;
+}
+.special-address .content .headers .col-3 {
+  width: 68px;
+}
+.special-address .content .headers .col-4,
+.special-address .content .headers .col-6 {
+  width: 34px;
+  text-align: center;
+  padding: 0px 5px;
+}
+.special-address .content .headers .col-6 {
+  font-size: 6px;
+  line-height: 1;
+  font-weight: 700;
+}
+.special-address .content .headers .col-5,
+.special-address .content .headers .col-7 {
+  width: 85px;
+}
+.special-address .content .headers .col-8 {
+  width: 112px;
+  font-size: 7px;
+  line-height: 1;
+  font-weight: 700;
+}
+.special-address .content .headers .col-9 {
+  display: flex;
+  flex-grow: 1;
+}
+.special-address .content .headers > *:last-child {
+  border-right: none;
+}
+.special-address .content .one-row {
+  display: flex;
+  border-bottom: 1px solid;
+  height: 14.5px;
+}
+.special-address .content .one-row .col-1 {
+  padding: 0px 5px;
+  border-right: 1px solid;
+  width: 92px;
+}
+.special-address .content .one-row .col-2 {
+  display: flex;
+  width: 102px;
+  border-right: 1px solid;
+}
+.special-address .content .one-row .col-2 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.special-address .content .one-row .col-2 > *:nth-child(2) {
+  border-right: 1px solid;
+}
+.special-address .content .one-row .col-3 {
+  display: flex;
+  width: 68px;
+  border-right: 1px solid;
+}
+.special-address .content .one-row .col-3 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.special-address .content .one-row .col-4,
+.special-address .content .one-row .col-6 {
+  display: flex;
+  width: 34px;
+  border-right: 1px solid;
+}
+.special-address .content .one-row .col-4 .cell,
+.special-address .content .one-row .col-6 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.special-address .content .one-row .col-5,
+.special-address .content .one-row .col-7 {
+  display: flex;
+  width: 85px;
+  border-right: 1px solid;
+}
+.special-address .content .one-row .col-5 .cell,
+.special-address .content .one-row .col-7 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.special-address .content .one-row .col-8 {
+  display: flex;
+  width: 115px;
+  padding-left: 2px;
+  justify-content: start;
+  align-items: center;
+}
+.special-address .content .one-row .col-2 > *:last-child,
+.special-address .content .one-row .col-3 > *:last-child,
+.special-address .content .one-row .col-4 > *:last-child,
+.special-address .content .one-row .col-5 > *:last-child,
+.special-address .content .one-row .col-6 > *:last-child,
+.special-address .content .one-row .col-7 > *:last-child {
+  border-right: none;
+}
+.special-address .content > *:last-child {
+  border-bottom: none;
+}
+
+.payment-summary {
+  font-size: 9px;
+  height: 246px;
+  display: flex;
+  border: 1px solid;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+.payment-summary .title {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  border-right: 1px solid;
+}
+.payment-summary .content {
+  width: 100%;
+}
+.payment-summary .content .first-four-rows {
+  width: 100%;
+  height: 81px;
+  display: flex;
+  flex-grow: 100;
+  border-bottom: 1px solid;
+}
+.payment-summary .content .first-four-rows .left-section {
+  width: 549px;
+  display: flex;
+  flex-direction: column;
+}
+.payment-summary .content .first-four-rows .left-section .one-row {
+  display: flex;
+  height: 20.5px;
+  border-bottom: 1px solid;
+}
+.payment-summary .content .first-four-rows .left-section .one-row .col-1 {
+  display: flex;
+  align-items: center;
+  width: 129px;
+  height: 100%;
+  border-right: 1px solid;
+  padding-left: 5px;
+}
+.payment-summary .content .first-four-rows .left-section .one-row .col-2 {
+  display: flex;
+  width: 105px;
+  height: 100%;
+  border-right: 1px solid;
+}
+.payment-summary .content .first-four-rows .left-section .one-row .col-2 .cell-1,
+.payment-summary .content .first-four-rows .left-section .one-row .col-2 .cell-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 17.5px;
+  border-right: 1px dotted;
+}
+.payment-summary .content .first-four-rows .left-section .one-row .col-2 .cell-3 {
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  flex-grow: 100;
+  font-size: 7px;
+}
+.payment-summary .content .first-four-rows .left-section .one-row .col-2-row-3 {
+  display: flex;
+  width: 105px;
+  height: 100%;
+  border-right: 1px solid !important;
+}
+.payment-summary .content .first-four-rows .left-section .one-row .col-2-row-3 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 17.5px;
+  border-right: 1px dotted;
+}
+.payment-summary .content .first-four-rows .left-section .one-row .col-2-row-3 > *:last-child {
+  border-right: none !important;
+}
+.payment-summary .content .first-four-rows .left-section .one-row:last-child {
+  border: none;
+}
+.payment-summary .content .first-four-rows .right-section {
+  display: flex;
+  flex-grow: 100;
+}
+.payment-summary .content .row-5,
+.payment-summary .content .row-6,
+.payment-summary .content .row-7 {
+  height: 20.5px;
+  display: flex;
+  flex-grow: 100;
+  border-bottom: 1px solid;
+}
+.payment-summary .content .row-5 .left-section,
+.payment-summary .content .row-6 .left-section,
+.payment-summary .content .row-7 .left-section {
+  width: 549px;
+  display: flex;
+}
+.payment-summary .content .row-5 .left-section .col-1,
+.payment-summary .content .row-6 .left-section .col-1,
+.payment-summary .content .row-7 .left-section .col-1 {
+  display: flex;
+  align-items: center;
+  width: 129px;
+  height: 100%;
+  line-height: 1;
+  border-right: 1px solid;
+  padding-left: 5px;
+}
+.payment-summary .content .row-5 .left-section .col-2-row-3,
+.payment-summary .content .row-6 .left-section .col-2-row-3,
+.payment-summary .content .row-7 .left-section .col-2-row-3 {
+  display: flex;
+  width: 105px;
+  height: 100%;
+  border-right: 1px solid !important;
+}
+.payment-summary .content .row-5 .left-section .col-2-row-3 .cell,
+.payment-summary .content .row-6 .left-section .col-2-row-3 .cell,
+.payment-summary .content .row-7 .left-section .col-2-row-3 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 17.5px;
+  border-right: 1px dotted;
+}
+.payment-summary .content .row-5 .left-section .col-2-row-3 > *:last-child,
+.payment-summary .content .row-6 .left-section .col-2-row-3 > *:last-child,
+.payment-summary .content .row-7 .left-section .col-2-row-3 > *:last-child {
+  border-right: none !important;
+}
+.payment-summary .content .row-5 .right-section,
+.payment-summary .content .row-6 .right-section,
+.payment-summary .content .row-7 .right-section {
+  display: flex;
+  width: 102px;
+  justify-content: center;
+  align-items: center;
+}
+.payment-summary .content .row-5 .column-division,
+.payment-summary .content .row-6 .column-division,
+.payment-summary .content .row-7 .column-division {
+  display: flex;
+  flex-grow: 1;
+}
+.payment-summary .content .row-5 .column-division .cell-1,
+.payment-summary .content .row-6 .column-division .cell-1,
+.payment-summary .content .row-7 .column-division .cell-1 {
+  padding-left: 5px;
+  display: flex;
+  width: 51px;
+  align-items: center;
+  border-right: 1px solid;
+}
+.payment-summary .content .row-5 .column-division .cell-dotted,
+.payment-summary .content .row-6 .column-division .cell-dotted,
+.payment-summary .content .row-7 .column-division .cell-dotted {
+  width: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px dotted;
+}
+.payment-summary .content .row-5 .column-division > *:last-child,
+.payment-summary .content .row-6 .column-division > *:last-child,
+.payment-summary .content .row-7 .column-division > *:last-child {
+  border-right: none;
+}
+.payment-summary .content .row-8 {
+  height: 20.5px;
+  display: flex;
+  flex-grow: 100;
+  border-bottom: 1px solid;
+}
+.payment-summary .content .row-8 .left-section {
+  width: 549px;
+  display: flex;
+}
+.payment-summary .content .row-8 .left-section .col-1 {
+  display: flex;
+  align-items: center;
+  width: 129px;
+  height: 100%;
+  border-right: 1px solid;
+  padding-left: 5px;
+}
+.payment-summary .content .row-8 .left-section .col-money-per-unit {
+  display: flex;
+  width: 105px;
+  height: 100%;
+  border-right: 1px solid !important;
+}
+.payment-summary .content .row-8 .left-section .col-money-per-unit .cell-dotted {
+  width: 17.4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px dotted;
+}
+.payment-summary .content .row-8 .left-section .col-money-per-unit .cell-with-separator {
+  width: 17.4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px dotted;
+  position: relative;
+}
+.payment-summary .content .row-8 .left-section .col-money-per-unit .cell-with-separator span {
+  position: absolute;
+  bottom: -2px;
+  right: -6px;
+}
+.payment-summary .content .row-8 .left-section .col-money-per-unit .cell-money-per-unit {
+  display: flex;
+  flex-grow: 1;
+  font-size: 7px;
+  justify-content: center;
+  align-items: end;
+}
+.payment-summary .content .row-8 .right-section {
+  display: flex;
+  width: 102px;
+  justify-content: center;
+  align-items: center;
+}
+.payment-summary .content .row-9,
+.payment-summary .content .row-10,
+.payment-summary .content .row-11,
+.payment-summary .content .row-12 {
+  height: 20.5px;
+  display: flex;
+  flex-grow: 100;
+  border-bottom: 1px solid;
+}
+.payment-summary .content .row-9 .left-section,
+.payment-summary .content .row-10 .left-section,
+.payment-summary .content .row-11 .left-section,
+.payment-summary .content .row-12 .left-section {
+  width: 549px;
+  display: flex;
+}
+.payment-summary .content .row-9 .left-section .col-1,
+.payment-summary .content .row-10 .left-section .col-1,
+.payment-summary .content .row-11 .left-section .col-1,
+.payment-summary .content .row-12 .left-section .col-1 {
+  display: flex;
+  align-items: center;
+  width: 129px;
+  height: 100%;
+  border-right: 1px solid;
+  padding-left: 5px;
+}
+.payment-summary .content .row-9 .left-section .cols,
+.payment-summary .content .row-10 .left-section .cols,
+.payment-summary .content .row-11 .left-section .cols,
+.payment-summary .content .row-12 .left-section .cols {
+  display: flex;
+  width: 105px;
+  height: 100%;
+  border-right: 1px solid !important;
+}
+.payment-summary .content .row-9 .left-section .cols .cell,
+.payment-summary .content .row-10 .left-section .cols .cell,
+.payment-summary .content .row-11 .left-section .cols .cell,
+.payment-summary .content .row-12 .left-section .cols .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 17.5px;
+  border-right: 1px dotted;
+}
+.payment-summary .content .row-9 .left-section .cols > *:last-child,
+.payment-summary .content .row-10 .left-section .cols > *:last-child,
+.payment-summary .content .row-11 .left-section .cols > *:last-child,
+.payment-summary .content .row-12 .left-section .cols > *:last-child {
+  border-right: none !important;
+}
+.payment-summary .content .row-9 .right-section,
+.payment-summary .content .row-10 .right-section,
+.payment-summary .content .row-11 .right-section,
+.payment-summary .content .row-12 .right-section {
+  width: 102px;
+  display: flex;
+}
+.payment-summary .content .row-9 .right-section .cols,
+.payment-summary .content .row-10 .right-section .cols,
+.payment-summary .content .row-11 .right-section .cols,
+.payment-summary .content .row-12 .right-section .cols {
+  display: flex;
+  width: 102px;
+  height: 100%;
+}
+.payment-summary .content .row-9 .right-section .cols .cell,
+.payment-summary .content .row-10 .right-section .cols .cell,
+.payment-summary .content .row-11 .right-section .cols .cell,
+.payment-summary .content .row-12 .right-section .cols .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 17px;
+  border-right: 1px dotted;
+}
+.payment-summary .content .row-9 .right-section .cols > *:last-child,
+.payment-summary .content .row-10 .right-section .cols > *:last-child,
+.payment-summary .content .row-11 .right-section .cols > *:last-child,
+.payment-summary .content .row-12 .right-section .cols > *:last-child {
+  border-right: none !important;
+}
+.payment-summary .content > *:last-child {
+  border: none;
+}
+
+.cost-reduction-table {
+  display: flex;
+  border: 1px solid;
+  font-size: 9px;
+}
+.cost-reduction-table .title {
+  width: 62px;
+  font-size: 10px;
+  padding: 12px 8px;
+  border-right: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cost-reduction-table .content {
+  display: flex;
+  flex-grow: 100;
+  flex-direction: column;
+}
+.cost-reduction-table .content .row-1 {
+  display: flex;
+  height: 22px;
+  border-bottom: 1px solid;
+}
+.cost-reduction-table .content .row-1 .reduction-rate-title {
+  width: 56px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid;
+}
+.cost-reduction-table .content .row-1 .reduction-rate-value {
+  width: 65px;
+  height: 100%;
+  display: flex;
+  border-right: 1px solid;
+}
+.cost-reduction-table .content .row-1 .reduction-rate-value .cell {
+  width: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px dotted;
+}
+.cost-reduction-table .content .row-1 .reduction-rate-value .cell-with-separator {
+  width: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px dotted;
+  position: relative;
+}
+.cost-reduction-table .content .row-1 .reduction-rate-value .cell-with-separator span {
+  position: absolute;
+  bottom: -2px;
+  right: -6px;
+}
+.cost-reduction-table .content .row-1 .reduction-rate-value > *:last-child {
+  border: none !important;
+}
+.cost-reduction-table .content .row-1 .percent {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 38;
+  border-right: 1px solid;
+}
+.cost-reduction-table .content .row-1 .header-label {
+  width: 113;
+  text-align: center;
+  padding: 2px 15px;
+  border-right: 1px solid;
+  font-size: 9px;
+  line-height: 1;
+}
+.cost-reduction-table .content .row-1 .description-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.cost-reduction-table .content .rows {
+  display: flex;
+  height: 16px;
+  border-bottom: 1px solid;
+}
+.cost-reduction-table .content .rows .col-1,
+.cost-reduction-table .content .rows .col-2,
+.cost-reduction-table .content .rows .description {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  border-right: 1px solid;
+}
+.cost-reduction-table .content .rows .col-1 {
+  width: 17px;
   justify-content: center;
 }
-
-.double-block {
+.cost-reduction-table .content .rows .col-2 {
+  padding-left: 3px;
+  width: 142px;
+  justify-content: start;
+}
+.cost-reduction-table .content .rows .col-dotted {
+  width: 113;
+  height: 100%;
   display: flex;
-  margin-top: 0.313rem;
-  justify-content: space-between;
-}
-.double-block .body {
-  display: flex;
-  flex-direction: column;
-}
-.double-block .body .row {
-  display: flex;
-  flex-direction: row;
-}
-.double-block .cell {
-  min-height: 1.3rem;
-}
-.double-block .col1 {
-  width: 2rem;
-  text-align: center;
-}
-.double-block .col2 {
-  width: 15.25rem;
-}
-.double-block .col3 {
-  width: 6.625rem;
-  text-align: center;
-}
-
-.fifth-block.table {
-  margin-top: 1.25rem;
-}
-.fifth-block.table .col1 {
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-  min-height: 18.75rem;
-  writing-mode: vertical-rl;
-}
-.fifth-block.table .col2 {
-  padding-top: 0.313rem;
-  width: 28.2rem;
-  text-align: left;
-}
-.fifth-block.table .col3 {
-  padding-top: 0.313rem;
-  width: 28.2rem;
-  text-align: left;
-}
-
-.sixth-block {
-  margin-top: 0.313rem;
-  margin-bottom: 0.313rem;
-}
-.sixth-block .title {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-.sixth-block .body {
-  flex-direction: column;
-}
-.sixth-block .body .row {
-  display: flex;
-  flex-direction: row;
-}
-.sixth-block .cell {
-  width: 6.215rem;
-  min-height: 1.375rem;
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
-}
-
-.table .header {
-  display: flex;
-  text-align: center;
-}
-.table .header .cell {
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  border-left: 1px solid;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-.table .header .cell:last-child {
   border-right: 1px solid;
 }
-.table .body {
+.cost-reduction-table .content .rows .col-dotted .cell-dotted {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  border-right: 1px dotted;
 }
-.table .body .cell {
-  border-bottom: 1px solid;
-  border-left: 1px solid;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+.cost-reduction-table .content .rows .col-dotted > *:last-child {
+  border-right: none;
 }
-.table .body .cell:last-child {
+.cost-reduction-table .content .rows .description {
+  flex-grow: 1;
+  border-right: none;
+}
+.cost-reduction-table .content > *:last-child {
+  border-bottom: none;
+}
+
+.pagination {
+  display: flex;
+  margin-left: auto;
+  margin-top: 10px;
+  border: 1px solid;
+  width: 130px;
+  height: 13px;
+  font-size: 9px;
+}
+.pagination .total-page-value,
+.pagination .current-page-value,
+.pagination .total-page-title,
+.pagination .current-page-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   border-right: 1px solid;
+}
+.pagination .total-page-value,
+.pagination .current-page-value {
+  width: 35px;
+}
+.pagination .total-page-title,
+.pagination .current-page-title {
+  width: 30px;
+}
+
+.pagination > :last-child {
+  border-right: none;
+}
+
+.circle {
+  position: relative;
+  display: inline-block;
+}
+
+.circle::after {
+  content: "";
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 50%;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+}
+
+.mr-4 {
+  margin-right: 12px;
+}
+
+.fs-8px {
+  font-size: 8px !important;
 }
 
 /*# sourceMappingURL=style.css.map */
