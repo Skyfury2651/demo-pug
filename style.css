@@ -511,9 +511,9 @@ body {
   border: 1px solid black;
   border-radius: 50%;
   top: 0px;
-  right: 135px;
+  right: 235px;
   bottom: 0px;
-  left: 7px;
+  left: 5px;
 }
 .home-service-plan .content .office-details {
   display: flex;
@@ -603,7 +603,7 @@ body {
   align-items: center;
   text-align: center;
   line-height: 1;
-  width: 66px !important;
+  width: 77px !important;
   border-right: 1px solid;
 }
 .service-cancel .row-2 .content {
@@ -845,7 +845,7 @@ body {
   width: 85px;
 }
 .special-address .content .headers .col-8 {
-  width: 112px;
+  width: 54px;
   font-size: 7px;
   line-height: 1;
   font-weight: 700;
@@ -928,8 +928,8 @@ body {
 }
 .special-address .content .one-row .col-8 {
   display: flex;
-  width: 115px;
-  padding-left: 2px;
+  width: 54px;
+  border-right: 1px solid;
   justify-content: start;
   align-items: center;
 }

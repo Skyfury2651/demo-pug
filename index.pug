@@ -10,7 +10,7 @@ link(rel='stylesheet', type='text/css', href='../style.css')
 .page-title
   span() #{staticFields.title}
 
-.page-sub-title #{staticFields.subTitle}
+.page-sub-title #{staticFields.subTitle_01} <br> #{staticFields.subTitle_02} <br> #{staticFields.subTitle_03}
 
 div(style="display: flex; justify-content: space-between")
   .public-expense
@@ -72,7 +72,7 @@ div(style="display: flex; justify-content: space-between")
             while i < data.BirthYmdKanjiDate.length
               .cell #{data.BirthYmdKanjiDate[i]}
               - i++
-        .gender-title #{staticFields.insuredCustomer.genderTitle}
+        .gender-title #{staticFields.insuredCustomer.gender}
         .gender-value
           div 
             span(class=data.GenderKbn ==  '1'  ? 'circle' : '') 1.
@@ -183,45 +183,8 @@ div(style="display: flex; justify-content: space-between")
       span.mr-4 #{staticFields.serviceCancel.reason07}
       span(class=data.KaiyakuRiyuKbn == '8' ? 'circle' : '') 8.
       span.mr-4 #{staticFields.serviceCancel.reason08}
-
-.payment-detail
-  .title #{staticFields.paymentDetail.title}
-  .content
-    .headers
-      .col-1 #{staticFields.paymentDetail.headers.col1}
-      .col-2 #{staticFields.paymentDetail.headers.col2}
-      .col-3 #{staticFields.paymentDetail.headers.col3}
-      .col-4 #{staticFields.paymentDetail.headers.col4}
-      .col-5 #{staticFields.paymentDetail.headers.col5}
-      .col-6 #{staticFields.paymentDetail.headers.col6}
-      .col-7 #{staticFields.paymentDetail.headers.col7}
-      .col-8 #{staticFields.paymentDetail.headers.col8}
-    -var i = 0
-    while i < 10
-      .one-row
-        .col-1 #{data.paymentDetails[i] && data.paymentDetails[i].ServiceNaiyoTxt ? data.paymentDetails[i].ServiceNaiyoTxt : ''}
-        .col-2
-          -var j = 0
-          while j < 6
-            .cell #{data.paymentDetails[i] && data.paymentDetails[i].MEISAI_ServiceCd[j] ? data.paymentDetails[i].MEISAI_ServiceCd[j] : ''}
-            - j++
-        .col-3
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_HoshuTanisu ? data.paymentDetails[i].MEISAI_HoshuTanisu.toString().padStart(4, ' ') : '    '
-            .cell #{val}
-        .col-4
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_JisseiKaisu ? data.paymentDetails[i].MEISAI_JisseiKaisu.toString().padStart(2, ' ') : '  '
-            .cell #{val}
-        .col-5
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_ServiceTanisu ? data.paymentDetails[i].MEISAI_ServiceTanisu.toString().padStart(5, ' ') : '     '
-            .cell #{val}
-        .col-6
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_KohiTashoNissuKaisu ? data.paymentDetails[i].MEISAI_KohiTashoNissuKaisu.toString().padStart(2, ' ') : '  '
-            .cell #{val}
-        .col-7
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_KohiTani ? data.paymentDetails[i].MEISAI_KohiTani.toString().padStart(5, ' ') : '     '
-            .cell #{val}
-        .col-8 #{data.paymentDetails[i] && data.paymentDetails[i].KohiHoubetsuBango ? data.paymentDetails[i].KohiHoubetsuBango : ''}
-      - i++
+      span 9.
+      span.mr-4 #{staticFields.serviceCancel.reason09}
 
 .special-address
   .title
@@ -236,6 +199,88 @@ div(style="display: flex; justify-content: space-between")
       .col-6 #{staticFields.specialAddress.headers.col6}
       .col-7 #{staticFields.specialAddress.headers.col7}
       .col-8 !{staticFields.specialAddress.headers.col8}
+      .col-9 #{staticFields.specialAddress.headers.col9}
+    .one-row
+      .col-1 #{data.ServiceNaiyoTxt_J1}
+      .col-2
+        each val in data.MEISAI_ServiceCd_J1 ? data.MEISAI_ServiceCd_J1.toString().padStart(6, ' ') : '      '
+          .cell #{val}
+      .col-3
+        each val in data.MEISAI_HoshuTanisu_J1 ? data.MEISAI_HoshuTanisu_J1.toString().padStart(4, ' ') : '    '
+          .cell #{val}
+      .col-4
+        each val in data.MEISAI_JisseiKaisu_J1 ? data.MEISAI_JisseiKaisu_J1.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-5
+        each val in data.MEISAI_ServiceTanisu_J1 ? data.MEISAI_ServiceTanisu_J1.toString().padStart(5, ' ') : '     '
+          .cell #{val}
+      .col-6
+        each val in data.MEISAI_KohiTashoNissuKaisu_J1 ? data.MEISAI_KohiTashoNissuKaisu_J1.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-7
+        each val in data.MEISAI_KohiTani_J1 ? data.MEISAI_KohiTani_J1.toString().padStart(2, ' ') : '  ' 
+          .cell #{val}
+      .col-8 #{data.JyushotiHokenshaBango_J1}
+      .col-9
+    .one-row
+      .col-1 #{data.ServiceNaiyoTxt_J2}
+      .col-2
+        each val in data.MEISAI_ServiceCd_J2 ? data.MEISAI_ServiceCd_J2.toString().padStart(6, ' ') : '      '
+          .cell #{val}
+      .col-3
+        each val in data.MEISAI_HoshuTanisu_J2 ? data.MEISAI_HoshuTanisu_J2.toString().padStart(4, ' ') : '    '
+          .cell #{val}
+      .col-4
+        each val in data.MEISAI_JisseiKaisu_J2 ? data.MEISAI_JisseiKaisu_J2.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-5
+        each val in data.MEISAI_ServiceTanisu_J2 ? data.MEISAI_ServiceTanisu_J2.toString().padStart(5, ' ') : '     '
+          .cell #{val}
+      .col-6
+        each val in data.MEISAI_KohiTashoNissuKaisu_J2 ? data.MEISAI_KohiTashoNissuKaisu_J2.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-7
+        each val in data.MEISAI_KohiTani_J2 ? data.MEISAI_KohiTani_J2.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-8 #{data.JyushotiHokenshaBango_J2}
+      .col-9
+    .one-row
+      .col-1 #{data.ServiceNaiyoTxt_J3}
+      .col-2
+        each val in data.MEISAI_ServiceCd_J3 ? data.MEISAI_ServiceCd_J3.toString().padStart(6, ' ') : '      '
+          .cell #{val}
+      .col-3
+        each val in data.MEISAI_HoshuTanisu_J3 ? data.MEISAI_HoshuTanisu_J3.toString().padStart(4, ' ') : '    '
+          .cell #{val}
+      .col-4
+        each val in data.MEISAI_JisseiKaisu_J3 ? data.MEISAI_JisseiKaisu_J3.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-5
+        each val in data.MEISAI_ServiceTanisu_J3 ? data.MEISAI_ServiceTanisu_J3.toString().padStart(5, ' ') : '     '
+          .cell-1 #{val}
+      .col-6
+        each val in data.MEISAI_KohiTashoNissuKaisu_J3 ? data.MEISAI_KohiTashoNissuKaisu_J3.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-7
+        each val in data.MEISAI_KohiTani_J3 ? data.MEISAI_KohiTani_J3.toString().padStart(2, ' ') : '  '
+          .cell #{val}
+      .col-8 #{data.JyushotiHokenshaBango_J3}
+      .col-9
+
+.special-address
+  .title
+    span !{staticFields.specialAddress.title}
+  .content
+    .headers
+      .col-1 #{staticFields.specialAddress.headers.col1}
+      .col-2 #{staticFields.specialAddress.headers.col2}
+      .col-3 #{staticFields.specialAddress.headers.col3}
+      .col-4 #{staticFields.specialAddress.headers.col4}
+      .col-5 #{staticFields.specialAddress.headers.col5}
+      .col-6 #{staticFields.specialAddress.headers.col6}
+      .col-7 #{staticFields.specialAddress.headers.col7}
+      .col-8 !{staticFields.specialAddress.headers.col8}
+      .col-9 #{staticFields.specialAddress.headers.col9}
     -var i = 0
     while i < 3
       .one-row
@@ -270,7 +315,8 @@ div(style="display: flex; justify-content: space-between")
           while j < 5
             .cell 1
             - j++
-        .col-8 #{ data.KohiHoubetsuBango } 111
+        .col-8 123
+        .col-9 123
       - i++
 
 .payment-summary
@@ -516,7 +562,7 @@ div(style="display: flex; justify-content: space-between")
       .header-label #{staticFields.costReduction.header3}
       .description-title #{staticFields.costReduction.header4}
     -var i = 0
-    while i < 7
+    while i < 3
       .rows
         .col-1 #{staticFields.costReduction.rowHeaders[i].serviceNo}
         .col-2(class=staticFields.costReduction.rowHeaders[i].class ? staticFields.costReduction.rowHeaders[i].class: '') #{staticFields.costReduction.rowHeaders[i].label}
