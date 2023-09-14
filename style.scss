@@ -563,19 +563,11 @@
         display: flex;
         align-items: center;
   
-        span {
+        .type {
           padding: 0 10px;
-        }
-  
-        .circle::after {
-          content: "";
-          position: absolute;
-          border: 1px solid black;
-          border-radius: 50%;
-          top: 0px;
-          right: 135px;
-          bottom: 0px;
-          left: 7px;
+          .circle {
+            padding: 3px 5px;
+          }
         }
       }
   

@@ -135,8 +135,12 @@ div(style="display: flex; justify-content: space-between")
   .title !{staticFields.homeServicePlan.title}
   .content
     .service-type
-      span.circle #{staticFields.homeServicePlan.serviceType01}
-      span #{staticFields.homeServicePlan.serviceType02}
+      span.type 
+        span.circle 1.
+        span #{staticFields.homeServicePlan.serviceType01}
+      span.type 
+        span 
+        span #{staticFields.homeServicePlan.serviceType02}
     .office-details
       .office-number-title
         span #{staticFields.homeServicePlan.office}
@@ -270,7 +274,7 @@ div(style="display: flex; justify-content: space-between")
           while j < 5
             .cell 1
             - j++
-        .col-8 #{ data.KohiHoubetsuBango } 111
+        .col-8 #{ data.KohiHoubetsuBango }
       - i++
 
 .payment-summary
