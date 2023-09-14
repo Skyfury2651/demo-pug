@@ -10,7 +10,11 @@ link(rel='stylesheet', type='text/css', href='../style.css')
 .page-title
   span() #{staticFields.title}
 
+<<<<<<< HEAD
 .page-sub-title #{staticFields.subTitle_01} <br> #{staticFields.subTitle_02} <br> #{staticFields.subTitle_03}
+=======
+.page-sub-title !{staticFields.subTitle}
+>>>>>>> 0413282b5f00dd6b59010b2a8a99afe53e97167f
 
 div(style="display: flex; justify-content: space-between")
   .public-expense
@@ -135,8 +139,12 @@ div(style="display: flex; justify-content: space-between")
   .title !{staticFields.homeServicePlan.title}
   .content
     .service-type
-      span.circle #{staticFields.homeServicePlan.serviceType01}
-      span #{staticFields.homeServicePlan.serviceType02}
+      span.type 
+        span.circle 1.
+        span #{staticFields.homeServicePlan.serviceType01}
+      span.type 
+        span 
+        span #{staticFields.homeServicePlan.serviceType02}
     .office-details
       .office-number-title
         span #{staticFields.homeServicePlan.office}
@@ -315,8 +323,12 @@ div(style="display: flex; justify-content: space-between")
           while j < 5
             .cell 1
             - j++
+<<<<<<< HEAD
         .col-8 123
         .col-9 123
+=======
+        .col-8 #{ data.KohiHoubetsuBango }
+>>>>>>> 0413282b5f00dd6b59010b2a8a99afe53e97167f
       - i++
 
 .payment-summary
@@ -557,10 +569,10 @@ div(style="display: flex; justify-content: space-between")
           span ▲
         .cell
       .percent %
-      .header-label #{staticFields.costReduction.header1}
-      .header-label #{staticFields.costReduction.header2}
-      .header-label #{staticFields.costReduction.header3}
-      .description-title #{staticFields.costReduction.header4}
+      .header-label !{staticFields.costReduction.header1}
+      .header-label !{staticFields.costReduction.header2}
+      .header-label !{staticFields.costReduction.header3}
+      .description-title !{staticFields.costReduction.header4}
     -var i = 0
     while i < 3
       .rows

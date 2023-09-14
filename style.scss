@@ -563,7 +563,7 @@
         display: flex;
         align-items: center;
   
-        span {
+        .type {
           padding: 0 10px;
         }
   
@@ -576,6 +576,9 @@
           right: 235px;
           bottom: 0px;
           left: 5px;
+          .circle {
+            padding: 3px 5px;
+          }
         }
       }
   

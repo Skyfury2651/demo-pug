@@ -502,7 +502,7 @@ body {
   display: flex;
   align-items: center;
 }
-.home-service-plan .content .service-type span {
+.home-service-plan .content .service-type .type {
   padding: 0 10px;
 }
 .home-service-plan .content .service-type .circle::after {
@@ -514,6 +514,9 @@ body {
   right: 235px;
   bottom: 0px;
   left: 5px;
+}
+.home-service-plan .content .service-type .circle::after .circle {
+  padding: 3px 5px;
 }
 .home-service-plan .content .office-details {
   display: flex;
