@@ -139,7 +139,7 @@ div(style="display: flex; justify-content: space-between")
         span.circle 1.
         span #{staticFields.homeServicePlan.serviceType01}
       span.type 
-        span 
+        span 2.
         span #{staticFields.homeServicePlan.serviceType02}
     .office-details
       .office-number-title
@@ -189,50 +189,11 @@ div(style="display: flex; justify-content: space-between")
       span.mr-4 #{staticFields.serviceCancel.reason08}
 
 .payment-detail
-  .title #{staticFields.paymentDetail.title}
-  .content
-    .headers
-      .col-1 #{staticFields.paymentDetail.headers.col1}
-      .col-2 #{staticFields.paymentDetail.headers.col2}
-      .col-3 #{staticFields.paymentDetail.headers.col3}
-      .col-4 #{staticFields.paymentDetail.headers.col4}
-      .col-5 #{staticFields.paymentDetail.headers.col5}
-      .col-6 #{staticFields.paymentDetail.headers.col6}
-      .col-7 #{staticFields.paymentDetail.headers.col7}
-      .col-8 #{staticFields.paymentDetail.headers.col8}
-    -var i = 0
-    while i < 10
-      .one-row
-        .col-1 #{data.paymentDetails[i] && data.paymentDetails[i].ServiceNaiyoTxt ? data.paymentDetails[i].ServiceNaiyoTxt : ''}
-        .col-2
-          -var j = 0
-          while j < 6
-            .cell #{data.paymentDetails[i] && data.paymentDetails[i].MEISAI_ServiceCd[j] ? data.paymentDetails[i].MEISAI_ServiceCd[j] : ''}
-            - j++
-        .col-3
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_HoshuTanisu ? data.paymentDetails[i].MEISAI_HoshuTanisu.toString().padStart(4, ' ') : '    '
-            .cell #{val}
-        .col-4
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_JisseiKaisu ? data.paymentDetails[i].MEISAI_JisseiKaisu.toString().padStart(2, ' ') : '  '
-            .cell #{val}
-        .col-5
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_ServiceTanisu ? data.paymentDetails[i].MEISAI_ServiceTanisu.toString().padStart(5, ' ') : '     '
-            .cell #{val}
-        .col-6
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_KohiTashoNissuKaisu ? data.paymentDetails[i].MEISAI_KohiTashoNissuKaisu.toString().padStart(2, ' ') : '  '
-            .cell #{val}
-        .col-7
-          each val in data.paymentDetails[i] && data.paymentDetails[i].MEISAI_KohiTani ? data.paymentDetails[i].MEISAI_KohiTani.toString().padStart(5, ' ') : '     '
-            .cell #{val}
-        .col-8 #{data.paymentDetails[i] && data.paymentDetails[i].KohiHoubetsuBango ? data.paymentDetails[i].KohiHoubetsuBango : ''}
-      - i++
-
-.special-address
   .title
-    span !{staticFields.specialAddress.title}
+    span #{staticFields.paymentDetail.title}
   .content
     .headers
-      .col-1 #{staticFields.specialAddress.headers.col1}
+      .col-1 #{staticFields.specialAddress.headers.col1} 
       .col-2 #{staticFields.specialAddress.headers.col2}
       .col-3 #{staticFields.specialAddress.headers.col3}
       .col-4 #{staticFields.specialAddress.headers.col4}
@@ -240,39 +201,81 @@ div(style="display: flex; justify-content: space-between")
       .col-6 #{staticFields.specialAddress.headers.col6}
       .col-7 #{staticFields.specialAddress.headers.col7}
       .col-8 !{staticFields.specialAddress.headers.col8}
+      .col-9 #{staticFields.specialAddress.headers.col9}
     -var i = 0
-    while i < 3
+    if data.paymentDetails.length != 0 
+      each payment in data.paymentDetails
+        .one-row
+        
+          .col-1
+            - var col1FS = payment.ServiceNaiyoTxt.length < 20 ? 11 : 11 - 0.45 * (payment.ServiceNaiyoTxt.length - 20) 
+            div(style={'font-size':col1FS + 'px','line-height': col1FS + 'px'}) #{payment.ServiceNaiyoTxt}
+          .col-2
+            -var j = 0
+            while j < 6
+              .cell #{payment.MEISAI_ServiceCd.toString().padStart(6, ' ')[j]}
+              - j++
+          .col-3
+            -var j = 0
+            while j < 4
+              .cell #{payment.MEISAI_HoshuTanisu.toString().padStart(4, ' ')[j]}
+              - j++
+          .col-4
+            -var j = 0
+            while j < 2
+              .cell #{payment.MEISAI_JisseiKaisu.toString().padStart(2, ' ')[j]}
+              - j++
+          .col-5
+            -var j = 0
+            while j < 5
+              .cell #{payment.MEISAI_ServiceTanisu.toString().padStart(6, ' ')[j]}
+              - j++
+          .col-6
+            -var j = 0
+            while j < 2
+              .cell #{payment.MEISAI_KohiTashoNissuKaisu.toString().padStart(2, ' ')[j]}
+              - j++
+          .col-7
+            -var j = 0
+            while j < 5
+              .cell #{ payment.MEISAI_KohiTani.toString().padStart(5, ' ')[j] }
+              - j++
+          .col-8 #{ payment.KohiHoubetsuBango }
+        - i++
+
+    if i < 3
+      while i < 3
       .one-row
-        .col-1 地域通所介護12
+        .col-1 
         .col-2
           -var j = 0
           while j < 6
-            .cell 1
+            .cell 
             - j++
         .col-3
           -var j = 0
           while j < 4
-            .cell 1
+            .cell 
             - j++
         .col-4
           -var j = 0
           while j < 2
-            .cell 1
+            .cell 
             - j++
         .col-5
           -var j = 0
           while j < 5
-            .cell 1
+            .cell 
             - j++
         .col-6
           -var j = 0
           while j < 2
-            .cell 1
+            .cell 
             - j++
         .col-7
           -var j = 0
           while j < 5
-            .cell 1
+            .cell 
             - j++
         .col-8 #{ data.KohiHoubetsuBango }
       - i++
@@ -283,7 +286,7 @@ div(style="display: flex; justify-content: space-between")
     .first-four-rows
       .left-section
         .one-row
-          .col-1 #{staticFields.paymentSummary.headers.row1}
+          .col-1 !{staticFields.paymentSummary.headers.row1}
           - var j = 0
           while j < 4
             if j == 0
@@ -540,4 +543,3 @@ div(style="display: flex; justify-content: space-between")
   .total-page-title 枚中
   .current-page-value 1
   .current-page-title 枚目
-  
