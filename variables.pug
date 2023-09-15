@@ -2,11 +2,13 @@ block vars
   -
     var staticFields = {
       templateNo: '様式第二　',
-      subDescription: '(附則第二条関係)',
+      subDescription: '　（附則第二条関係）',
       title: '居宅サービス・地域密着型サービス介護給付費明細書',
-      subTitle_01: '(訪問介護・訪問入浴介護・訪問看護・訪問リハ・居宅療養管理指導・通所介護・通所リハ・福祉用具貸与・定期巡回・随時対応型訪問介護看護・',
-      subTitle_02: '夜間対応型訪問介護・地域密着型通所介護・認知症対応型通所介護・小規模多機能型居宅介護(短期利用以外)・小規模多機能型居宅介護(短期利用)・',
-      subTitle_03: '複合型サービス(看護小規模多機能型居宅介護・短期利用以外)・複合型サービス(看護小規模多機能型居宅介護・短期利用))',
+      subTitle: `
+      （訪問介護・訪問入浴介護・訪問看護・訪問リハ・居宅療養管理指導・通所介護・通所リハ・福祉用具貸与・定期巡回・随時対応型訪問介護看護・
+        <br>夜間対応型訪問介護・認知症対応型通所介護・小規模多機能型居宅介護（短期利用以外）・小規模多機能型居宅介護（短期利用）・
+        <br>複合型サービス（看護小規模多機能型居宅介護・短期利用以外）・複合型サービス（看護小規模多機能型居宅介護・短期利用）・地域密着型通所介護）
+        `,
       publicExpense: {
         expenseNoTitle: '公費負担者番号',
         beneficiaryNoTitle: '公費受給者番号',
@@ -85,14 +87,13 @@ block vars
           col5: 'サービス単位数',
           col6: '公費分回数',
           col7: '公費対象単位数',
-          col8: '施設所在 <br> 保険者番号',
-          col9: '摘要',
+          col8: '摘要',
         },
       },
       paymentSummary: {
         title: '請求額集計欄',
         headers: {
-          row1: '①サービス種類コード/②名称',
+          row1: '①サービス種類コード<br>/②名称',
           row2: '③サービス実日数',
           row3: '④計画単位数',
           row4: '⑤限度額管理対象単位数',
@@ -160,6 +161,7 @@ block vars
       "KaiyakuYmdKanjiDate": "明治33年01月01日",
       "KaiyakuRiyuKbn": " ",
       "HokenKyufuRate": 90,
+      "CarePlanSakuseiKbn": 1,
       "HokenSeikyuGakuTsukiKei1": 30535,
       "HokenRiyoshaFutanGakuTsukiKei1": 3393,
       "KohiSeikyugakuTsukiKei1": 0,

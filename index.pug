@@ -10,11 +10,7 @@ link(rel='stylesheet', type='text/css', href='../style.css')
 .page-title
   span() #{staticFields.title}
 
-<<<<<<< HEAD
-.page-sub-title #{staticFields.subTitle_01} <br> #{staticFields.subTitle_02} <br> #{staticFields.subTitle_03}
-=======
 .page-sub-title !{staticFields.subTitle}
->>>>>>> 0413282b5f00dd6b59010b2a8a99afe53e97167f
 
 div(style="display: flex; justify-content: space-between")
   .public-expense
@@ -76,7 +72,7 @@ div(style="display: flex; justify-content: space-between")
             while i < data.BirthYmdKanjiDate.length
               .cell #{data.BirthYmdKanjiDate[i]}
               - i++
-        .gender-title #{staticFields.insuredCustomer.gender}
+        .gender-title #{staticFields.insuredCustomer.genderTitle}
         .gender-value
           div 
             span(class=data.GenderKbn ==  '1'  ? 'circle' : '') 1.
@@ -140,10 +136,10 @@ div(style="display: flex; justify-content: space-between")
   .content
     .service-type
       span.type 
-        span.circle 1.
-        span #{staticFields.homeServicePlan.serviceType01}
+        span(class=data.CarePlanSakuseiKbn != '2' ? 'circle' : '') 1.
+        span(class=data.CarePlanSakuseiKbn == '2' ? 'circle' : '') #{staticFields.homeServicePlan.serviceType01}
       span.type 
-        span 
+        span.circle 2.
         span #{staticFields.homeServicePlan.serviceType02}
     .office-details
       .office-number-title
@@ -191,8 +187,99 @@ div(style="display: flex; justify-content: space-between")
       span.mr-4 #{staticFields.serviceCancel.reason07}
       span(class=data.KaiyakuRiyuKbn == '8' ? 'circle' : '') 8.
       span.mr-4 #{staticFields.serviceCancel.reason08}
-      span 9.
-      span.mr-4 #{staticFields.serviceCancel.reason09}
+
+.specific-address
+  .title
+    span #{staticFields.paymentDetail.title}
+  .content
+    .headers
+      .col-1 #{staticFields.specialAddress.headers.col1} 
+      .col-2 #{staticFields.specialAddress.headers.col2}
+      .col-3 #{staticFields.specialAddress.headers.col3}
+      .col-4 #{staticFields.specialAddress.headers.col4}
+      .col-5 #{staticFields.specialAddress.headers.col5}
+      .col-6 #{staticFields.specialAddress.headers.col6}
+      .col-7 #{staticFields.specialAddress.headers.col7}
+      .col-8 !{staticFields.specialAddress.headers.col8}
+      .col-9 #{staticFields.specialAddress.headers.col9}
+    -var i = 0
+    if data.paymentDetails.length != 0 
+      each payment in data.paymentDetails
+        .one-row
+        
+          .col-1
+            - var col1FS = payment.ServiceNaiyoTxt.length < 20 ? 11 : 11 - 0.45 * (payment.ServiceNaiyoTxt.length - 20) 
+            div(style={'font-size':col1FS + 'px','line-height': col1FS + 'px'}) #{payment.ServiceNaiyoTxt}
+          .col-2
+            -var j = 0
+            while j < 6
+              .cell #{payment.MEISAI_ServiceCd.toString().padStart(6, ' ')[j]}
+              - j++
+          .col-3
+            -var j = 0
+            while j < 4
+              .cell #{payment.MEISAI_HoshuTanisu.toString().padStart(4, ' ')[j]}
+              - j++
+          .col-4
+            -var j = 0
+            while j < 2
+              .cell #{payment.MEISAI_JisseiKaisu.toString().padStart(2, ' ')[j]}
+              - j++
+          .col-5
+            -var j = 0
+            while j < 5
+              .cell #{payment.MEISAI_ServiceTanisu.toString().padStart(6, ' ')[j]}
+              - j++
+          .col-6
+            -var j = 0
+            while j < 2
+              .cell #{payment.MEISAI_KohiTashoNissuKaisu.toString().padStart(2, ' ')[j]}
+              - j++
+          .col-7
+            -var j = 0
+            while j < 5
+              .cell #{ payment.MEISAI_KohiTani.toString().padStart(5, ' ')[j] }
+              - j++
+          .col-8 #{ payment.KohiHoubetsuBango }
+        - i++
+
+    if i < 3
+      while i < 3
+      .one-row
+        .col-1 
+        .col-2
+          -var j = 0
+          while j < 6
+            .cell 
+            - j++
+        .col-3
+          -var j = 0
+          while j < 4
+            .cell 
+            - j++
+        .col-4
+          -var j = 0
+          while j < 2
+            .cell 
+            - j++
+        .col-5
+          -var j = 0
+          while j < 5
+            .cell 
+            - j++
+        .col-6
+          -var j = 0
+          while j < 2
+            .cell 
+            - j++
+        .col-7
+          -var j = 0
+          while j < 5
+            .cell 
+            - j++
+        .col-8 #{ data.KohiHoubetsuBango }
+      - i++
+
 
 .special-address
   .title
@@ -211,125 +298,106 @@ div(style="display: flex; justify-content: space-between")
     .one-row
       .col-1 #{data.ServiceNaiyoTxt_J1}
       .col-2
-        each val in data.MEISAI_ServiceCd_J1 ? data.MEISAI_ServiceCd_J1.toString().padStart(6, ' ') : '      '
-          .cell #{val}
+        -var j = 0
+        while j < 6
+          .cell #{data.MEISAI_ServiceCd_J1 ? data.MEISAI_ServiceCd_J1.toString().padStart(6, ' ')[j] : ''}
+          - j++
       .col-3
-        each val in data.MEISAI_HoshuTanisu_J1 ? data.MEISAI_HoshuTanisu_J1.toString().padStart(4, ' ') : '    '
-          .cell #{val}
+        -var j = 0
+        while j < 4
+          .cell #{data.MEISAI_HoshuTanisu_J1 ? data.MEISAI_HoshuTanisu_J1.toString().padStart(4, ' ')[j] : ''}
+          - j++
       .col-4
-        each val in data.MEISAI_JisseiKaisu_J1 ? data.MEISAI_JisseiKaisu_J1.toString().padStart(2, ' ') : '  '
-          .cell #{val}
+        -var j = 0
+        while j < 2
+          .cell #{data.MEISAI_JisseiKaisu_J1 ? data.MEISAI_JisseiKaisu_J1.toString().padStart(2, ' ')[j] : ''}
+          - j++
       .col-5
-        each val in data.MEISAI_ServiceTanisu_J1 ? data.MEISAI_ServiceTanisu_J1.toString().padStart(5, ' ') : '     '
-          .cell #{val}
+        -var j = 0
+        while j < 5
+          .cell #{data.MEISAI_ServiceTanisu_J1 ? data.MEISAI_ServiceTanisu_J1.toString().padStart(5, ' ')[j] : ''}
+          - j++
       .col-6
-        each val in data.MEISAI_KohiTashoNissuKaisu_J1 ? data.MEISAI_KohiTashoNissuKaisu_J1.toString().padStart(2, ' ') : '  '
-          .cell #{val}
+        -var j = 0
+        while j < 2
+          .cell #{data.MEISAI_KohiTashoNissuKaisu_J1 ? data.MEISAI_KohiTashoNissuKaisu_J1.toString().padStart(2, ' ')[j] : ''}
+          - j++
       .col-7
-        each val in data.MEISAI_KohiTani_J1 ? data.MEISAI_KohiTani_J1.toString().padStart(2, ' ') : '  ' 
-          .cell #{val}
+        -var j = 0
+        while j < 5
+          .cell #{data.MEISAI_KohiTani_J1 ? data.MEISAI_KohiTani_J1.toString().padStart(5, ' ')[j] : ''}
+          - j++
       .col-8 #{data.JyushotiHokenshaBango_J1}
       .col-9
     .one-row
       .col-1 #{data.ServiceNaiyoTxt_J2}
       .col-2
-        each val in data.MEISAI_ServiceCd_J2 ? data.MEISAI_ServiceCd_J2.toString().padStart(6, ' ') : '      '
-          .cell #{val}
+        -var j = 0
+        while j < 6
+          .cell #{data.MEISAI_ServiceCd_J2 ? data.MEISAI_ServiceCd_J2.toString().padStart(6, ' ')[j] : ''}
+          - j++
       .col-3
-        each val in data.MEISAI_HoshuTanisu_J2 ? data.MEISAI_HoshuTanisu_J2.toString().padStart(4, ' ') : '    '
-          .cell #{val}
+        -var j = 0
+        while j < 4
+          .cell #{data.MEISAI_HoshuTanisu_J2 ? data.MEISAI_HoshuTanisu_J2.toString().padStart(4, ' ')[j] : ''}
+          - j++
       .col-4
-        each val in data.MEISAI_JisseiKaisu_J2 ? data.MEISAI_JisseiKaisu_J2.toString().padStart(2, ' ') : '  '
-          .cell #{val}
+        -var j = 0
+        while j < 2
+          .cell #{data.MEISAI_JisseiKaisu_J2 ? data.MEISAI_JisseiKaisu_J2.toString().padStart(2, ' ')[j] : ''}
+          - j++
       .col-5
-        each val in data.MEISAI_ServiceTanisu_J2 ? data.MEISAI_ServiceTanisu_J2.toString().padStart(5, ' ') : '     '
-          .cell #{val}
+        -var j = 0
+        while j < 5
+          .cell #{data.MEISAI_ServiceTanisu_J2 ? data.MEISAI_ServiceTanisu_J2.toString().padStart(5, ' ')[j] : ''}
+          - j++
       .col-6
-        each val in data.MEISAI_KohiTashoNissuKaisu_J2 ? data.MEISAI_KohiTashoNissuKaisu_J2.toString().padStart(2, ' ') : '  '
-          .cell #{val}
+        -var j = 0
+        while j < 2
+          .cell #{data.MEISAI_KohiTashoNissuKaisu_J2 ? data.MEISAI_KohiTashoNissuKaisu_J2.toString().padStart(2, ' ')[j] : ''}
+          - j++
       .col-7
-        each val in data.MEISAI_KohiTani_J2 ? data.MEISAI_KohiTani_J2.toString().padStart(2, ' ') : '  '
-          .cell #{val}
+        -var j = 0
+        while j < 5
+          .cell #{data.MEISAI_KohiTani_J2 ? data.MEISAI_KohiTani_J2.toString().padStart(5, ' ')[j] : ''}
+          - j++
       .col-8 #{data.JyushotiHokenshaBango_J2}
       .col-9
     .one-row
       .col-1 #{data.ServiceNaiyoTxt_J3}
       .col-2
-        each val in data.MEISAI_ServiceCd_J3 ? data.MEISAI_ServiceCd_J3.toString().padStart(6, ' ') : '      '
-          .cell #{val}
+        -var j = 0
+        while j < 6
+          .cell #{data.MEISAI_ServiceCd_J3 ? data.MEISAI_ServiceCd_J3.toString().padStart(6, ' ')[j] : ''}
+          - j++
       .col-3
-        each val in data.MEISAI_HoshuTanisu_J3 ? data.MEISAI_HoshuTanisu_J3.toString().padStart(4, ' ') : '    '
-          .cell #{val}
+        -var j = 0
+        while j < 4
+          .cell #{data.MEISAI_HoshuTanisu_J3 ? data.MEISAI_HoshuTanisu_J3.toString().padStart(4, ' ')[j] : ''}
+          - j++
       .col-4
-        each val in data.MEISAI_JisseiKaisu_J3 ? data.MEISAI_JisseiKaisu_J3.toString().padStart(2, ' ') : '  '
-          .cell #{val}
+        -var j = 0
+        while j < 2
+          .cell #{data.MEISAI_JisseiKaisu_J3 ? data.MEISAI_JisseiKaisu_J3.toString().padStart(2, ' ')[j] : ''}
+          - j++
       .col-5
-        each val in data.MEISAI_ServiceTanisu_J3 ? data.MEISAI_ServiceTanisu_J3.toString().padStart(5, ' ') : '     '
-          .cell-1 #{val}
+        -var j = 0
+        while j < 5
+          .cell #{data.MEISAI_ServiceTanisu_J3 ? data.MEISAI_ServiceTanisu_J3.toString().padStart(5, ' ')[j] : ''}
+          - j++
       .col-6
-        each val in data.MEISAI_KohiTashoNissuKaisu_J3 ? data.MEISAI_KohiTashoNissuKaisu_J3.toString().padStart(2, ' ') : '  '
-          .cell #{val}
+        -var j = 0
+        while j < 2
+          .cell #{data.MEISAI_KohiTashoNissuKaisu_J3 ? data.MEISAI_KohiTashoNissuKaisu_J3.toString().padStart(2, ' ')[j] : ''}
+          - j++
       .col-7
-        each val in data.MEISAI_KohiTani_J3 ? data.MEISAI_KohiTani_J3.toString().padStart(2, ' ') : '  '
-          .cell #{val}
+        -var j = 0
+        while j < 5
+          .cell #{data.MEISAI_KohiTani_J3 ? data.MEISAI_KohiTani_J3.toString().padStart(5, ' ')[j] : ''}
+          - j++
       .col-8 #{data.JyushotiHokenshaBango_J3}
       .col-9
-
-.special-address
-  .title
-    span !{staticFields.specialAddress.title}
-  .content
-    .headers
-      .col-1 #{staticFields.specialAddress.headers.col1}
-      .col-2 #{staticFields.specialAddress.headers.col2}
-      .col-3 #{staticFields.specialAddress.headers.col3}
-      .col-4 #{staticFields.specialAddress.headers.col4}
-      .col-5 #{staticFields.specialAddress.headers.col5}
-      .col-6 #{staticFields.specialAddress.headers.col6}
-      .col-7 #{staticFields.specialAddress.headers.col7}
-      .col-8 !{staticFields.specialAddress.headers.col8}
-      .col-9 #{staticFields.specialAddress.headers.col9}
-    -var i = 0
-    while i < 3
-      .one-row
-        .col-1 地域通所介護12
-        .col-2
-          -var j = 0
-          while j < 6
-            .cell 1
-            - j++
-        .col-3
-          -var j = 0
-          while j < 4
-            .cell 1
-            - j++
-        .col-4
-          -var j = 0
-          while j < 2
-            .cell 1
-            - j++
-        .col-5
-          -var j = 0
-          while j < 5
-            .cell 1
-            - j++
-        .col-6
-          -var j = 0
-          while j < 2
-            .cell 1
-            - j++
-        .col-7
-          -var j = 0
-          while j < 5
-            .cell 1
-            - j++
-<<<<<<< HEAD
-        .col-8 123
-        .col-9 123
-=======
-        .col-8 #{ data.KohiHoubetsuBango }
->>>>>>> 0413282b5f00dd6b59010b2a8a99afe53e97167f
-      - i++
+    
 
 .payment-summary
   .title #{staticFields.paymentSummary.title}
@@ -337,7 +405,7 @@ div(style="display: flex; justify-content: space-between")
     .first-four-rows
       .left-section
         .one-row
-          .col-1 #{staticFields.paymentSummary.headers.row1}
+          .col-1 !{staticFields.paymentSummary.headers.row1}
           - var j = 0
           while j < 4
             if j == 0
@@ -413,7 +481,7 @@ div(style="display: flex; justify-content: space-between")
                   .cell
                   - j++
             - i++
-      .right-section #{staticFields.ratio}
+      .right-section #{staticFields.paymentSummary.ratio}
     .row-6
       .left-section
         .col-1 #{staticFields.paymentSummary.headers.row6}
@@ -452,7 +520,7 @@ div(style="display: flex; justify-content: space-between")
             - i++
       .column-division
         .cell-1 #{staticFields.paymentSummary.expense}
-        each val in data.KohiKyufuRate ? data.KohiKyufuRate.toString().padStart(3, ' ') : '   '
+        each val in data.KohiKyufuRate ? data.KohiKyufuRate_01.toString().padStart(3, ' ') : '   '
           .cell-dotted #{val}
     .row-8
       .left-section

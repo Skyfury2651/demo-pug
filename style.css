@@ -505,17 +505,7 @@ body {
 .home-service-plan .content .service-type .type {
   padding: 0 10px;
 }
-.home-service-plan .content .service-type .circle::after {
-  content: "";
-  position: absolute;
-  border: 1px solid black;
-  border-radius: 50%;
-  top: 0px;
-  right: 235px;
-  bottom: 0px;
-  left: 5px;
-}
-.home-service-plan .content .service-type .circle::after .circle {
+.home-service-plan .content .service-type .type .circle {
   padding: 3px 5px;
 }
 .home-service-plan .content .office-details {
@@ -606,7 +596,7 @@ body {
   align-items: center;
   text-align: center;
   line-height: 1;
-  width: 77px !important;
+  width: 67px !important;
   border-right: 1px solid;
 }
 .service-cancel .row-2 .content {
@@ -781,16 +771,174 @@ body {
   border-bottom: none;
 }
 
+.specific-address {
+  display: flex;
+  border: 1px solid;
+  margin-top: 7px;
+  font-size: 9px;
+}
+.specific-address .title {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  border-right: 1px solid;
+}
+.specific-address .content {
+  display: flex;
+  flex-grow: 100;
+  flex-direction: column;
+}
+.specific-address .content .headers {
+  display: flex;
+  height: 20.5px;
+  border-bottom: 1px solid;
+}
+.specific-address .content .headers .col-1,
+.specific-address .content .headers .col-2,
+.specific-address .content .headers .col-3,
+.specific-address .content .headers .col-4,
+.specific-address .content .headers .col-5,
+.specific-address .content .headers .col-6,
+.specific-address .content .headers .col-7,
+.specific-address .content .headers .col-8 {
+  border-right: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.specific-address .content .headers .col-1 {
+  width: 112px;
+}
+.specific-address .content .headers .col-2 {
+  width: 102px;
+}
+.specific-address .content .headers .col-3 {
+  width: 68px;
+}
+.specific-address .content .headers .col-4,
+.specific-address .content .headers .col-6 {
+  width: 34px;
+  text-align: center;
+  padding: 0px 5px;
+}
+.specific-address .content .headers .col-6 {
+  font-size: 6px;
+  line-height: 1;
+  font-weight: 700;
+}
+.specific-address .content .headers .col-5,
+.specific-address .content .headers .col-7 {
+  width: 85px;
+}
+.specific-address .content .headers .col-8 {
+  flex-grow: 1;
+  border-right: unset;
+  font-size: 7px;
+  line-height: 1;
+  font-weight: 700;
+  flex-grow: 1;
+}
+.specific-address .content .headers > *:last-child {
+  border-right: none;
+}
+.specific-address .content .one-row {
+  display: flex;
+  border-bottom: 1px solid;
+  height: 22px;
+}
+.specific-address .content .one-row .col-1 {
+  padding: 1px 5px;
+  border-right: 1px solid;
+  width: 112px;
+}
+.specific-address .content .one-row .col-2 {
+  display: flex;
+  width: 102px;
+  border-right: 1px solid;
+}
+.specific-address .content .one-row .col-2 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.specific-address .content .one-row .col-2 > *:nth-child(2) {
+  border-right: 1px solid;
+}
+.specific-address .content .one-row .col-3 {
+  display: flex;
+  width: 68px;
+  border-right: 1px solid;
+}
+.specific-address .content .one-row .col-3 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.specific-address .content .one-row .col-4,
+.specific-address .content .one-row .col-6 {
+  display: flex;
+  width: 34px;
+  border-right: 1px solid;
+}
+.specific-address .content .one-row .col-4 .cell,
+.specific-address .content .one-row .col-6 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.specific-address .content .one-row .col-5,
+.specific-address .content .one-row .col-7 {
+  display: flex;
+  width: 85px;
+  border-right: 1px solid;
+}
+.specific-address .content .one-row .col-5 .cell,
+.specific-address .content .one-row .col-7 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17px;
+  border-right: 1px dotted;
+  height: 100%;
+}
+.specific-address .content .one-row .col-8 {
+  display: flex;
+  width: 115px;
+  padding-left: 2px;
+  justify-content: start;
+  align-items: center;
+}
+.specific-address .content .one-row .col-2 > *:last-child,
+.specific-address .content .one-row .col-3 > *:last-child,
+.specific-address .content .one-row .col-4 > *:last-child,
+.specific-address .content .one-row .col-5 > *:last-child,
+.specific-address .content .one-row .col-6 > *:last-child,
+.specific-address .content .one-row .col-7 > *:last-child {
+  border-right: none;
+}
+.specific-address .content > *:last-child {
+  border-bottom: none;
+}
+
 .special-address {
   display: flex;
-  height: 63px;
   border: 1px solid;
   margin-top: 7px;
   font-size: 9px;
 }
 .special-address .title {
   width: 62px;
-  height: 100%;
   border-right: 1px solid;
   display: flex;
   justify-content: center;
@@ -816,8 +964,7 @@ body {
 .special-address .content .headers .col-5,
 .special-address .content .headers .col-6,
 .special-address .content .headers .col-7,
-.special-address .content .headers .col-8,
-.special-address .content .headers .col-9 {
+.special-address .content .headers .col-8 {
   border-right: 1px solid;
   display: flex;
   justify-content: center;
@@ -848,13 +995,11 @@ body {
   width: 85px;
 }
 .special-address .content .headers .col-8 {
-  width: 54px;
+  flex-grow: 1;
+  border-right: unset;
   font-size: 7px;
   line-height: 1;
   font-weight: 700;
-}
-.special-address .content .headers .col-9 {
-  display: flex;
   flex-grow: 1;
 }
 .special-address .content .headers > *:last-child {
@@ -863,7 +1008,7 @@ body {
 .special-address .content .one-row {
   display: flex;
   border-bottom: 1px solid;
-  height: 14.5px;
+  height: 22px;
 }
 .special-address .content .one-row .col-1 {
   padding: 0px 5px;
@@ -931,8 +1076,8 @@ body {
 }
 .special-address .content .one-row .col-8 {
   display: flex;
-  width: 54px;
-  border-right: 1px solid;
+  width: 115px;
+  padding-left: 2px;
   justify-content: start;
   align-items: center;
 }
@@ -1333,7 +1478,7 @@ body {
 .cost-reduction-table .content .row-1 .percent {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: center;
   width: 38;
   border-right: 1px solid;
 }
